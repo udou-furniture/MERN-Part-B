@@ -1,17 +1,17 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-require('dotenv').config()
 
+require('dotenv').config()
 
 const app = express()
 
 // heroku wont always use port 5000
 const PORT = process.env.PORT || 5000
 
-const DB_URL = 'mongodb://localhost:27017/udou-furniture-db'
+const dbConfig = {useNewUrlParser: true, useUnifiedTopology: true}
 
-mongoose.connect(DB_URL, (err) => {
+mongoose.connect(process.env.DB_URL, dbConfig, (err) => {
     if(err) {
         console.log('error')
     } else {
@@ -19,6 +19,9 @@ mongoose.connect(DB_URL, (err) => {
     }
 })
 
+app.use(cors({}))
+
+app.use(require('./routes/index'))
 
 // Listening Port
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))
