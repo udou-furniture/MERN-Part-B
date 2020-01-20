@@ -33,23 +33,21 @@ class Dropdown extends React.Component {
 	};
 
 
-render() {
-	return (
-		<div className="container" ref={this.container}>
-			<button type="button" class="button" onClick={this.handleButtonClick}>
-				<span>👇</span>
-			</button>
-			{this.state.open && (
-				<div class="dropdown">
-					<ul>
-						<li>Option 1</li>
-						<li>Option 2</li>
-						<li>Option 3</li>
-						<li>Option 4</li>
-					</ul>
-				</div>
-			)}
-		</div>
+	render() {
+		return (
+			<div className="container" ref={this.container}>
+				<h3 className="button" onClick={this.handleButtonClick}>Dropdown prototype, click me!</h3>
+				{this.state.open && (
+					<div className="dropdown">
+						<ul>
+							<li>Option 1</li>
+							<li>Option 2</li>
+							<li>Option 3</li>
+							<li>Option 4</li>
+						</ul>
+					</div>
+				)}
+			</div>
 		);
 	}
 }
