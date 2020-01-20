@@ -1,39 +1,40 @@
 const express = require('express')
-const app = express()
 const router = express.Router()
 
-app.use(express.json())
+router.use('/customer', require('./customer-routes'))
 
-app.get('/', (req,res) => {
-    res.send("Hello")
-})
+// app.use(express.json())
 
-app.get('/login', (req,res) => {
-    res.send("Hello Login Page")
-})
+// app.get('/', (req,res) => {
+//     res.send("Hello")
+// })
 
-app.post('/register', (req,res) => {
-    res.send("Hello Sign up Page")
-})
+// app.get('/login', (req,res) => {
+//     res.send("Hello Login Page")
+// })
 
-app.get('/:collection', (req,res) => {
-    res.send("Hello Collection Page")
-})
+// app.post('/register', (req,res) => {
+//     res.send("Hello Sign up Page")
+// })
 
-app.get('/:collection/:id', (req,res) => {
-    res.send("Hello Individual Furniture Item Page")
-})
+// app.get('/:collection', (req,res) => {
+//     res.send("Hello Collection Page")
+// })
 
-app.post('/:collection/:id/save', (req,res) => {
-    res.status(200)
-})
+// app.get('/:collection/:id', (req,res) => {
+//     res.send("Hello Individual Furniture Item Page")
+// })
 
-app.delete('/:collection/:id/remove', (req,res) => {
-    res.status(200)
-})
+// app.post('/:collection/:id/save', (req,res) => {
+//     res.status(200)
+// })
 
-app.get('/reviews', (req,res) => {
-    res.send("Hello Review Page")
-})
+// app.delete('/:collection/:id/remove', (req,res) => {
+//     res.status(200)
+// })
+
+// app.get('/reviews', (req,res) => {
+//     res.send("Hello Review Page")
+// })
 
 module.exports = router
