@@ -1,8 +1,6 @@
 const express = require('express')
-
 const app = express()
-
-const PORT = 5000
+const router = express.Router()
 
 app.use(express.json())
 
@@ -38,5 +36,4 @@ app.get('/reviews', (req,res) => {
     res.send("Hello Review Page")
 })
 
-
-app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))
+module.exports = router
