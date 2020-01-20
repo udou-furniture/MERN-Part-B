@@ -1,1 +1,0 @@
-export const DB_URL = "mongodb+srv://mel-byk-24:3aeJZWciRQFeF3r7@cluster-ca-1-sxaer.mongodb.net/test?retryWrites=true&w=majority"
