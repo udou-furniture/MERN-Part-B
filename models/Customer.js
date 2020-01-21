@@ -3,7 +3,13 @@ const Schema = mongoose.Schema
 
 const CustomerSchema = new Schema({
     username: String, 
-    password: String
+    password: String,
+    address: String,
+    city: String,
+    state: String,
+    postcode: Number,
+    phoneNumber: Number,
+    order: Array
 }, {
     timestamps: true
 })
