@@ -1,17 +1,20 @@
 import React from 'react';
-import './App.css';
-import Dropdown from './components/Dropdown';
-import ShoppingCart from './components/ShoppingCart';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home from './pages/Home';
 
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello World!!!!!!!!</h1>
-      <ShoppingCart />
-      <Dropdown />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+          <Route exact path='/' component={Home} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

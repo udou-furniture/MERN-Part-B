@@ -32,7 +32,6 @@ class Dropdown extends React.Component {
 		}
 	};
 
-
 	render() {
 		return (
 			<div className="container" ref={this.container}>
