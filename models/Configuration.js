@@ -8,7 +8,7 @@ const ConfigurationSchema = new Schema({
     colour: String,
     price: Number,
     furnitureType: String,
-    defaultStyle: Boolean
+    presetStyle: Boolean
 }, {
     timestamps: true
 })
