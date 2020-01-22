@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const OrderSchema = new Schema({
-    orderID: Number,
     purchased: Boolean,
     saved: Boolean,
     review: String,

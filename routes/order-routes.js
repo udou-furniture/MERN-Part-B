@@ -2,10 +2,21 @@ const express = require('express')
 const router = express.Router()
 
 const Order = require('../models/Order')
+const authMiddleware = require('../auth/tokenMiddleware')
 
-router.get('/', (req,res) => {
-    Order.find({ 
-        // here need to put logic about finding orders where they are associated to a logged in user
+// this route is only for debugging
+
+// router.get('/', (req,res) => {
+//     Order.find({
+//     })
+//     .then(allOrders => {
+//         return res.json(allOrders)
+//     })
+//     .catch(err => res.json(err))
+// })
+
+router.get('/', authMiddleware.checkToken, (req,res) => {
+    Order.find({customerEmail: req.decoded.email
     })
     .then(allOrders => {
         return res.json(allOrders)
@@ -13,20 +24,22 @@ router.get('/', (req,res) => {
     .catch(err => res.json(err))
 })
 
-router.get('/:orderID', (req,res) => {
-    const {orderID} = req.params
+router.get('/:_id', authMiddleware.checkToken, (req,res) => {
+    const {_id} = req.params
 
-    Order.findOne( {orderID} )
+    Order.findOne( { customerEmail: req.decoded.email, _id} )
     .then( order => {
         return res.json(order)
     })
     .catch( err => res.json(err))
 })
 
-router.post('/new-order', (req,res) => {
-    const {orderID, purchased, saved, review, customerEmail, configuration: {height, width, depth, colour, price, furnitureType}} = req.body
+router.post('/new-order', authMiddleware.checkToken, (req,res) => {
+    const customerEmail = req.decoded.email
+    // const orderID = Order.count() + 1
+    const {purchased, saved, review, configuration: {height, width, depth, colour, price, furnitureType}} = req.body
 
-    Order.create( {orderID, purchased, saved, review, customerEmail, configuration: {height, width, depth, colour, price, furnitureType}} )
+    Order.create( {purchased, saved, review, customerEmail, configuration: {height, width, depth, colour, price, furnitureType}} )
     .then( newOrder =>
     {
         res.json(newOrder);
@@ -34,10 +47,10 @@ router.post('/new-order', (req,res) => {
     .catch( err => res.json( err ) )
 })
 
-router.delete('/:orderID', (req,res) => {
-    const {orderID} = req.params
+router.delete('/:_id', (req,res) => {
+    const {_id} = req.params
     
-    Order.findOneAndDelete({orderID})
+    Order.findOneAndDelete({_id})
     .then(order =>{
         if(!order) {
             return res.send("No order found with that ID")

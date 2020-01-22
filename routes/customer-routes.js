@@ -4,17 +4,15 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
 
 const Customer = require('../models/Customer')
-const tokenMiddleware = require('../auth/tokenMiddleware')
+// const tokenMiddleware = require('../auth/tokenMiddleware')
 const {hashPassword, comparePassword} = require('../auth/passwordMiddleware')
 
 router.post('/login', express.json(), async (req,res) => {
     const inputEmail = req.body.email
     const inputPassword = req.body.password
-    // const {email, password} = req.body
 
     try {
         let customer = await Customer.findOne({email: inputEmail})
-        // console.log(inputEmail, customer)
         if(!customer) {
             res.status(401).end()
         } else {
@@ -28,12 +26,11 @@ router.post('/login', express.json(), async (req,res) => {
                                 process.env.SECRET_KEY,
                                 {expiresIn: '1hr'})
                 
-                    res.status(200).send("Logged In with token")
-                    console.log(token)
+                    res.status(200).json(token)
             }
         }
     } catch (err) {
-        console.log(err)
+        res.status(403).end()
     }
 })
 
@@ -49,7 +46,7 @@ router.post('/register', express.json(), async (req,res) => {
         const savedCustomer  = await newCustomer.save()
         res.send(savedCustomer)
     } catch(err) {
-        res.status(500).send(err.message)
+        res.status(500).end()
     }
 })
 
