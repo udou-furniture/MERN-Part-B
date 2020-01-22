@@ -40,9 +40,9 @@ class Dropdown extends React.Component {
 				{this.state.open && (
 					<div className="dropdown">
 						<ul>
-							<li><Link to="/collections">Bookshelves</Link></li>
-							<li><Link to="/collections">Wall Units</Link></li>
-							<li><Link to="/collections">Sideboards</Link></li>
+							<li><Link to="/product_index">Bookshelves</Link></li>
+							<li><Link to="/product_index">Wall Units</Link></li>
+							<li><Link to="/product_index">Sideboards</Link></li>
 						</ul>
 					</div>
 				)}

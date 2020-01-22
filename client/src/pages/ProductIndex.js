@@ -1,6 +1,6 @@
 import React from 'react';
 
-const collections = [
+const shelves = [
 	{type: "bookshelf", name: "Type01"},
 	{type: "bookshelf", name: "Type02"},
 	{type: "bookshelf", name: "Type03"},
@@ -12,15 +12,15 @@ const collections = [
 	{type: "sideboard", name: "Type03"}
 ];	
 
-const bookshelves = collections.filter((type) => {
-	return collections.type === "bookshelf"
+const bookshelves = shelves.filter((type) => {
+	return shelves.type === "bookshelf"
 });
 
 
-class Collections extends React.Component {
+class ProductIndex extends React.Component {
 	render() {
 		return (
-			<h1>Hello from the collections page. I'm about to be dynamic!</h1>
+			<h1>Hello from the products index page. I'm about to be dynamic!</h1>
 		)
 	}
 }
