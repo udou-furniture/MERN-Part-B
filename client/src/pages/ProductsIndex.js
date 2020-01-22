@@ -17,7 +17,7 @@ const bookshelves = shelves.filter((type) => {
 });
 
 
-class ProductIndex extends React.Component {
+class ProductsIndex extends React.Component {
 	render() {
 		return (
 			<h1>Hello from the products index page. I'm about to be dynamic!</h1>
@@ -37,4 +37,4 @@ class ProductIndex extends React.Component {
 // 	}
 // }	
 
-export default ProductIndex;
+export default ProductsIndex;
