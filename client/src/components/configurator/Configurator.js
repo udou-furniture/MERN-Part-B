@@ -2,15 +2,23 @@ import React from "react";
 import { render } from "react-dom";
 
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import ViewerContainer from './components/viewerContainer';
-import FormContainer from './components/formContainer';
+import { Provider, connect } from 'react-redux';
+import ViewerContainer from './components/configurator/viewerContainer';
+import FormContainer from './components/configurator/formContainer';
 
 
 
 const initialState = { height: 2, width: 2, depth: 2, colour: "White" }
+function mapStateToProps(state) {
 
-class Cnfigurator extends React.Component {
+  return {
+    height: state.height,
+    width: state.width,
+    depth: state.depth,
+    colour: state.colour
+  }
+}
+class Configurator extends React.Component {
 
 
   reducer(state = initialState, action) {
@@ -59,4 +67,6 @@ class Cnfigurator extends React.Component {
   };
 
 }
-export default Configurator                                 
+// render(<App />, document.getElementById("root"));
+
+export default connnect(mapStateToProps)(Configurator)
