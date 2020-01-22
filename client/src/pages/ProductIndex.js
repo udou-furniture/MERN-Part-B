@@ -37,4 +37,4 @@ class Collections extends React.Component {
 // 	}
 // }	
 
-export default Collections;
+export default ProductIndex;
