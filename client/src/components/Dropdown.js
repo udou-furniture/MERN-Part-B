@@ -39,10 +39,9 @@ class Dropdown extends React.Component {
 				{this.state.open && (
 					<div className="dropdown">
 						<ul>
-							<li>Option 1</li>
-							<li>Option 2</li>
-							<li>Option 3</li>
-							<li>Option 4</li>
+							<li>Bookshelves</li>
+							<li>Wall Units</li>
+							<li>Sideboards</li>
 						</ul>
 					</div>
 				)}

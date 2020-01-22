@@ -1,23 +1,40 @@
 import React from 'react';
 
-class Collections extends React.Component {
-	state = [
-		{type: "bookshelf", name: "Type01"},
-		{type: "bookshelf", name: "Type02"},
-		{type: "bookshelf", name: "Type03"},
-		{type: "wall-unit", name: "Type01"},
-		{type: "wall-unit", name: "Type02"},
-		{type: "wall-unit", name: "Type03"},
-		{type: "sideboard", name: "Type01"},
-		{type: "sideboard", name: "Type02"},
-		{type: "sideboard", name: "Type03"}
-	]
+const collections = [
+	{type: "bookshelf", name: "Type01"},
+	{type: "bookshelf", name: "Type02"},
+	{type: "bookshelf", name: "Type03"},
+	{type: "wall-unit", name: "Type01"},
+	{type: "wall-unit", name: "Type02"},
+	{type: "wall-unit", name: "Type03"},
+	{type: "sideboard", name: "Type01"},
+	{type: "sideboard", name: "Type02"},
+	{type: "sideboard", name: "Type03"}
+];	
 
-	render () {
+const bookshelves = collections.filter((type) => {
+	return collections.type === "bookshelf"
+});
+
+
+class Collections extends React.Component {
+	render() {
 		return (
-			<h1>Sanity check</h1>
+			<h1>sanity check</h1>
 		)
 	}
-}	
+}
+// class Collections extends React.Component {
+// 	state = []
+
+// 	render () {
+// 		return (
+// 			<>
+				
+	
+// 			</>
+// 		)
+// 	}
+// }	
 
 export default Collections;
