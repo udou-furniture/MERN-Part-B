@@ -20,7 +20,7 @@ const bookshelves = collections.filter((type) => {
 class Collections extends React.Component {
 	render() {
 		return (
-			<h1>sanity check</h1>
+			<h1>Hello from the collections page. I'm about to be dynamic!</h1>
 		)
 	}
 }
