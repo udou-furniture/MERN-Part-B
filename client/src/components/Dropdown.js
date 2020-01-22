@@ -1,5 +1,6 @@
 import React from 'react';
 import './Dropdown.css';
+import { Link } from 'react-router-dom';
 
 
 class Dropdown extends React.Component {
@@ -39,10 +40,9 @@ class Dropdown extends React.Component {
 				{this.state.open && (
 					<div className="dropdown">
 						<ul>
-							<li>Option 1</li>
-							<li>Option 2</li>
-							<li>Option 3</li>
-							<li>Option 4</li>
+							<li><Link to="/products_index">Bookshelves</Link></li>
+							<li><Link to="/products_index">Wall Units</Link></li>
+							<li><Link to="/products_index">Sideboards</Link></li>
 						</ul>
 					</div>
 				)}
