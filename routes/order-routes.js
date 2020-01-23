@@ -15,6 +15,18 @@ const authMiddleware = require('../auth/tokenMiddleware')
 //     .catch(err => res.json(err))
 // })
 
+
+
+router.get('/reviews', (req,res) => {
+
+    Order.find({
+    })
+    .then(allOrders => {
+        return res.json(allOrders.review)
+    })
+    .catch(err => res.json(err))
+})
+
 router.get('/', authMiddleware.checkToken, (req,res) => {
     Order.find({customerEmail: req.decoded.email
     })
