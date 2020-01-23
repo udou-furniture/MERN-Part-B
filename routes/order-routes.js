@@ -6,23 +6,35 @@ const authMiddleware = require('../auth/tokenMiddleware')
 
 // this route is only for debugging
 
-router.get('/', (req,res) => {
-    Order.find({
-    })
-    .then(allOrders => {
-        return res.json(allOrders)
-    })
-    .catch(err => res.json(err))
-})
-
-// router.get('/', authMiddleware.checkToken, (req,res) => {
-//     Order.find({customerEmail: req.decoded.email
+// router.get('/', (req,res) => {
+//     Order.find({
 //     })
 //     .then(allOrders => {
 //         return res.json(allOrders)
 //     })
 //     .catch(err => res.json(err))
 // })
+
+
+
+router.get('/reviews', (req,res) => {
+
+    Order.find({
+    })
+    .then(allOrders => {
+        return res.json(allOrders.review)
+    })
+    .catch(err => res.json(err))
+})
+
+router.get('/', authMiddleware.checkToken, (req,res) => {
+    Order.find({customerEmail: req.decoded.email
+    })
+    .then(allOrders => {
+        return res.json(allOrders)
+    })
+    .catch(err => res.json(err))
+})
 
 router.get('/:_id', authMiddleware.checkToken, (req,res) => {
     const {_id} = req.params

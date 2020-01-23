@@ -6,12 +6,12 @@ import Configurator from '../components/configurator/Configurator'
 class ProductView extends React.Component {
   render() {
     return (
-			<>
-      <p>ProductView Page</p>
+			<div className="product-page-wrapper">
+      ProductView Page
 				<Dropdown />
         <Configurator />
-			</>	
-    );
+      </div>
+    )
   }
 }
 
