@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const jwt = require("jsonwebtoken")
-const bcrypt = require('bcrypt')
 
 const Customer = require('../models/Customer')
-// const tokenMiddleware = require('../auth/tokenMiddleware')
+
+const {checkToken, createToken} = require('../auth/tokenMiddleware')
 const {hashPassword, comparePassword} = require('../auth/passwordMiddleware')
 
-router.post('/login', express.json(), async (req,res) => {
+router.use(express.json())
+
+router.post('/login', checkToken, async (req,res) => {
     const inputEmail = req.body.email
     const inputPassword = req.body.password
 
@@ -21,12 +22,8 @@ router.post('/login', express.json(), async (req,res) => {
             if (!correctPassword) {
                 res.status(403).end()
             } else {
-                let token = jwt.sign({
-                                email: inputEmail},
-                                process.env.SECRET_KEY,
-                                {expiresIn: '1hr'})
-                
-                    res.status(200).json(token)
+                let token = createToken(inputEmail)
+                res.send(token)
             }
         }
     } catch (err) {
@@ -34,17 +31,20 @@ router.post('/login', express.json(), async (req,res) => {
     }
 })
 
-router.post('/register', express.json(), async (req,res) => {
+router.post('/register', async (req,res) => {
     try {
         const hashedPassword = await hashPassword(req.body.password)
         const newEmail = req.body.email
+
         const newCustomer = new Customer({
             email: newEmail, 
             password: hashedPassword
         })
 
-        const savedCustomer  = await newCustomer.save()
-        res.send(savedCustomer)
+        const savedCustomer = await newCustomer.save()
+        let token = createToken(newEmail)
+
+        res.send({access_token: token})
     } catch(err) {
         res.status(500).end()
     }

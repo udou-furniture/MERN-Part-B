@@ -14,7 +14,6 @@ const checkToken = (req, res, next) => {
             } else {
                 req.decoded = decoded
                 next()
-               
             }
         })
     } else {
@@ -22,4 +21,11 @@ const checkToken = (req, res, next) => {
     }
 }
 
-module.exports = {checkToken}
+const createToken = (inputEmail) => {
+    return jwt.sign({
+        email: inputEmail},
+        process.env.SECRET_KEY,
+        {expiresIn: '1hr'})
+}
+
+module.exports = {checkToken, createToken}

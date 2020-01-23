@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Order = require('../models/Order')
-const authMiddleware = require('../auth/tokenMiddleware')
+const {checkToken} = require('../auth/tokenMiddleware')
 
 // this route is only for debugging
 
@@ -15,7 +15,7 @@ const authMiddleware = require('../auth/tokenMiddleware')
 //     .catch(err => res.json(err))
 // })
 
-router.get('/', authMiddleware.checkToken, (req,res) => {
+router.get('/', checkToken, (req,res) => {
     Order.find({customerEmail: req.decoded.email
     })
     .then(allOrders => {
@@ -24,7 +24,7 @@ router.get('/', authMiddleware.checkToken, (req,res) => {
     .catch(err => res.json(err))
 })
 
-router.get('/:_id', authMiddleware.checkToken, (req,res) => {
+router.get('/:_id', checkToken, (req,res) => {
     const {_id} = req.params
 
     Order.findOne( { customerEmail: req.decoded.email, _id} )
@@ -34,7 +34,7 @@ router.get('/:_id', authMiddleware.checkToken, (req,res) => {
     .catch( err => res.json(err))
 })
 
-router.post('/new-order', authMiddleware.checkToken, (req,res) => {
+router.post('/new-order', checkToken, (req,res) => {
     const customerEmail = req.decoded.email
     // const orderID = Order.count() + 1
     const {purchased, saved, review, configuration: {height, width, depth, colour, price, furnitureType}} = req.body
