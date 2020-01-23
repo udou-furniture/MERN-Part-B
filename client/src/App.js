@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import ProductsIndex from './pages/ProductsIndex';
 import Registration from './pages/Registration';
 import axios from 'axios'
+import ProductView from './pages/ProductView';
 
 class App extends React.Component {
   state = {
@@ -63,6 +64,8 @@ class App extends React.Component {
           }}  />
           <Route path='/login' component={Login} />
           <Route path='/products_index' component={ProductsIndex} />
+          <Route path='/product_view' component={ProductView} />
+
           </Switch>
         </div>
       </BrowserRouter>
