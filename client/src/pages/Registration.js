@@ -1,10 +1,14 @@
 import React from 'react';
 import RegistrationForm from '../components/RegistrationForm'
-// import {login} from '../utils/auth'
+import {isLoggedIn} from '../utils/auth'
 
 import axios from 'axios'
 
 class Registration extends React.Component {
+
+	// componentDidUpdate() {
+	// }
+	
 	submit = async (values) => {
 		try {
 			let response = await axios.post('http://localhost:5000/api/customer/register', 
@@ -14,9 +18,10 @@ class Registration extends React.Component {
 			})
 			
 			localStorage.setItem('authorisation', JSON.stringify(response.data.access_token))
+			this.props.isUserLoggedIn()
 			this.props.history.push('/')
-		} catch {
-			console.log("error")
+		} catch (err) {
+			console.log(err.message)
 		}
 	}
 

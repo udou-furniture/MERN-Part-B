@@ -8,7 +8,7 @@ const {hashPassword, comparePassword} = require('../auth/passwordMiddleware')
 
 router.use(express.json())
 
-router.post('/login', checkToken, async (req,res) => {
+router.post('/login', async (req,res) => {
     const inputEmail = req.body.email
     const inputPassword = req.body.password
 
@@ -30,6 +30,8 @@ router.post('/login', checkToken, async (req,res) => {
         res.status(403).end()
     }
 })
+
+router.get('/check-token', checkToken, (req, res) => res.end())
 
 router.post('/register', async (req,res) => {
     try {

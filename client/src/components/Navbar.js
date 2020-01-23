@@ -5,14 +5,13 @@ import {logout, isLoggedIn} from '../utils/auth'
 import './Navbar.css';
 
 class Navbar extends React.Component {
-	state = {
-        isLoggedIn: isLoggedIn()
-    }
-
-    handleLogout = () => {
-        logout()
-        this.setState({isLoggedIn: false})
-	}
+	// state = {
+    //     isLoggedIn: isLoggedIn()
+	// }
+	
+	// componentDidUpdate() {
+	// 	this.setState({isLoggedIn: isLoggedIn()})
+	// }
 	
 	render() {
 		return (
@@ -23,10 +22,14 @@ class Navbar extends React.Component {
 						{/* <li><Link to="/registration">Registration</Link></li>
 						<li><Link to="/login">Login</Link></li> */}
 
-						{this.state.isLoggedIn ? 
-							<button onClick={() => this.handleLogout()}>Click here to log out</button>
-							: <Link to="/registration">Register</Link><Link to="/login">Login</Link>
-                		}
+						
+						{this.props.isLoggedIn  ? 
+							<Link to="/" onClick={() => this.props.logout()}>Log out</Link> : 
+							<>
+								<li><Link to="/registration">Register</Link> </li>
+								<li><Link to="/login">Login</Link></li>
+							</>
+						}
 					</ul>
 				</div>
 			</nav>
