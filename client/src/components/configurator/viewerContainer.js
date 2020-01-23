@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from './slider';
 
-import Viewer from './components/configurator/viewer';
+import Viewer from './viewer';
 
 
 
@@ -9,9 +9,10 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
-    height: state.height,
-    width: state.width,
-    depth: state.depth
+    height: state.configurator.height,
+    width: state.configurator.width,
+    depth: state.configurator.depth,
+    colour: state.configurator.colour
   }
 }
 

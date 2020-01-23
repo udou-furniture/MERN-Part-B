@@ -3,7 +3,7 @@ import Dropdown from '../components/Dropdown'
 import Configurator from '../components/configurator/Configurator'
  
 
-class Product extends React.Component {
+class ProductView extends React.Component {
   render() {
     return (
 			<>
@@ -15,4 +15,4 @@ class Product extends React.Component {
   }
 }
 
-export default Home;
+export default ProductView;

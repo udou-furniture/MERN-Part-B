@@ -6,12 +6,12 @@ import { connect } from "react-redux";
 // var controls = new TransformControls(camera, domElement);
 // import * as THREE from 'three';
 var OBJLoader = require('three-obj-loader');
-var MTLLoader = require('three-mtl-loader')
+var MTLLoader = require('three-mtl-loader');
 var THREE = require('three');
 var OrbitControls = require('three-orbit-controls')(THREE);
 
 OBJLoader(THREE);
-MTLLoader(THREE);
+// MTLLoader(THREE);
 
 // var myOBJ 
 
@@ -20,22 +20,26 @@ MTLLoader(THREE);
 
 function mapStateToProps(state) {
   return {
-    height: state.height,
-    width: state.width,
-    depth: state.depth,
-    colour: state.colour
+    height: state.configurator.height,
+    width: state.configurator.width,
+    depth: state.configurator.depth,
+    colour: state.configurator.colour
   }
 }
 
 class Viewer extends React.Component {
 
   componentDidMount() {
-
+    console.log(this.props)
     this.sceneSetup();
+    console.log("scene")
     this.addCustomSceneObjects();
+    console.log("custom objects")
     this.startAnimationLoop();
-    // this.setControls();
+    console.log("animate")
+    this.setControls();
     this.loadObject();
+    console.log("object Load")
   }
 
   componentDidUpdate() {
@@ -70,33 +74,27 @@ class Viewer extends React.Component {
     // controls.width = width;
     // controls.height = height;
     // controls.update();
-    function resizeRendererToDisplaySize(renderer) {
-      const canvas = renderer.domElement;
-      const width = canvas.clientWidth
-      const height = canvas.clientHeight
-      const needResize = canvas.width !== width || canvas.height !== height
-      if (needResize)
-      {
-        renderer.setSize(width, height, false)
-      }
-    }
+
+    // function resizeRendererToDisplaySize(renderer) {
+    //   const canvas = renderer.domElement;
+    //   const width = canvas.clientWidth
+    //   const height = canvas.clientHeight
+    //   const needResize = canvas.width !== width || canvas.height !== height
+    //   if (needResize)
+    //   {
+    //     renderer.setSize(width, height, false)
+    //   }
+    // }
 
   }
 
 
   addCustomSceneObjects = () => {
 
-    const geometry = new THREE.BoxGeometry(this.props.height, this.props.width, this.props.depth);
+    
 
-    console.log(this.props.height)
-    const material = new THREE.MeshPhongMaterial({
-      color: 0x156289,
-      emissive: 0x072534,
-      side: THREE.DoubleSide,
-      flatShading: true
-    });
-    this.cube = new THREE.Mesh(geometry, material);
-    // this.scene.add(this.cube);
+    
+   
     
 
     const lights = [];
@@ -112,12 +110,8 @@ class Viewer extends React.Component {
     this.scene.add(lights[1]);
     this.scene.add(lights[2]);
 
-    // this.loadObject();
-    let controls = new OrbitControls(this.camera, this.el);
-    controls.width = this.el.clientWidth;
-    controls.height = 500;
-    controls.update();
-
+    
+    
 
 
 
@@ -130,97 +124,88 @@ class Viewer extends React.Component {
 
   }
   setControls = () => {
-    // const control = new TransformControls(this.camera, this.renderer.domElement)
-    // console.log(control)
-    // control.addEventListener("change", this.renderer.render)
-    // control.attach(this.geometry);
-    // this.scene.add(control);
-    // control.setMode("scale");
-    // control.showX = true;
+    let controls = new OrbitControls(this.camera, this.el);
+    controls.width = this.el.clientWidth;
+    controls.height = 500;
+    controls.update();
+
+    
   }
 
   updateScale = () => {
+    console.log(this.myOBJ);
 
     this.myOBJ.scale.x = this.props.width
 
     this.myOBJ.scale.y = this.props.height
     this.myOBJ.scale.z = this.props.depth
+
+    switch (this.props.colour) {
+      case "Natural":
+        this.colourValue = 0xabc123
+        break
+
+      case "Black":
+
+        this.colourValue = 0xffd537
+
+        break
+      case "White":
+
+        this.colourValue = 0xa6a6a6
+
+        break
+      default: this.colourValue = 0xa6a6a6
+        
+    }
+
+    this.myOBJ.material.forEach((item) => {
+          item.color.setHex(this.colourValue)
+        });
   }
 
-  // loadObject = () => {
-
-  //   // var mtlLoader = new MTLLoader();
-
-  //   const scene = this.scene
-  //   // const newProps = this.props
-  //   // var myObj = this.myObj
-
-  //   // mtlLoader.setPath('./');
-
-  //   // mtlLoader.load('2020 Jan Kylie Dillon Bookcase.mtl', function (materials) {
-
-  //   //   materials.preload();
-  //     const objLoader = new THREE.OBJLoader()
-
-  //     objLoader.setPath('./')
-
-
-
-  //     objLoader.load('2020 Jan Kylie Dillon Bookcase.obj', (object) => {
-  //       scene.add(object);
-
-  //       object.scale.set(this.props.height, this.props.width, this.props.depth);
-  //       object.position.set(0, 1000, 0);
-  //       this.myOBJ = object;
-  //       // console.log(`object:${myOBJ}`);
-  //       // console.log(myOBJ.children[0])
-
-
-  //   });
+  
 
   loadObject = () => {
 
-    const material = new THREE.MeshPhongMaterial({
-      color: 0x156289,
-      emissive: 0x072534,
-      // side: THREE.DoubleSide,
-      flatShading: true
-    });
+
 
 
 
     const scene = this.scene
-    // const newProps = this.props
-    // var myObj = this.myObj
-    var color = new THREE.Color( 0xff0000 )
+    
+   
 
-    let mtlLoader = new MTLLoader();
+    // let mtlLoader = new MTLLoader();
+    
     // mtlLoader.setTexturePath('./2020 Jan Kylie Dillon Bookcase')
-    mtlLoader.setPath('./');
-    mtlLoader.load('2020 Jan Kylie Dillon Bookcase.mtl', (materials) => {
-      console.log(`materials: ${materials}`)
-      materials.preload();
+    // mtlLoader.setPath('/assets/');
+    // mtlLoader.load('2020 Jan Kylie Dillon Bookcase.mtl', (materials) => {
+    //   console.log(`materials: ${materials}`)
+    //   materials.preload();
       let objLoader = new THREE.OBJLoader()
       // objLoader.setMaterials(material);
+      console.log(objLoader)
       objLoader.setPath('./')
-      objLoader.load('2020 Jan Kylie Dillon Bookcase.obj', (object) => {
+      objLoader.load('./shelf-model.obj', (object) => {
         // object = object.children[0]
+        
         scene.add(object);
         object.scale.set(this.props.height/100, this.props.width/100, this.props.depth/100);
-        // object.position.set(0, 0, 0);
+        
         this.myOBJ = object.children[0];  
         object.children[0].material.forEach((item) => 
         {
           item.color.setHex(0xadf111)  
         } );
         
-        // object.color ='pink'
+       
 
  
         console.log(`myOBJ:${this.myOBJ}`);
         console.log(object);
       });
-    });
+    // });
     
 
     //   var objLoader = new THREE.OBJLoader();
@@ -265,8 +250,7 @@ class Viewer extends React.Component {
 
 
   render() {
-    return (
-    
+    return (    
     <div className="viewer" ref={ref => (this.el = ref)} />
     );
   }

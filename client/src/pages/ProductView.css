@@ -1,0 +1,14 @@
+.config-container {
+  width: 100vw;
+  height: 50%;
+  display: flex;
+}
+
+.viewerContainer viewer {
+  display: block;
+}
+
+.viewerContainer {
+  width: 50%;
+  
+}

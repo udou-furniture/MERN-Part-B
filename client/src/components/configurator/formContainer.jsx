@@ -1,15 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
-import Slider from './components/configurator/slider';
+import Slider from './slider';
 
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
   return {
-    height: state.height,
-    width: state.width,
-    depth: state.depth,
-    colour: state.colour
+    height: state.configurator.height,
+    width: state.configurator.width,
+    depth: state.configurator.depth,
+    colour: state.configurator.colour
   }
 }
 
