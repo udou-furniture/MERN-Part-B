@@ -1,40 +1,26 @@
 import React from 'react';
-
-const shelves = [
-	{type: "bookshelf", name: "Type01"},
-	{type: "bookshelf", name: "Type02"},
-	{type: "bookshelf", name: "Type03"},
-	{type: "wall-unit", name: "Type01"},
-	{type: "wall-unit", name: "Type02"},
-	{type: "wall-unit", name: "Type03"},
-	{type: "sideboard", name: "Type01"},
-	{type: "sideboard", name: "Type02"},
-	{type: "sideboard", name: "Type03"}
-];	
-
-const bookshelves = shelves.filter((type) => {
-	return shelves.type === "bookshelf"
-});
+import productsList from '../productsList';
 
 
 class ProductsIndex extends React.Component {
-	render() {
+	render() {	
+		const {type} = this.props.match.params
+		const products = productsList
+		.filter((product) => {
+			return product.type === type
+		})
+		.map((product, key) => 
+			<li key={product.id}>{product.type} {product.name}</li>
+		);
+		
 		return (
-			<h1>Hello from the products index page. I'm about to be dynamic!</h1>
+			<div>
+				<ul>
+					{products}
+				</ul>	
+			</div>
 		)
 	}
 }
-// class Collections extends React.Component {
-// 	state = []
-
-// 	render () {
-// 		return (
-// 			<>
-				
-	
-// 			</>
-// 		)
-// 	}
-// }	
 
 export default ProductsIndex;
