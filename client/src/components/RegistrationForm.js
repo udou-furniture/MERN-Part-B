@@ -4,8 +4,9 @@ import { Field, reduxForm } from 'redux-form';
 
 class RegistrationForm extends React.Component {
 	render() {
+		const {handleSubmit} = this.props
 		return (
-				<form onSubmit={this.props.handleSubmit}>
+				<form onSubmit={handleSubmit}>
 					<div>
 						<label htmlFor="email">Email</label>
 						<Field name="email" component="input" type="email" />

@@ -1,41 +1,61 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+// // import React from 'react'
+// // import { Route, Redirect } from 'react-router-dom'
+// // // import { isUserLoggedIn } from '../utils/auth';
 
-tokenStuff = () => {
-    let token = JSON.parse(localStorage.getItem('authorisation'))
-    console.log(`Authorization=Bearer ${token}`)
-}
-// function getMe(e) {
-// 	e.preventDefault();
-// 	var token = JSON.parse(localStorage.getItem('token'));
-// 	console.log(`Authorization=Bearer ${token}`)
-// 	fetch('/users/me', {
-// 		method: 'GET',
-// 		headers: {
-// 			'Authorization': 'Bearer ' + token
-// 		}
-// 	})
-// 		.then(res => res.json())
-// 		.then(data => {
-// 			console.log(data)
-// 			// window.location.href = 'http://localhost:3000/dashboard';
-// 		})
-// 		.catch(err => { console.log(err) })
-// } 
+// // const PrivateRoute = ({component: Component, authed, isUserLoggedIn, ...props}) => {
+// //     // const token = localStorage.getItem('authorisation')
+// //     this.props.isUserLoggedIn()
+// //     // console.log(authed)
+// //     // return null
+// //     if (this.props.loading) {
+// //         return null
+// //       } else if (!this.props.auth) {
+// //         return <Redirect to="/" />
+// //       } else {
+// //         return <Component {...props} />
+// //       }
+// //     // return(
+// //     //     <Route 
+// //     //     {...rest} 
+// //     //     render={props => 
+// //     //         authed === true ? <Component {...props} /> : <Redirect to="/" />
+// //     //             } />
+// //     // )
+// //         // Show the component only when the user is logged in
+// //         // Otherwise, redirect the user to /signin page
+// // }; 
 
-const PrivateRoute = ({component: Component, ...rest}) => {
-    return (
+// // export default PrivateRoute;
 
-        // Show the component only when the user is logged in
-        // Otherwise, redirect the user to /signin page
-        <Route {...rest} render={props => (
-            isLogin() ?
-                <Component {...props} />
-            : <Redirect to="/signin" />
-        )} />
-    );
-};
 
-export default PrivateRoute;
 
-export default PrivateRoute
+
+// import React, { useState, useEffect } from 'react'
+// import { Redirect } from 'react-router-dom'
+// import { checkToken } from '../utils/token'
+// import { useHistory } from 'react-router-dom'
+
+// const PrivateRoute = ({ component: Component, ...props }) => {
+//   let history = useHistory()
+
+//   const [user, setUser] = useState({
+//     auth: null,
+//     loading: true,
+//   })
+
+//   useEffect(() => {
+//     // const token = localStorage.getItem('token')
+//     checkToken(setUser)
+//   }, [])
+
+//   if (user.loading) {
+//     return null
+//   } else if (!user.auth) {
+//     return <Redirect to="/login" />
+//   } else {
+//     return <Component user={user.auth} history={history} {...props} />
+//   }
+// }
+
+// export default PrivateRoute
+

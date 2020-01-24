@@ -3,7 +3,7 @@ const router = express.Router()
 
 const Customer = require('../models/Customer')
 
-const {checkToken, createToken} = require('../auth/tokenMiddleware')
+const {verifyToken, signToken} = require('../auth/tokenMiddleware')
 const {hashPassword, comparePassword} = require('../auth/passwordMiddleware')
 
 router.use(express.json())
@@ -22,8 +22,8 @@ router.post('/login', async (req,res) => {
             if (!correctPassword) {
                 res.status(403).end()
             } else {
-                let token = createToken(inputEmail)
-                res.send(token)
+                let token = signToken(inputEmail)
+                res.send({access_token: token})
             }
         }
     } catch (err) {
@@ -31,7 +31,7 @@ router.post('/login', async (req,res) => {
     }
 })
 
-router.get('/check-token', checkToken, (req, res) => res.end())
+router.get('/check-token', verifyToken, (req, res) => res.end())
 
 router.post('/register', async (req,res) => {
     try {
@@ -43,8 +43,8 @@ router.post('/register', async (req,res) => {
             password: hashedPassword
         })
 
-        const savedCustomer = await newCustomer.save()
-        let token = createToken(newEmail)
+        await newCustomer.save()
+        let token = signToken(newEmail)
 
         res.send({access_token: token})
     } catch(err) {

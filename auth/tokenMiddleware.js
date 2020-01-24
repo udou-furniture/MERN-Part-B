@@ -1,31 +1,29 @@
 const jwt = require("jsonwebtoken")
 
-const checkToken = (req, res, next) => {
-    let token = req.headers['x-access-token'] || req.headers['authorization']
-
-    if(token !== undefined) {
-        if(token.startsWith('Bearer ')) {
-            token = token.slice(7, token.length)
-        }
-
-        jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
-            if(err) {
-                return res.status(401)
-            } else {
-                req.decoded = decoded
-                next()
-            }
-        })
-    } else {
-        return res.status(401).end()
+const verifyToken = (req, res, next) => {
+    let token = req.headers['x-access-token'] || req.headers['authorisation']
+    if (!token) {
+        res.status(403).end()
     }
+    token = token.split(' ')[1]
+    console.log(token)
+
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+        if(err) {
+            console.log(err.message)
+            return res.status(403).end()
+        } else {
+            req.decoded = decoded
+            next()
+        }
+    })
 }
 
-const createToken = (inputEmail) => {
+const signToken = (inputEmail) => {
     return jwt.sign({
         email: inputEmail},
         process.env.SECRET_KEY,
-        {expiresIn: '1hr'})
+        {expiresIn: '1h'})
 }
 
-module.exports = {checkToken, createToken}
+module.exports = {verifyToken, signToken}
