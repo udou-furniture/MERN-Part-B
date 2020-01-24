@@ -6,11 +6,9 @@ const verifyToken = (req, res, next) => {
         res.status(403).end()
     }
     token = token.split(' ')[1]
-    console.log(token)
 
     jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
         if(err) {
-            console.log(err.message)
             return res.status(403).end()
         } else {
             req.decoded = decoded

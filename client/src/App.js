@@ -11,9 +11,6 @@ import ProductView from './pages/ProductView';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 import PrivateRoute from './components/PrivateRoute'
 
-import {checkToken} from './utils/token'
-
-
 class App extends React.Component {
     state = {
         authed: false,
@@ -27,7 +24,6 @@ class App extends React.Component {
     isUserLoggedIn = async () => {
         try {
             const token = localStorage.getItem('authorisation')
-            console.log(token)
             await axios.get("http://localhost:5000/api/customer/check-token", { headers: {
                 Authorisation: `Bearer ${token}`}})
             
