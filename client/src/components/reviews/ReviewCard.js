@@ -4,11 +4,11 @@ import { render } from 'react-dom';
 import axios from 'axios';
 import { reviewTest } from '../../test-db';
 
-function mapStateToProps(state) {
-  return {
-    review: state.review.reviews
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     review: state.review.reviews
+//   };
+// }
 
 // export const ReviewCard2 = ({ review, id }) => {
 //   return <li key={id}>{review}</li>;
@@ -44,13 +44,12 @@ class ReviewCard extends React.Component {
     return (
       <div>
         This is a review Card
-        {/* {this.props.reviews.map(review => (
-            <li>{review}</li>
-          ))} */}
-        <li>{this.props.review}</li>
+        <div className="reviewer-email"> {this.props.email}</div>
+        <div classname="review-text"> {this.props.review} </div>
+        
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(ReviewCard);
+export default ReviewCard;

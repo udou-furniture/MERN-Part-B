@@ -8,34 +8,39 @@ import ReviewCard from './ReviewCard';
 // import {ReviewCard2} from './ReviewCard';
 
 function mapStateToProps(state) {
-  console.log(`map Props ${state.review.reviews}`);
+  console.log(`map Props ${JSON.stringify(state.review.reviews)}`);
   return {
     reviews: state.review.reviews
   };
 }
 
+// const Test = ({stations}) => (
+//   <div>
+//     {stations.map(station => (
+//       <li className="ReviewCard" key={station.call}>{station.call}</div>
+//     ))}
+//   </div>
+// );
+
 class CardIndex extends React.Component {
+
   setReviews = e => {
-    console.log(`setReviews done`);
+    // console.log(`setReviews done:${JSON.stringify(e)}`);
     this.props.dispatch({ type: 'UPDATE_REVIEWS', newReviews: e });
   };
 
-  // getReviews = async () => {
-  //   let token =
-  //     'how do we access the token? authorisation: localStorage.token?';
-
-  //   try {
-  //     let response = await axios({
-  //       method: 'GET',
-  //       url: `/api/orders/reviews`
-  //       //  headers: {authorisation: token},
-  //     });
-  //     console.log(response.data);
-  //     this.setReviews(response.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  getReviews = async () => {
+    try {
+      let response = await axios({
+        method: 'GET',
+        url: `/api/orders/reviews`
+      });
+      console.log(`response.data:${response.data}`);
+      this.setReviews(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   getReviews2 = () => {
     console.log(`get2: ${JSON.stringify(reviewTest)}`);
@@ -48,14 +53,22 @@ class CardIndex extends React.Component {
   }
 
   createArray = item => {
-    console.log(item);
-    return item.forEach(i => (<ReviewCard review={i.review}/>));
+    console.log(`create array item: ${JSON.stringify(item)}`);
+    return item.map(i => {
+      const review = i.review;
+      return <ReviewCard review={review} email={i.customerEmail} />;
+    });
   };
 
   render() {
     return (
       <div>
-        <ul>{this.createArray(this.props.reviews)}</ul>
+        <ul>
+          {this.createArray(this.props.reviews).map(reviewCard => {
+            // console.log(reviewCard)
+            return reviewCard;
+          })}
+        </ul>
       </div>
     );
   }
