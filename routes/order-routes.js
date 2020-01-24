@@ -25,7 +25,7 @@ router.get('/reviews', (req,res) => {
     .catch(err => res.json(err))
 })
 
-
+// need to setup reviews end point for post when purchased is true
 
 router.get('/', verifyToken, (req,res) => {
     Order.find({customerEmail: req.decoded.email

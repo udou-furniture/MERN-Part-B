@@ -74,7 +74,8 @@ class App extends React.Component {
                             {...props} />
                         }} />
 
-                        <Route path='/products_index' component={ProductsIndex} />
+                        {/* <Route path='/products_index' component={ProductsIndex} /> */}
+                        <Route path='/products/:type' component={ProductsIndex} />
                         <Route path='/product_view' component={ProductView} />
 
                         {/* <PrivateRoute exact path="/shopping" component={ShoppingCartPage} /> */}
