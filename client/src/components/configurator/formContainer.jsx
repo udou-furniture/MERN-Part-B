@@ -32,6 +32,7 @@ class FormContainer extends React.Component {
   };
 
   handleSubmit = async e => {
+
     // this should send the info from the form to the post orders end point.
 
     console.log(`button: ${this.props}`);
@@ -46,7 +47,7 @@ class FormContainer extends React.Component {
         height: this.props.height,
         width: this.props.width,
         depth: this.props.depth,
-        colour: 'red',
+        colour: this.props.colour,
         price: this.props.price,
         furnitureType: 'custom'
       }
@@ -74,7 +75,7 @@ class FormContainer extends React.Component {
             // max={this.props.max}
             max={3}
             value={this.props.height}
-            // step={this.props.step}
+           
             step={0.1}
             onChange={e => {
               this.props.dispatch({
@@ -85,18 +86,18 @@ class FormContainer extends React.Component {
           />
           <div className="slider-label">
             <p>Height</p>
-            <p>{this.props.height * 100} cm</p>
+            <p>{this.props.height * 120} cm</p>
           </div>
         </label>
         <label>
           <Slider
             type="range"
-            // min={this.props.min}
+            
             min={0.5}
-            // max={this.props.max}
+            
             max={3}
             value={this.props.depth}
-            // step={this.props.step}
+            
             step={0.1}
             onChange={e => {
               this.props.dispatch({
@@ -107,18 +108,18 @@ class FormContainer extends React.Component {
           />
           <div className="slider-label">
             <p>Depth</p>
-            <p>{this.props.depth * 100} cm</p>
+            <p>{this.props.depth * 40} cm</p>
           </div>
         </label>
         <label>
           <Slider
             type="range"
-            // min={this.props.min}
+            
             min={0.5}
-            // max={this.props.max}
+            
             max={3}
             value={this.props.width}
-            // step={this.props.step}
+            
             step={0.1}
             onChange={e => {
               this.props.dispatch({
@@ -129,7 +130,7 @@ class FormContainer extends React.Component {
           />
           <div className="slider-label">
             <p>Width</p>
-            <p>{this.props.width * 100} cm</p>
+            <p>{this.props.width * 120} cm</p>
           </div>
         </label>
 

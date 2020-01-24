@@ -115,11 +115,7 @@ class Viewer extends React.Component {
 
 
 
-    // objLoader.object.scale.x = this.props.height
-    // objLoader.parse(object)
-
-
-    // this.geometry.attributes.position.needsUpdate = true;
+   
 
 
   }
@@ -176,19 +172,13 @@ class Viewer extends React.Component {
     
    
 
-    // let mtlLoader = new MTLLoader();
     
-    // mtlLoader.setTexturePath('./2020 Jan Kylie Dillon Bookcase')
-    // mtlLoader.setPath('/assets/');
-    // mtlLoader.load('2020 Jan Kylie Dillon Bookcase.mtl', (materials) => {
-    //   console.log(`materials: ${materials}`)
-    //   materials.preload();
       let objLoader = new THREE.OBJLoader()
-      // objLoader.setMaterials(material);
+      
       console.log(objLoader)
       objLoader.setPath('./')
       objLoader.load('./shelf-model.obj', (object) => {
-        // object = object.children[0]
+        
         
         scene.add(object);
         object.scale.set(this.props.height/100, this.props.width/100, this.props.depth/100);
@@ -205,28 +195,7 @@ class Viewer extends React.Component {
         console.log(`myOBJ:${this.myOBJ}`);
         console.log(object);
       });
-    // });
     
-
-    //   var objLoader = new THREE.OBJLoader();
-    //   // objLoader.setMaterials(materials);
-    //   objLoader.setPath('../src');
-    //   objLoader.load('./2020 Jan Kylie Dillon Bookcase.obj', function (object) {
-
-    //     scene.add(object);
-    //     object.scale.set(2, .5, .5);
-
-    //   });
-
-    // // });
-
-    // const objLoader = new THREE.OBJLoader()
-    // objLoader.load( './src/2020 Jan Kylie Dillon Bookcase.obj', (object) =>
-    // {
-    //   scene.add(object);
-    //   console.log(`object:${object}`);
-    //   object.scale.set(2, .5, .5)
-    // });
   }
 
  resizeRendererToDisplaySize = (renderer) => {
