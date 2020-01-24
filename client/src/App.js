@@ -17,9 +17,8 @@ class App extends React.Component {
           <Route exact path='/' component={Home} />
           <Route path='/registration' component={Registration} />
           <Route path='/login' component={Login} />
-          <Route path='/products_index' component={ProductsIndex} />
+          <Route path='/products/:type' component={ProductsIndex} />
           <Route path='/product_view' component={ProductView} />
-
           </Switch>
         </div>
       </BrowserRouter>

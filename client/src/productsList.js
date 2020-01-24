@@ -16,17 +16,17 @@ const productsList = [
 	},
 	{
 		id: 4,
-		type: "wall unit",
+		type: "wallunit",
     name: "Type01"
 	},
 	{
 		id: 5,
-		type: "wall unit",
+		type: "wallunit",
     name: "Type02"
 	},
 	{
 		id: 6,
-		type: "wall unit",
+		type: "wallunit",
     name: "Type03"
 	},
 	{

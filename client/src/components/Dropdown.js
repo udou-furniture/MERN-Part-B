@@ -1,7 +1,8 @@
 import React from 'react';
 import './Dropdown.css';
-import { Link } from 'react-router-dom';
-
+import { Link, Route } from 'react-router-dom';
+import productsList from '../productsList';
+import ProductsIndex from '../pages/ProductsIndex';
 
 class Dropdown extends React.Component {
 	container = React.createRef();
@@ -33,6 +34,7 @@ class Dropdown extends React.Component {
 		}
 	};
 
+
 	render() {
 		return (
 			<div className="container" ref={this.container}>
@@ -40,9 +42,9 @@ class Dropdown extends React.Component {
 				{this.state.open && (
 					<div className="dropdown">
 						<ul>
-							<li><Link to="/products_index">Bookshelves</Link></li>
-							<li><Link to="/products_index">Wall Units</Link></li>
-							<li><Link to="/products_index">Sideboards</Link></li>
+							<li><Link to={{pathname: "/products/bookshelf"}}>Bookshelves</Link></li>
+							<li><Link to={{pathname: "/products/wallunit"}}>Wall Units</Link></li>
+							<li><Link to={{pathname: "/products/sideboard"}}>Sideboards</Link></li>
 						</ul>
 					</div>
 				)}
