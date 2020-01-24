@@ -11,14 +11,22 @@ function mapStateToProps(state) {
     height: state.configurator.height,
     width: state.configurator.width,
     depth: state.configurator.depth,
-    colour: state.configurator.colour
+    colour: state.configurator.colour,
+    price: state.configurator.price
   };
 }
 
 class FormContainer extends React.Component {
   priceCalculator = () => {
-    return this.props.width * this.props.depth * this.props.height * 1000;
+    //this calculates the price based on the sliders and dispatches it to store.
+    const price =
+      this.props.width * this.props.depth * this.props.height * 1000;
+
+    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price });
+
+    return price;
   };
+
   handleOptionChange = e => {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
   };
@@ -39,8 +47,8 @@ class FormContainer extends React.Component {
         width: this.props.width,
         depth: this.props.depth,
         colour: 'red',
-        price: 100,
-        furnitureType: 'bookshelf'
+        price: this.props.price,
+        furnitureType: 'custom'
       }
     };
     try {
@@ -48,7 +56,6 @@ class FormContainer extends React.Component {
       let response = await axios({
         method: 'POST',
         url: `/api/orders/new-order`,
-        headers: { authorisation: localStorage.token },
         data: newOrder
       });
     } catch (error) {

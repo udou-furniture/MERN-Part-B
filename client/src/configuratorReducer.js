@@ -19,6 +19,8 @@ const configuratorReducer = (state = { height: 1, width: 1, depth: 1, colour: "B
     case "UPDATE_COLOUR":
       newState = { ...state, colour: action.newColour };
       break
+      case "CALCULATE_PRICE":
+        newState = { ...state, price: action.newPrice}
 
 
     default: newState = { ...state }

@@ -64,7 +64,7 @@ class Viewer extends React.Component {
     // set some distance from a cube that is located at z = 0
     this.camera.position.x = 0;
     this.camera.position.y = 0;
-    this.camera.position.z = 50;
+    this.camera.position.z = 27;
 
       this.camera.aspect = (width/height);
     this.renderer = new THREE.WebGLRenderer();

@@ -1,4 +1,4 @@
-const initialState = { reviews: ['hello review bois an goils'] };
+const initialState = { reviews: ['test review text'] };
 
 const reviewReducer = (state = initialState, action) => {
   let newState = {};
