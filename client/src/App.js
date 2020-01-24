@@ -62,7 +62,7 @@ class App extends React.Component {
                         <Route path='/products/:type' component={ProductsIndex} />
                         <Route path='/product_view' component={ProductView} />
 
-                        {/* <PrivateRoute exact path="/shopping" component={ShoppingCartPage} /> */}
+                        <PrivateRoute exact path="/shopping" component={ShoppingCartPage} authed={this.state.authed}/>
                     </Switch>
                 </div>
                 </BrowserRouter> 

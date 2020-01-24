@@ -23,6 +23,11 @@ class Navbar extends React.Component {
 							</>
 						}
 						<li><Link to ="/product_view">Configurator</Link></li>
+						{this.props.authed ? 
+							<li><Link to='/shopping'>Shopping Cart</Link></li> : 
+							<></>
+						}
+						
 					</ul>
 				</div>
 			</nav>
