@@ -48,7 +48,6 @@ router.get('/:_id', verifyToken, (req,res) => {
 
 router.post('/new-order', verifyToken, (req,res) => {
     const customerEmail = req.decoded.email
-    // const orderID = Order.count() + 1
     const {purchased, saved, review, configuration: {height, width, depth, colour, price, furnitureType}} = req.body
 
     Order.create( {purchased, saved, review, customerEmail, configuration: {height, width, depth, colour, price, furnitureType}} )

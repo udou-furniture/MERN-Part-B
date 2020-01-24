@@ -22,7 +22,6 @@ class App extends React.Component {
 
     componentDidMount() {
         this.isUserLoggedIn()
-        // return null
     }
     
     isUserLoggedIn = async () => {
@@ -45,14 +44,6 @@ class App extends React.Component {
         }
     }
 
-    // logout = () => {
-    //     localStorage.removeItem('authorisation')
-
-    //     this.setState({
-    //         auth: false
-    //     })
-    // }
-
     render() {
         if(this.state.loading) {
             return null 
@@ -60,8 +51,7 @@ class App extends React.Component {
             return(
                 <BrowserRouter>
                 <div className="App">
-                    <Navbar authed={this.state.authed} isUserLoggedIn=
-                    {this.isUserLoggedIn}/>
+                    <Navbar authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn} />
                     <Switch>
                         <Route exact path='/' component={Home} />
 
@@ -69,9 +59,7 @@ class App extends React.Component {
                             return <Registration isUserLoggedIn={this.isUserLoggedIn} {...props} />
                         }}  />
                         <Route path='/login' render={(props) => {
-                            return <Login 
-                            isUserLoggedIn={this.isUserLoggedIn} 
-                            {...props} />
+                            return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
                         }} />
 
                         {/* <Route path='/products_index' component={ProductsIndex} /> */}
@@ -89,24 +77,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-// import React from 'react'
-// import { Switch, Route } from 'react-router-dom'
-// import Login from './Login'
-// import Home from './Home'
-// import ProtectedRoute from './ProtectedRoute'
-// import ResetPassword from './ResetPassword'
-
-// const App = () => {
-//   return (
-//     <Switch>
-//       <Route path="/login" component={Login} />
-//       <Route path="/:passwordToken/change-password" component={ResetPassword} />
-//       <ProtectedRoute exact path="/" component={Home} />
-//     </Switch>
-//   )
-// }
-
-// export default App

@@ -1,7 +1,10 @@
 import React from 'react';
+import axios from 'axios'
+
+import { setLocalStorage } from '../utils/localStorage'
+
 import RegistrationForm from '../components/RegistrationForm'
 
-import axios from 'axios'
 
 class Registration extends React.Component {
 	submit = async (values) => {
@@ -12,9 +15,7 @@ class Registration extends React.Component {
 				password: values.password
 			})
 			
-			// console.log(response)
-			localStorage.setItem('authorisation', JSON.stringify(response.data.access_token))
-
+			setLocalStorage(response.data.access_token)
 			this.props.isUserLoggedIn()
 			this.props.history.push('/')
 		} catch (err) {

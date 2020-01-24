@@ -4,12 +4,7 @@ import './Navbar.css';
 
 
 class Navbar extends React.Component {
-	// componentDidMount() {
-	// 	this.props.isUserLoggedIn()
-	// }
-
 	logout = () => {
-		// e.preventDefault()
 		localStorage.removeItem('authorisation')
 		this.props.isUserLoggedIn()
 	}
