@@ -3,8 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 
 import configuratorReducer from './configuratorReducer';
 
-
-
+import reviewReducer from './reviewReducer';
 
 const rootReducer = combineReducers({
 
@@ -12,6 +11,8 @@ const rootReducer = combineReducers({
   // ...Place all reducers here
 
   configurator: configuratorReducer,
+
+  review: reviewReducer,
 
 
   form: formReducer
