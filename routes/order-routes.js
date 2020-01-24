@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const Order = require('../models/Order');
-const authMiddleware = require('../auth/tokenMiddleware');
+const Order = require('../models/Order')
+const {verifyToken} = require('../auth/tokenMiddleware')
 
 // this route is only for debugging
 
@@ -23,16 +23,19 @@ router.get('/reviews', (req, res) => {
     .catch(err => res.json(err));
 });
 
-router.get('/', authMiddleware.checkToken, (req, res) => {
-  Order.find({ customerEmail: req.decoded.email })
+// need to setup reviews end point for post when purchased is true
+
+router.get('/', verifyToken, (req,res) => {
+    Order.find({customerEmail: req.decoded.email
+    })
     .then(allOrders => {
       return res.json(allOrders);
     })
     .catch(err => res.json(err));
 });
 
-router.get('/:_id', authMiddleware.checkToken, (req, res) => {
-  const { _id } = req.params;
+router.get('/:_id', verifyToken, (req,res) => {
+    const {_id} = req.params
 
   Order.findOne({ customerEmail: req.decoded.email, _id })
     .then(order => {
@@ -41,9 +44,8 @@ router.get('/:_id', authMiddleware.checkToken, (req, res) => {
     .catch(err => res.json(err));
 });
 
-router.post('/new-order', authMiddleware.checkToken, (req, res) => {
+router.post('/new-order', verifyToken, (req, res) => {
   const customerEmail = req.decoded.email;
-  // const orderID = Order.count() + 1
   const {
     purchased,
     saved,
