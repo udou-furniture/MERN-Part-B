@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 
 
 class RegistrationForm extends React.Component {
+	
 	render() {
 		return (
 				<form onSubmit={this.props.handleSubmit}>
@@ -21,4 +22,5 @@ class RegistrationForm extends React.Component {
 }
 
 RegistrationForm = reduxForm({ form: 'registration' })(RegistrationForm);
+
 export default RegistrationForm;
