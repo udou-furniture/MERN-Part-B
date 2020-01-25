@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import ProductsIndex from './pages/ProductsIndex';
 import Registration from './pages/Registration';
 import ProductView from './pages/ProductView';
+import Show from './components/Show';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 import PrivateRoute from './components/PrivateRoute'
 
@@ -57,7 +58,8 @@ class App extends React.Component {
                         <Route path='/login' render={(props) => {
                             return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
                         }} />
-                        <Route path='/products/:type/:product_id' component={ProductView} />
+                        <Route path='/product_view' component={ProductView} />
+                        <Route path='/products/:type/:product_id' component={Show} />
                         <Route path='/products/:type' component={ProductsIndex} />
                         
 

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 class ProductsIndex extends React.Component {
 
-	
 	render() {	
 		const {type} = this.props.match.params
 		const products = productsList
