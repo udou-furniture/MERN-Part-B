@@ -57,10 +57,9 @@ class App extends React.Component {
                         <Route path='/login' render={(props) => {
                             return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
                         }} />
-
-                        {/* <Route path='/products_index' component={ProductsIndex} /> */}
+                        <Route path='/products/:type/:product_id' component={ProductView} />
                         <Route path='/products/:type' component={ProductsIndex} />
-                        <Route path='/product_view' component={ProductView} />
+                        
 
                         <PrivateRoute exact path="/shopping" component={ShoppingCartPage} authed={this.state.authed}/>
                     </Switch>
