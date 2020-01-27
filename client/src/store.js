@@ -5,8 +5,12 @@ import configuratorReducer from './configuratorReducer';
 
 import reviewReducer from './reviewReducer';
 
+import cartReducer from './cartReducer';
+
 const rootReducer = combineReducers({
   // ...Place all reducers here
+  cart: cartReducer,
+  products: cartReducer,
   configurator: configuratorReducer,
   review: reviewReducer,
   form: formReducer
