@@ -2,15 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect} from 'react-redux';
 
-function mapStateToProps(state) {
-  return {
-    height: state.configurator.height,
-    width: state.configurator.width,
-    depth: state.configurator.depth,
-    colour: state.configurator.colour,
-    price: state.configurator.price
-  };
-}
 
 class ProductsIndex extends React.Component {
 	handleClick (e)
@@ -47,7 +38,12 @@ class ProductsIndex extends React.Component {
 const mapStateToProps = (state) => {
 	console.log(state)
 	return {
-		products: state.products
+		products: state.products,
+		height: state.configurator.height,
+    width: state.configurator.width,
+    depth: state.configurator.depth,
+    colour: state.configurator.colour,
+    price: state.configurator.price
 	}
 }
 

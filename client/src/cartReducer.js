@@ -1,6 +1,13 @@
 const	initState = {
 	products: [
-		{id: 1, type: "bookshelf", name: "Type01"},
+		{id: 1, type: "bookshelf", name: "Type01", configuration: {
+			height: 2.1,
+			width: 1,
+			depth: 0.4,
+			colour: "natural",
+			price: 99,
+			furnitureType: 'custom'
+		}},
 		{id: 2, type: "bookshelf", name: "Type02"},
 		{id: 3, type: "bookshelf", name: "Type03"},
 		{id: 4, type: "wallunit", name: "Type01"},
