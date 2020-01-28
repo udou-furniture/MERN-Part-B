@@ -30,17 +30,13 @@ class FormContainer extends React.Component {
     e.preventDefault(); // i think this prevents page refresh.
 
     const newOrder = {
-      purchased: true,
-      saved: true,
-      review: false,
-      customerEmail: 'hello@hello.co',
       configuration: {
         height: this.props.height,
         width: this.props.width,
         depth: this.props.depth,
-        colour: 'red',
-        price: 100,
-        furnitureType: 'bookshelf'
+        colour: this.props.colour,
+        price: this.priceCalculator(),
+        furnitureType: this.props.type
       }
     };
     try {

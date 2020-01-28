@@ -9,6 +9,7 @@ import ProductsIndex from './pages/ProductsIndex';
 import Registration from './pages/Registration';
 import ProductView from './pages/ProductView';
 import ShoppingCartPage from './pages/ShoppingCartPage';
+import ReviewPage from './pages/ReviewPage'
 import PrivateRoute from './components/PrivateRoute'
 
 class App extends React.Component {
@@ -36,7 +37,6 @@ class App extends React.Component {
                 authed: false,
                 loading: false
             })
-            
         }
     }
 
@@ -63,6 +63,8 @@ class App extends React.Component {
                         <Route path='/product_view' component={ProductView} />
 
                         <PrivateRoute exact path="/shopping" component={ShoppingCartPage} authed={this.state.authed}/>
+
+                        <PrivateRoute exact path="/leave-review" component={ReviewPage} authed={this.state.authed}/>
                     </Switch>
                 </div>
                 </BrowserRouter> 
