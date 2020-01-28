@@ -34,6 +34,21 @@ class FormContainer extends React.Component {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
   };
 
+  getExample = e =>
+  { let example = ""
+    
+    e.forEach((i) =>
+    {
+      if (this.props.example === i.id)
+      {
+        console.log(`height: ${i.configuration.height}`)
+        example = i
+
+      }
+    })
+    return example
+  }
+
   handleSubmit = async e => {
     // this should send the info from the form to the post orders end point.
 
@@ -77,7 +92,7 @@ class FormContainer extends React.Component {
               min={0.5}
               // max={this.props.max}
               max={3}
-              defaultValue={productsList[this.props.example].configurator.height}
+              // defaultValue={this.getExample(productsList)}
               value={this.props.height}
               step={0.1}
               onChange={e => {
