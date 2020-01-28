@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import productsList from '../../productsList'
+// import productsList from '../../productsList'
 
 function mapStateToProps(state) {
   return {
@@ -34,21 +34,6 @@ class FormContainer extends React.Component {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
   };
 
-  getExample = e =>
-  { let example = ""
-    
-    e.forEach((i) =>
-    {
-      if (this.props.example === i.id)
-      {
-        console.log(`height: ${i.configuration.height}`)
-        example = i
-
-      }
-    })
-    return example
-  }
-
   handleSubmit = async e => {
     // this should send the info from the form to the post orders end point.
 
@@ -56,10 +41,6 @@ class FormContainer extends React.Component {
     e.preventDefault(); // i think this prevents page refresh.
 
     const newOrder = {
-      purchased: true,
-      saved: true,
-      review: false,
-      customerEmail: 'hello@hello.co',
       configuration: {
         height: this.props.height,
         width: this.props.width,
@@ -92,7 +73,7 @@ class FormContainer extends React.Component {
               min={0.5}
               // max={this.props.max}
               max={3}
-              // defaultValue={this.getExample(productsList)}
+              // defaultValue={this.props.height}
               value={this.props.height}
               step={0.1}
               onChange={e => {
