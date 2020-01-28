@@ -1,4 +1,3 @@
-
 const	initState = {
 	products: [
 		{id: 1, type: "bookshelf", name: "Type01"},
@@ -16,21 +15,20 @@ const	initState = {
 
 const cartReducer = (state = initState, action) => {
 	let newState = {};
-
-	console.log("Original state", state);
-	
+	// console.log("Original state", state);
 	switch (action.type) {
     case 'ADD_TO_CART':
-			const product = state.products.find(product => product.id.toString() === action.id);
+			const product = state.products.find(product => product.id === action.id);
       newState = { ...state, cart: state.cart.concat(product) };
-      break;
-
+			break;
+		case 'REMOVE_FROM_CART':
+			const newCart = state.cart.filter(product => product.id !== action.id);
+			newState = { ...state, cart: newCart };
+			break;	
     default:
       newState = {...state}
 	}
-	
-	console.log("New State:", newState);
-
+	// console.log("New State:", newState);
   return newState;
 };
 

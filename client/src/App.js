@@ -65,7 +65,7 @@ class App extends React.Component {
                         <Route path='/cart' component={Cart} />
                         {/* <Route path='/index' component={ProductsIndex} /> */}
 
-                        {/* <PrivateRoute exact path="/shopping" component={ShoppingCartPage} authed={this.state.authed}/> */}
+                        {/* <PrivateRoute exact path="/cart" component={Cart} authed={this.state.authed}/> */}
                     </Switch>
                 </div>
                 </BrowserRouter> 
