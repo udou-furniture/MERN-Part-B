@@ -6,13 +6,16 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
+import productsList from '../../productsList'
+
 function mapStateToProps(state) {
   return {
     height: state.configurator.height,
     width: state.configurator.width,
     depth: state.configurator.depth,
     colour: state.configurator.colour,
-    price: state.configurator.price
+    price: state.configurator.price,
+    example: state.configurator.example
   };
 }
 
@@ -74,6 +77,7 @@ class FormContainer extends React.Component {
               min={0.5}
               // max={this.props.max}
               max={3}
+              defaultValue={productsList[this.props.example].configurator.height}
               value={this.props.height}
               step={0.1}
               onChange={e => {
