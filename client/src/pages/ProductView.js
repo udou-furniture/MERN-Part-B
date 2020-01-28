@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from '../components/Dropdown'
 import Configurator from '../components/configurator/Configurator'
-import productsList from '../productsList'
+
 
 
 class ProductView extends React.Component {
