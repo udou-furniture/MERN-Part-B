@@ -1,6 +1,6 @@
-const initialState = { reviews: ['test review text'] };
+// const initialState = { reviews: ['hello review bois an goils'] };
 
-const reviewReducer = (state = initialState, action) => {
+const reviewReducer = (state, action) => {
   let newState = {};
 
   switch (action.type) {
