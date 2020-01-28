@@ -9,7 +9,7 @@ class Home extends React.Component {
     return (
 			<>
 				<Dropdown />
-        {/* <CardIndex reviews={reviewTest} /> */}
+        
         <CardIndex />
         
 			</>	
