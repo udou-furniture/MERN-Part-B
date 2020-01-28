@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import axios from 'axios'
-
+import './OOCSS.css'
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
@@ -12,6 +12,7 @@ import Show from './components/Show';
 // import ShoppingCartPage from './pages/ShoppingCartPage';
 import PrivateRoute from './components/PrivateRoute';
 import Cart from './components/cart/Cart';
+import ReviewPage from './pages/ReviewPage'
 
 class App extends React.Component {
     state = {
@@ -38,7 +39,6 @@ class App extends React.Component {
                 authed: false,
                 loading: false
             })
-            
         }
     }
 
@@ -66,6 +66,7 @@ class App extends React.Component {
                         {/* <Route path='/index' component={ProductsIndex} /> */}
 
                         <PrivateRoute exact path="/cart" component={Cart} authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn}/>
+                        <PrivateRoute exact path="/leave-review" component={ReviewPage} authed={this.state.authed}/>
                     </Switch>
                 </div>
                 </BrowserRouter> 
