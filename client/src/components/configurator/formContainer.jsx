@@ -6,19 +6,30 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
+import productsList from '../../productsList'
+
 function mapStateToProps(state) {
   return {
     height: state.configurator.height,
     width: state.configurator.width,
     depth: state.configurator.depth,
-    colour: state.configurator.colour
+    colour: state.configurator.colour,
+    price: state.configurator.price,
+    example: state.configurator.example
   };
 }
 
 class FormContainer extends React.Component {
   priceCalculator = () => {
-    return this.props.width * this.props.depth * this.props.height * 1000;
+    //this calculates the price based on the sliders and dispatches it to store.
+    const price =
+      this.props.width * this.props.depth * this.props.height * 1000;
+
+    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price });
+
+    return price;
   };
+
   handleOptionChange = e => {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
   };
@@ -35,8 +46,8 @@ class FormContainer extends React.Component {
         width: this.props.width,
         depth: this.props.depth,
         colour: this.props.colour,
-        price: this.priceCalculator(),
-        furnitureType: this.props.type
+        price: this.props.price,
+        furnitureType: 'custom'
       }
     };
     try {
@@ -44,7 +55,6 @@ class FormContainer extends React.Component {
       let response = await axios({
         method: 'POST',
         url: `/api/orders/new-order`,
-        headers: { authorisation: localStorage.token },
         data: newOrder
       });
     } catch (error) {
@@ -55,111 +65,117 @@ class FormContainer extends React.Component {
   render() {
     return (
       <form className="slider-form" onSubmit={this.handleSubmit}>
+        <div className="slider-inputs" className="form-block">
+          <label>
+            <Slider
+              type="range"
+              // min={this.props.min}
+              min={0.5}
+              // max={this.props.max}
+              max={3}
+              defaultValue={productsList[this.props.example].configurator.height}
+              value={this.props.height}
+              step={0.1}
+              onChange={e => {
+                this.props.dispatch({
+                  type: 'UPDATE_HEIGHT',
+                  newHeight: e.target.value
+                });
+              }}
+            />
+            <div className="slider-label">
+              <h3>Height</h3>
+              <p>{this.props.height * 120} cm</p>
+            </div>
+          </label>
+          <label>
+            <Slider
+              type="range"
+              min={0.5}
+              max={3}
+              value={this.props.depth}
+              step={0.1}
+              onChange={e => {
+                this.props.dispatch({
+                  type: 'UPDATE_DEPTH',
+                  newDepth: e.target.value
+                });
+              }}
+            />
+            <div className="slider-label">
+              <h3>Depth</h3>
+              <p>{this.props.depth * 40} cm</p>
+            </div>
+          </label>
+          <label>
+            <Slider
+              type="range"
+              min={0.5}
+              max={3}
+              value={this.props.width}
+              step={0.1}
+              onChange={e => {
+                this.props.dispatch({
+                  type: 'UPDATE_WIDTH',
+                  newWidth: e.target.value
+                });
+              }}
+            />
+            <div className="slider-label">
+              <h3>Width</h3>
+              <p>{this.props.width * 120} cm</p>
+            </div>
+          </label>
+        </div>
         <label>
-          <Slider
-            type="range"
-            // min={this.props.min}
-            min={0.5}
-            // max={this.props.max}
-            max={3}
-            value={this.props.height}
-            // step={this.props.step}
-            step={0.1}
-            onChange={e => {
-              this.props.dispatch({
-                type: 'UPDATE_HEIGHT',
-                newHeight: e.target.value
-              });
-            }}
-          />
-          <div className="slider-label">
-            <p>Height</p>
-            <p>{this.props.height * 100} cm</p>
+          <div className="colour-radio" className="form-block">
+            <div className="radio">
+              <label>
+                <input
+                  type="radio"
+                  value="Natural"
+                  checked={this.props.colour === 'Natural'}
+                  onChange={this.handleOptionChange}
+                />
+                <h3>Natural</h3>
+              </label>
+            </div>
+            <div className="radio">
+              <label>
+                <input
+                  type="radio"
+                  value="Black"
+                  checked={this.props.colour === 'Black'}
+                  onChange={this.handleOptionChange}
+                />
+                <h3>Black</h3>
+              </label>
+            </div>
+            <div className="radio">
+              <label>
+                <input
+                  type="radio"
+                  value="White"
+                  checked={this.props.colour === 'White'}
+                  onChange={this.handleOptionChange}
+                />
+                <h3>White</h3>
+              </label>
+            </div>
+            <h3>Colour</h3>
           </div>
         </label>
         <label>
-          <Slider
-            type="range"
-            // min={this.props.min}
-            min={0.5}
-            // max={this.props.max}
-            max={3}
-            value={this.props.depth}
-            // step={this.props.step}
-            step={0.1}
-            onChange={e => {
-              this.props.dispatch({
-                type: 'UPDATE_DEPTH',
-                newDepth: e.target.value
-              });
-            }}
-          />
-          <div className="slider-label">
-            <p>Depth</p>
-            <p>{this.props.depth * 100} cm</p>
+          <div className="form-block" >
+            <div className="price-block">
+            <div className="price-display">${this.priceCalculator()}</div>
+            <h3>Price</h3>
+            <button onClick={this.handleSubmit} type="submit">
+              Place Order
+            </button>
+          </div>
           </div>
         </label>
-        <label>
-          <Slider
-            type="range"
-            // min={this.props.min}
-            min={0.5}
-            // max={this.props.max}
-            max={3}
-            value={this.props.width}
-            // step={this.props.step}
-            step={0.1}
-            onChange={e => {
-              this.props.dispatch({
-                type: 'UPDATE_WIDTH',
-                newWidth: e.target.value
-              });
-            }}
-          />
-          <div className="slider-label">
-            <p>Width</p>
-            <p>{this.props.width * 100} cm</p>
-          </div>
-        </label>
-
-        <div className="radio">
-          <label>
-            <input
-              type="radio"
-              value="Natural"
-              checked={this.props.colour === 'Natural'}
-              onChange={this.handleOptionChange}
-            />
-            Natural
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input
-              type="radio"
-              value="Black"
-              checked={this.props.colour === 'Black'}
-              onChange={this.handleOptionChange}
-            />
-            Black
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input
-              type="radio"
-              value="White"
-              checked={this.props.colour === 'White'}
-              onChange={this.handleOptionChange}
-            />
-            White
-          </label>
-        </div>
-        <div className="price-display">${this.priceCalculator()}</div>
-
-        <button onClick={this.handleSubmit} type="submit">
-          Place Order
-        </button>
       </form>
     );
   }

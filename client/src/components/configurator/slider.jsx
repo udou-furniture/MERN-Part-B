@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 
 const THREE = require('three');
 
-
-
   const Slider = ({ value, defaultValue, min, max, step, onChange }) => (
     <input
       type="range"

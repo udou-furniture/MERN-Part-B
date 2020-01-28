@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import axios from 'axios'
-
+import './OOCSS.css'
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
