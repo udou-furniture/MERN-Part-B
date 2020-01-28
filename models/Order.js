@@ -2,9 +2,18 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const OrderSchema = new Schema({
-    purchased: Boolean,
-    saved: Boolean,
-    review: String,
+    purchased: {
+        type: Boolean,
+        default: false
+    },
+    saved: {
+        type: Boolean,
+        default: true
+    },
+    review: {
+        type: String,
+        default: ''
+    },
     customerEmail: String,
     configuration: {
         height: Number, 

@@ -9,8 +9,7 @@ const CustomerSchema = new Schema({
     city: String,
     state: String,
     postcode: Number,
-    phoneNumber: Number,
-    order: Array
+    phoneNumber: Number
 }, {
     timestamps: true
 })
