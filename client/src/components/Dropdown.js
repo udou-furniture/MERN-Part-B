@@ -1,7 +1,6 @@
 import React from 'react';
 import './Dropdown.css';
 import { Link, Route } from 'react-router-dom';
-import productsList from '../productsList';
 import ProductsIndex from '../pages/ProductsIndex';
 
 class Dropdown extends React.Component {

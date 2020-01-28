@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import CartIcon from './cart/CartIcon'
 
 
 class Navbar extends React.Component {
@@ -23,10 +24,11 @@ class Navbar extends React.Component {
 							</>
 						}
 						<li><Link to ="/product_view">Configurator</Link></li>
-						{this.props.authed ? 
+						{/* {this.props.authed ? 
 							<li><Link to='/shopping'>Shopping Cart</Link></li> : 
 							<></>
-						}
+						} */}
+						<li><Link to ="/cart"><CartIcon /></Link></li>
 						
 					</ul>
 				</div>

@@ -8,9 +8,10 @@ import Login from './pages/Login';
 import ProductsIndex from './pages/ProductsIndex';
 import Registration from './pages/Registration';
 import ProductView from './pages/ProductView';
-import ShoppingCartPage from './pages/ShoppingCartPage';
+import Show from './components/Show';
+import PrivateRoute from './components/PrivateRoute';
+import Cart from './components/cart/Cart';
 import ReviewPage from './pages/ReviewPage'
-import PrivateRoute from './components/PrivateRoute'
 
 class App extends React.Component {
     state = {
@@ -57,13 +58,11 @@ class App extends React.Component {
                         <Route path='/login' render={(props) => {
                             return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
                         }} />
-
-                        {/* <Route path='/products_index' component={ProductsIndex} /> */}
+                        {/* Order of the below two routes is important. Don't change without reason */}
+                        <Route path='/products/:type/:product_id' component={ProductView} />
                         <Route path='/products/:type' component={ProductsIndex} />
-                        <Route path='/product_view' component={ProductView} />
 
-                        <PrivateRoute exact path="/shopping" component={ShoppingCartPage} authed={this.state.authed}/>
-
+                        <PrivateRoute exact path="/cart" component={Cart} authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn}/>
                         <PrivateRoute exact path="/leave-review" component={ReviewPage} authed={this.state.authed}/>
                     </Switch>
                 </div>

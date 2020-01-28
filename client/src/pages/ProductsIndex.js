@@ -1,19 +1,7 @@
 import React from 'react';
-import productsList from '../productsList';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { render } from 'react-dom';
+import { connect} from 'react-redux';
 
-
-function mapStateToProps(state) {
-  return {
-    height: state.configurator.height,
-    width: state.configurator.width,
-    depth: state.configurator.depth,
-    colour: state.configurator.colour,
-    price: state.configurator.price
-  };
-}
 
 class ProductsIndex extends React.Component {
 	handleClick (e)
@@ -24,25 +12,39 @@ class ProductsIndex extends React.Component {
 	}
 	render() {	
 		const {type} = this.props.match.params
-		const products = productsList
-		.filter((product) => {
+		const {products} = this.props;
+		const list = products.products
+		.filter(product => {
 			return product.type === type
 		})
-		.map((product, key) => 
-			<li key={product.id}><Link to={"/product_view"} onClick={this.handleClick(product.id)}>{product.type} {product.name}</Link></li>
-			// this needs to be made clicklable
-		);
-		
+		.map((product => 
+			(
+				<div key={product.id}>
+					<p>{product.type}</p>
+					<Link to={product.type + '/' + product.id}>
+						<p>{product.name}</p>
+					</Link>	
+				</div>
+			)
+		));		
 		return (
-			<div>
-				<ul>
-					{products}
-				</ul>	
-			</div>
+			<>
+				{list}
+			</>
 		)
 	}
 }
 
-
+const mapStateToProps = (state) => {
+	console.log(state)
+	return {
+		products: state.products,
+		height: state.configurator.height,
+    width: state.configurator.width,
+    depth: state.configurator.depth,
+    colour: state.configurator.colour,
+    price: state.configurator.price
+	}
+}
 
 export default connect(mapStateToProps)(ProductsIndex);

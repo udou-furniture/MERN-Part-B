@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import productsList from '../../productsList'
+// import productsList from '../../productsList'
 
 function mapStateToProps(state) {
   return {
@@ -73,7 +73,7 @@ class FormContainer extends React.Component {
               min={0.5}
               // max={this.props.max}
               max={3}
-              defaultValue={productsList[this.props.example].configurator.height}
+              defaultValue={this.props.height}
               value={this.props.height}
               step={0.1}
               onChange={e => {
