@@ -24,6 +24,13 @@ router.get('/reviews', (req, res) => {
 });
 
 // need to setup reviews end point for post when purchased is true
+router.get('/new-review', (req,res) => {
+    const query = {customerEmail: req.decoded.email}
+    const newReview = req.body.review
+
+    Order.findOneAndUpdate(query, {review: newReview})
+})
+
 
 router.get('/', verifyToken, (req,res) => {
     Order.find({customerEmail: req.decoded.email
@@ -47,9 +54,6 @@ router.get('/:_id', verifyToken, (req,res) => {
 router.post('/new-order', verifyToken, (req, res) => {
   const customerEmail = req.decoded.email;
   const {
-    purchased,
-    saved,
-    review,
     configuration: { height, width, depth, colour, price, furnitureType }
   } = req.body;
 
