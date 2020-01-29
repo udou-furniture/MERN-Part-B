@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Slider from './slider';
-import productsList from '../../productsList';
+// import productsList from '../../productsList';
 
 import axios from 'axios';
 
@@ -21,31 +21,32 @@ function mapStateToProps(state) {
 }
 
 class FormContainer extends React.Component {
-  getDefaultsfromID = e => {
-    var example;
+  // getDefaultsfromID = e => {
+  //   var example;
     
-    productsList.forEach(i => {
-      if (i.id === e) {
-        example = i;
-        console.log(`handle Click2 ${JSON.stringify(example)}`);
-        return example;
-      }
-    });
+  //   productsList.forEach(i => {
+  //     if (i.id === e) {
+  //       example = i;
+  //       console.log(`handle Click2 ${JSON.stringify(example)}`);
+  //       return example;
+  //     }
+  //   });
 
-    let exampleConfig = {
-      newHeight: example.configuration.height,
-      newWidth: example.configuration.width,
-      newDepth: example.configuration.depth,
-      newColour: example.configuration.colour
-    }
-    this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig })
+  //   let exampleConfig = {
+  //     newHeight: example.configuration.height,
+  //     newWidth: example.configuration.width,
+  //     newDepth: example.configuration.depth,
+  //     newColour: example.configuration.colour
+  //   }
+
+  //   this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig })
     
-    // this.setDefaultConfig(example);
-  };
-  componentDidMount = () =>
-  {
-    this.getDefaultsfromID(4)
-  }
+  //   // this.setDefaultConfig(example);
+  // };
+  // componentDidMount = () =>
+  // {
+  //   // this.getDefaultsfromID(4)
+  // }
   priceCalculator = () => {
     //this calculates the price based on the sliders and dispatches it to store.
     const price =

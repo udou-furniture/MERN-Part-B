@@ -115,21 +115,7 @@ class Viewer extends React.Component {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(width, height);
     this.el.appendChild(this.renderer.domElement); // mount using React ref
-    // let controls = new OrbitControls(this.camera, this.el);
-    // controls.width = width;
-    // controls.height = height;
-    // controls.update();
-
-    // function resizeRendererToDisplaySize(renderer) {
-    //   const canvas = renderer.domElement;
-    //   const width = canvas.clientWidth
-    //   const height = canvas.clientHeight
-    //   const needResize = canvas.width !== width || canvas.height !== height
-    //   if (needResize)
-    //   {
-    //     renderer.setSize(width, height, false)
-    //   }
-    // }
+    
   };
 
   addCustomSceneObjects = () => {
