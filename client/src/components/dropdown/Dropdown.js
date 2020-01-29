@@ -1,7 +1,8 @@
 import React from 'react';
 import './Dropdown.css';
 import { Link, Route } from 'react-router-dom';
-import ProductsIndex from '../pages/ProductsIndex';
+import ProductsIndex from '../../pages/ProductsIndex';
+import chevronIcon from './cheveron-down.svg';
 
 class Dropdown extends React.Component {
 	container = React.createRef();
@@ -37,7 +38,7 @@ class Dropdown extends React.Component {
 	render() {
 		return (
 			<div className="container" ref={this.container}>
-				<h3 className="button" onClick={this.handleButtonClick}>Dropdown prototype, click me!</h3>
+				<a className="chevron" onClick={this.handleButtonClick}>Shelves</a>
 				{this.state.open && (
 					<div className="dropdown">
 						<ul>

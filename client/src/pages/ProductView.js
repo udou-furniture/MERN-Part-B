@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../components/Dropdown'
+import Dropdown from '../components/dropdown/Dropdown'
 import Configurator from '../components/configurator/Configurator'
 import {connect} from 'react-redux'
 

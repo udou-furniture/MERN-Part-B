@@ -14,7 +14,7 @@ class CartIcon extends React.Component {
             <img src={icon} alt="Cart" />
           </div>
         </Link>
-        <p>You have {this.props.number} items in your cart</p>
+        {/* <span>{this.props.number}</span> */}
 			</div>	
     );
   }
