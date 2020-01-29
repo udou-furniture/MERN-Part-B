@@ -8,6 +8,8 @@ const app = express()
 
 app.use(express.json())
 
+mongoose.set('useFindAndModify', false);
+
 // heroku wont always use port 5000
 const PORT = process.env.PORT || 5000
 
