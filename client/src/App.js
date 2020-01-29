@@ -11,7 +11,8 @@ import ProductView from './pages/ProductView';
 import Show from './components/Show';
 import PrivateRoute from './components/PrivateRoute';
 import Cart from './components/cart/Cart';
-import ReviewPage from './pages/ReviewPage'
+import ReviewFormPage from './pages/ReviewFormPage'
+import AccountDashboard from './pages/AccountDashboard';
 
 class App extends React.Component {
     state = {
@@ -63,7 +64,8 @@ class App extends React.Component {
                         <Route path='/products/:type' component={ProductsIndex} />
 
                         <PrivateRoute exact path="/cart" component={Cart} authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn}/>
-                        <PrivateRoute exact path="/leave-review" component={ReviewPage} authed={this.state.authed}/>
+                        <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>
+                        <PrivateRoute exact path="/account" component={AccountDashboard} authed={this.state.authed}/>
                     </Switch>
                 </div>
                 </BrowserRouter> 
