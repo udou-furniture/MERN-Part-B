@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Slider from './slider';
+import productsList from '../../productsList';
 
 import axios from 'axios';
 
@@ -20,6 +21,31 @@ function mapStateToProps(state) {
 }
 
 class FormContainer extends React.Component {
+  getDefaultsfromID = e => {
+    var example;
+    
+    productsList.forEach(i => {
+      if (i.id === e) {
+        example = i;
+        console.log(`handle Click2 ${JSON.stringify(example)}`);
+        return example;
+      }
+    });
+
+    let exampleConfig = {
+      newHeight: example.configuration.height,
+      newWidth: example.configuration.width,
+      newDepth: example.configuration.depth,
+      newColour: example.configuration.colour
+    }
+    this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig })
+    
+    // this.setDefaultConfig(example);
+  };
+  componentDidMount = () =>
+  {
+    this.getDefaultsfromID(4)
+  }
   priceCalculator = () => {
     //this calculates the price based on the sliders and dispatches it to store.
     const price =
@@ -72,7 +98,7 @@ class FormContainer extends React.Component {
               // min={this.props.min}
               min={0.5}
               // max={this.props.max}
-              max={3}
+              max={5}
               // defaultValue={this.props.height}
               value={this.props.height}
               step={0.1}
@@ -92,7 +118,7 @@ class FormContainer extends React.Component {
             <Slider
               type="range"
               min={0.5}
-              max={3}
+              max={5}
               value={this.props.depth}
               step={0.1}
               onChange={e => {
@@ -111,7 +137,7 @@ class FormContainer extends React.Component {
             <Slider
               type="range"
               min={0.5}
-              max={3}
+              max={5}
               value={this.props.width}
               step={0.1}
               onChange={e => {

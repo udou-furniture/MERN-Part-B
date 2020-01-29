@@ -34,7 +34,7 @@ class ProductsIndex extends React.Component {
 			if (i.id === e)
 			{
       example = i
-      console.log(`handle Click2 ${example}`)
+      console.log(`handle Click2 ${JSON.stringify(example)}`)
 			return example
 			}
 		});
@@ -61,8 +61,8 @@ class ProductsIndex extends React.Component {
 			newDepth: example.configuration.depth,
 			newColour: example.configuration.colour	
 
-
     };
+
     console.log(example.configuration.height)
     this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig });
   };
@@ -77,21 +77,24 @@ class ProductsIndex extends React.Component {
       })
       .map(
         (product, key) => (
-          <li key={product.id}>
+          <li key={product.id}  >
+            {console.log(product.id)} 
             <Link to={product.type + '/' + product.id} >
               {product.type} {product.name}
             </Link>
           </li>
         )
         // this needs to be made clicklable
-        //{product.type + '/' + product.id}
+        //
         // onClick={this.handleClick(product.id)}
       );
 
     return (
       <div>
-        <ul>{products}</ul>
+        {console.log(products)}
+        <ul >{products}</ul>
       </div>
+      // maybe i could pass the params inside the div tag? defaultConfigId= {product.id} and then load this from the config page
     );
   }
 }
