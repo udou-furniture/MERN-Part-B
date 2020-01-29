@@ -33,7 +33,8 @@ class ProductsIndex extends React.Component {
 		{
 			if (i.id === e)
 			{
-			example = i
+      example = i
+      console.log(`handle Click2 ${example}`)
 			return example
 			}
 		});
@@ -62,12 +63,14 @@ class ProductsIndex extends React.Component {
 
 
     };
-
+    console.log(example.configuration.height)
     this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig });
   };
 
   render() {
     const { type } = this.props.match.params;
+    console.log(this.props)
+    console.log(`type: ${type}`);
     const products = productsList
       .filter(product => {
         return product.type === type;
@@ -75,12 +78,14 @@ class ProductsIndex extends React.Component {
       .map(
         (product, key) => (
           <li key={product.id}>
-            <Link to={'/product_view'} onClick={this.handleClick(product.id)}>
+            <Link to={product.type + '/' + product.id} >
               {product.type} {product.name}
             </Link>
           </li>
         )
         // this needs to be made clicklable
+        //{product.type + '/' + product.id}
+        // onClick={this.handleClick(product.id)}
       );
 
     return (
