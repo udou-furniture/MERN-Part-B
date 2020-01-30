@@ -8,11 +8,7 @@ class Item extends React.Component {
     this.props.removeFromCart(this.props);
 	};
 	
-	handleClick2 = () => {
-		//this needs to dispatch and send the object to the remove from cart action. 
-
-
-	}
+	
 
   render() {
 		const { type, name } = this.props;
@@ -33,7 +29,7 @@ class Item extends React.Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		removeFromCart: (id) => { dispatch({ type: 'REMOVE_FROM_CART', removeItem: id})}
+		removeFromCart: (i) => { dispatch({ type: 'REMOVE_FROM_CART', removeItem: i})}
 	}
 };
 
