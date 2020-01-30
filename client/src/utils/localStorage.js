@@ -5,3 +5,6 @@ export const setLocalStorageToken = (token) => {
 export const getLocalStorageToken = () => {
     return localStorage.getItem('authorisation')
 }
+
+// export default setLocalStorageToken
+// getLocalStorageToken

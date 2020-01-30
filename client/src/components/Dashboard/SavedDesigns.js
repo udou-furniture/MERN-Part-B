@@ -1,21 +1,21 @@
 import React from 'react'
 import axios from 'axios'
 
-import PurchaseTableRow from './PurchaseTableRow'
+import SavedTableRow from './SavedTableRow'
 
-import {getLocalStorageToken} from '../../utils/localStorage'
+import { getLocalStorageToken } from "../../utils/localStorage";
 
-class PurchaseHistory extends React.Component {
+class SavedDesigns extends React.Component {
     state = {
-        purchases: []
+        savedDesigns: []
     }
-    
+
     componentDidMount() {
         const token = getLocalStorageToken()
-        axios.get("http://localhost:5000/api/orders/my-orders", { headers: {
+        axios.get("http://localhost:5000/api/orders/my-saved-orders", { headers: {
             Authorisation: `Bearer ${token}`}})
         .then(response => {
-            this.setState({purchases: response.data})
+            this.setState({savedDesigns: response.data})
         })
         .catch(err => {
             console.log(err)
@@ -23,15 +23,15 @@ class PurchaseHistory extends React.Component {
     }
 
     mapTableData() {
-        return this.state.purchases.map(function(object, i){
-           return <PurchaseTableRow order={object} key={i} />
+        return this.state.savedDesigns.map(function(object, i){
+           return <SavedTableRow order={object} key={i} />
         })
     }
 
     render() {
         return(
             <>
-                <h1>Previously Purchased</h1>
+                <h1>My Saved Designs</h1>
                 <table>
                     <thead>
                         <tr>
@@ -47,4 +47,4 @@ class PurchaseHistory extends React.Component {
     }
 }
 
-export default PurchaseHistory
+export default SavedDesigns

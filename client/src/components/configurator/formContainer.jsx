@@ -34,33 +34,33 @@ class FormContainer extends React.Component {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
   };
 
-  handleSubmit = async e => {
-    // this should send the info from the form to the post orders end point.
+  // handleSubmit = async e => {
+  //   // this should send the info from the form to the post orders end point.
 
-    console.log(`button: ${this.props}`);
-    e.preventDefault(); // i think this prevents page refresh.
+  //   console.log(`button: ${this.props}`);
+  //   e.preventDefault(); // i think this prevents page refresh.
 
-    const newOrder = {
-      configuration: {
-        height: this.props.height,
-        width: this.props.width,
-        depth: this.props.depth,
-        colour: this.props.colour,
-        price: this.props.price,
-        furnitureType: 'custom'
-      }
-    };
-    try {
-      console.log(newOrder);
-      let response = await axios({
-        method: 'POST',
-        url: `/api/orders/new-order`,
-        data: newOrder
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //   const newOrder = {
+  //     configuration: {
+  //       height: this.props.height,
+  //       width: this.props.width,
+  //       depth: this.props.depth,
+  //       colour: this.props.colour,
+  //       price: this.props.price,
+  //       furnitureType: 'custom'
+  //     }
+  //   };
+  //   try {
+  //     console.log(newOrder);
+  //     let response = await axios({
+  //       method: 'POST',
+  //       url: `/api/orders/new-order`,
+  //       data: newOrder
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   render() {
     return (
@@ -170,9 +170,9 @@ class FormContainer extends React.Component {
             <div className="price-block">
             <div className="price-display">${this.priceCalculator()}</div>
             <h3>Price</h3>
-            <button onClick={this.handleSubmit} type="submit">
+            {/* <button onClick={this.handleSubmit} type="submit">
               Place Order
-            </button>
+            </button> */}
           </div>
           </div>
         </label>

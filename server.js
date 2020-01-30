@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 mongoose.connect(process.env.DB_URL, dbConfig, (err) => {
     if(err) {
-        console.log('error')
+        console.log('error connecting to mongo')
     } else {
         console.log('Connected to MongoDB')
     }

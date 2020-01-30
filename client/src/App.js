@@ -13,6 +13,8 @@ import PrivateRoute from './components/PrivateRoute';
 import Cart from './components/cart/Cart';
 import ReviewFormPage from './pages/ReviewFormPage'
 import AccountDashboard from './pages/AccountDashboard';
+import Checkout from './pages/Checkout';
+import Payment from './pages/Payment'
 
 class App extends React.Component {
     state = {
@@ -51,21 +53,30 @@ class App extends React.Component {
                 <div className="App">
                     <Navbar authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn} />
                     <Switch>
-                        <Route exact path='/' component={Home} />
+                        <Route exact path="/" component={Home} />
 
-                        <Route path='/registration' render={(props) => {
+                        <Route path="/registration" render={(props) => {
                             return <Registration isUserLoggedIn={this.isUserLoggedIn} {...props} />
                         }}  />
-                        <Route path='/login' render={(props) => {
+                        <Route path="/login" render={(props) => {
                             return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
                         }} />
                         {/* Order of the below two routes is important. Don't change without reason */}
-                        <Route path='/products/:type/:product_id' component={ProductView} />
-                        <Route path='/products/:type' component={ProductsIndex} />
+                        <Route path="/products/:type/:product_id" component={ProductView} />
+                        <Route path="/products/:type" component={ProductsIndex} />
+                        <Route path="/cart" render={(props) => {
+                            return <Cart authed={this.state.authed} {...props} />
+                        }} />
+                        {/* <Route path="/cart" component={Cart} authed={this.state.authed}/> */}
 
-                        <PrivateRoute exact path="/cart" component={Cart} authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn}/>
+                        {/* <PrivateRoute exact path="/cart" component={Cart} authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn}/> */}
                         <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>
                         <PrivateRoute exact path="/account" component={AccountDashboard} authed={this.state.authed}/>
+                        {/* <PrivateRoute path="/checkout" authed={this.state.authed} render={(props) => {
+                            return <Checkout isUserLoggedIn={this.isUserLoggedIn} {...props} />
+                        }} /> */}
+                        <PrivateRoute exact path="/checkout" component={Checkout} authed={this.state.authed} />
+                        <PrivateRoute exact path="/payment" component={Payment} authed={this.state.authed} />
                     </Switch>
                 </div>
                 </BrowserRouter> 
