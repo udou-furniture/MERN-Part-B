@@ -10,7 +10,7 @@ var OBJLoader = require('three-obj-loader');
 var MTLLoader = require('three-mtl-loader');
 var THREE = require('three');
 var OrbitControls = require('three-orbit-controls')(THREE);
-
+let myOBJ;
 OBJLoader(THREE);
 // MTLLoader(THREE);
 
@@ -29,7 +29,6 @@ class Viewer extends React.Component {
   //   const myOBJ
   //   myOBJ.bind(x)
   // };
-
 
   // setDefaultConfig = example => {
   //   // let example = e
@@ -85,14 +84,14 @@ class Viewer extends React.Component {
   }
 
   componentDidUpdate() {
-    // this.updateScale();
+    this.updateScale();
     // this.loadObject()
   }
 
   sceneSetup = () => {
     const width = this.el.clientWidth;
     const height = 500;
-console.log(this)
+    console.log(this);
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
       75, // fov = field of view
@@ -104,7 +103,7 @@ console.log(this)
     // set some distance from a cube that is located at z = 0
     this.camera.position.x = 0;
     this.camera.position.y = 0;
-    this.camera.position.z = 27;
+    this.camera.position.z = this.props.height*27;
 
     this.camera.aspect = width / height;
     this.renderer = new THREE.WebGLRenderer();
@@ -134,13 +133,13 @@ console.log(this)
   };
 
   updateScale = () => {
+    myOBJ = this.myOBJ;
     //these are coming back as undefined myOBJ - I wanna use a .bind somewhere.
-    console.log(this.myOBJ);
-    console.log(this);
-    this.myOBJ.scale.x = this.props.width;
+   
+    myOBJ.scale.x = this.props.width;
 
-    this.myOBJ.scale.y = this.props.height;
-    this.myOBJ.scale.z = this.props.depth;
+    myOBJ.scale.y = this.props.height;
+    myOBJ.scale.z = this.props.depth;
 
     switch (this.props.colour) {
       case 'Natural':
@@ -159,42 +158,44 @@ console.log(this)
         this.colourValue = 0xa6a6a6;
     }
 
-    this.myOBJ.material.forEach(item => {
+    myOBJ.material.forEach(item => {
       item.color.setHex(this.colourValue);
     });
   };
 
   loadObject = () => {
-    console.log('LOADING')
+    console.log('LOADING');
 
     const scene = this.scene;
-    
+
     let objLoader = new THREE.OBJLoader();
 
-   
-    objLoader.setPath('./');
+    myOBJ = this.myOBJ;
+    
+    objLoader.setPath('/');
     objLoader.load('./shelf-model.obj', object => {
       scene.add(object);
       object.scale.set(
         this.props.height / 100,
         this.props.width / 100,
         this.props.depth / 100
-        
       );
-      console.log("object", object)
-      console.log(this.props.height);
+      // console.log('object', object);
+      // console.log(this.props.height);
 
       this.myOBJ = object.children[0];
 
-      console.log(this.myOBJ);
+     
 
       object.children[0].material.forEach(item => {
         item.color.setHex(0xadf111);
       });
+     
 
-      console.log(`myOBJ:${JSON.stringify(this.myOBJ)}`);
-      console.log(object);
+      // console.log(`myOBJ:${JSON.stringify(this.myOBJ)}`);
+      // console.log(object);
     });
+    console.log(myOBJ)
   };
 
   resizeRendererToDisplaySize = renderer => {
@@ -214,6 +215,7 @@ console.log(this)
   };
 
   render() {
+    
     return <div className="viewer" ref={ref => (this.el = ref)} />;
   }
 }
