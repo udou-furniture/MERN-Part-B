@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Slider from './slider';
+// import productsList from '../../productsList';
 
 import axios from 'axios';
 
@@ -20,15 +21,48 @@ function mapStateToProps(state) {
 }
 
 class FormContainer extends React.Component {
+  // getDefaultsfromID = e => {
+  //   var example;
+    
+  //   productsList.forEach(i => {
+  //     if (i.id === e) {
+  //       example = i;
+  //       console.log(`handle Click2 ${JSON.stringify(example)}`);
+  //       return example;
+  //     }
+  //   });
+
+  //   let exampleConfig = {
+  //     newHeight: example.configuration.height,
+  //     newWidth: example.configuration.width,
+  //     newDepth: example.configuration.depth,
+  //     newColour: example.configuration.colour
+  //   }
+
+  //   this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig })
+    
+  //   // this.setDefaultConfig(example);
+  // };
+  // componentDidMount = () =>
+  // {
+  //   // this.getDefaultsfromID(4)
+  // }
   priceCalculator = () => {
     //this calculates the price based on the sliders and dispatches it to store.
     const price =
       this.props.width * this.props.depth * this.props.height * 1000;
 
-    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price });
+    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price.toFixed() });
 
-    return price;
+    return price.toFixed();
   };
+
+  displayNumber = (num) =>
+  {
+    let result = num * 100
+    return result.toFixed(2)
+
+  }
 
   handleOptionChange = e => {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
@@ -50,16 +84,8 @@ class FormContainer extends React.Component {
         furnitureType: 'custom'
       }
     };
-    try {
-      console.log(newOrder);
-      let response = await axios({
-        method: 'POST',
-        url: `/api/orders/new-order`,
-        data: newOrder
-      });
-    } catch (error) {
-      console.log(error);
-    }
+   
+    this.props.dispatch({type: "ADD_TO_CART_2", configuration: newOrder.configuration})
   };
 
   render() {
@@ -72,8 +98,8 @@ class FormContainer extends React.Component {
               // min={this.props.min}
               min={0.5}
               // max={this.props.max}
-              max={3}
-              defaultValue={this.props.height}
+              max={5}
+              // defaultValue={this.props.height}
               value={this.props.height}
               step={0.1}
               onChange={e => {
@@ -85,14 +111,14 @@ class FormContainer extends React.Component {
             />
             <div className="slider-label">
               <h3>Height</h3>
-              <p>{this.props.height * 120} cm</p>
+              <p>{this.displayNumber(this.props.height)} cm</p>
             </div>
           </label>
           <label>
             <Slider
               type="range"
-              min={0.5}
-              max={3}
+              min={0.3}
+              max={0.6}
               value={this.props.depth}
               step={0.1}
               onChange={e => {
@@ -104,14 +130,14 @@ class FormContainer extends React.Component {
             />
             <div className="slider-label">
               <h3>Depth</h3>
-              <p>{this.props.depth * 40} cm</p>
+              <p>{this.displayNumber(this.props.depth)} cm</p>
             </div>
           </label>
           <label>
             <Slider
               type="range"
               min={0.5}
-              max={3}
+              max={5}
               value={this.props.width}
               step={0.1}
               onChange={e => {
@@ -123,7 +149,7 @@ class FormContainer extends React.Component {
             />
             <div className="slider-label">
               <h3>Width</h3>
-              <p>{this.props.width * 120} cm</p>
+              <p>{this.displayNumber(this.props.width)} cm</p>
             </div>
           </label>
         </div>
@@ -171,7 +197,7 @@ class FormContainer extends React.Component {
             <div className="price-display">${this.priceCalculator()}</div>
             <h3>Price</h3>
             <button onClick={this.handleSubmit} type="submit">
-              Place Order
+              Add To Cart 2
             </button>
           </div>
           </div>
