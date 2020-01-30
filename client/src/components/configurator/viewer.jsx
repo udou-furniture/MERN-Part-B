@@ -14,10 +14,8 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 OBJLoader(THREE);
 // MTLLoader(THREE);
 
-
-
 function mapStateToProps(state) {
-  console.log('viewer', state)
+  console.log('viewer', state);
   return {
     height: state.configurator.height,
     width: state.configurator.width,
@@ -26,15 +24,15 @@ function mapStateToProps(state) {
   };
 }
 
-
 class Viewer extends React.Component {
-  createOBJ = () =>
-  {
-    this.myOBJ = {}
-  }
+  // createOBJ = (x) => {
+  //   const myOBJ
+  //   myOBJ.bind(x)
+  // };
+
+
   // setDefaultConfig = example => {
   //   // let example = e
-    
 
   //   let exampleConfig = {
   //     newHeight: example.configuration.height,
@@ -45,12 +43,12 @@ class Viewer extends React.Component {
 
   //   console.log(example.configuration.height);
   //   this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig });
-    
+
   // };
 
   getDefaultsfromID = e => {
     var example;
-    
+
     productsList.forEach(i => {
       if (i.id === e) {
         example = i;
@@ -64,40 +62,37 @@ class Viewer extends React.Component {
       newWidth: example.configuration.width,
       newDepth: example.configuration.depth,
       newColour: example.configuration.colour
-    }
-    this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig })
-    
+    };
+    this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig });
+
     // this.setDefaultConfig(example);
   };
 
   componentDidMount() {
-    this.createOBJ()
+    // this.createOBJ();
     // this.getDefaultsfromID(4);
-    
-    
+
     this.sceneSetup();
-    
+
     this.addCustomSceneObjects();
-    
+
     this.startAnimationLoop();
-    
+
     this.setControls();
-    
-    
+
     this.loadObject();
-    console.log('object Load');
+    console.log('object Loaded');
   }
 
   componentDidUpdate() {
-    
-    this.updateScale();
+    // this.updateScale();
     // this.loadObject()
   }
 
   sceneSetup = () => {
     const width = this.el.clientWidth;
     const height = 500;
-
+console.log(this)
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
       75, // fov = field of view
@@ -115,7 +110,6 @@ class Viewer extends React.Component {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(width, height);
     this.el.appendChild(this.renderer.domElement); // mount using React ref
-    
   };
 
   addCustomSceneObjects = () => {
@@ -140,8 +134,9 @@ class Viewer extends React.Component {
   };
 
   updateScale = () => {
+    //these are coming back as undefined myOBJ - I wanna use a .bind somewhere.
     console.log(this.myOBJ);
-    console.log(this)
+    console.log(this);
     this.myOBJ.scale.x = this.props.width;
 
     this.myOBJ.scale.y = this.props.height;
@@ -170,11 +165,13 @@ class Viewer extends React.Component {
   };
 
   loadObject = () => {
-    const scene = this.scene;
+    console.log('LOADING')
 
+    const scene = this.scene;
+    
     let objLoader = new THREE.OBJLoader();
 
-    console.log(objLoader);
+   
     objLoader.setPath('./');
     objLoader.load('./shelf-model.obj', object => {
       scene.add(object);
@@ -182,10 +179,15 @@ class Viewer extends React.Component {
         this.props.height / 100,
         this.props.width / 100,
         this.props.depth / 100
+        
       );
+      console.log("object", object)
       console.log(this.props.height);
+
       this.myOBJ = object.children[0];
-      console.log(this)
+
+      console.log(this.myOBJ);
+
       object.children[0].material.forEach(item => {
         item.color.setHex(0xadf111);
       });
@@ -193,7 +195,6 @@ class Viewer extends React.Component {
       console.log(`myOBJ:${JSON.stringify(this.myOBJ)}`);
       console.log(object);
     });
-    
   };
 
   resizeRendererToDisplaySize = renderer => {

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { render } from 'react-dom';
 
+
 function mapStateToProps(state) {
   return {
     height: state.configurator.height,
@@ -14,24 +15,20 @@ function mapStateToProps(state) {
   };
 }
 
+
 class ProductsIndex extends React.Component {
-  handleClick(e) {
-    // this function needs to dispatch the id for the product.
-    console.log(`handle click ${JSON.stringify(e)}`);
-    // let example = productsList[e-1]
-		// console.log(example)
-		// let example =		productsList.forEach((i) => 
-		// {
-		// 	if (i.id === e)
-		// 	{
-		// 	return i
-		// 	}
-		// });
+  handleClick(id, e) {
+
+    // this function takes the id number that was passed through with the menu list item that was created and finds the item in the productsList array that matches it. 
+    console.log(`handle click`, e);
+    console.log(id)
+    
+    
 		var example
 		console.log(productsList)
 		productsList.forEach((i) => 
 		{
-			if (i.id === e)
+			if (i.id === id)
 			{
       example = i
       console.log(`handle Click2 ${JSON.stringify(example)}`)
@@ -43,16 +40,11 @@ class ProductsIndex extends React.Component {
 
 
     this.setDefaultConfig(example);
-    // this.props.dispatch({ type: 'UPDATE_EXAMPLE', newExample: example});
-    // // this.props.dispatch();
-    // this.props.dispatch({
-    //   type: 'UPDATE_HEIGHT',
-    //   newHeight: productsList[e].configuration.height,
-    // });
+  
   }
 
   setDefaultConfig = example => {
-		// let example = e
+		
 		console.log(example)
 
     let exampleConfig = {
@@ -67,6 +59,7 @@ class ProductsIndex extends React.Component {
     this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig });
   };
 
+
   render() {
     const { type } = this.props.match.params;
     console.log(this.props)
@@ -79,14 +72,12 @@ class ProductsIndex extends React.Component {
         (product, key) => (
           <li key={product.id}  >
             {console.log(product.id)} 
-            <Link to={product.type + '/' + product.id} >
+            <Link to={product.type + '/' + product.id} onClick={(e) => this.handleClick(product.id, e)}>
               {product.type} {product.name}
             </Link>
           </li>
         )
-        // this needs to be made clicklable
-        //
-        // onClick={this.handleClick(product.id)}
+        
       );
 
     return (

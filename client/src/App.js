@@ -58,9 +58,13 @@ class App extends React.Component {
                             return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
                         }} />
 
-                        {/* <Route path='/products_index' component={ProductsIndex} /> */}
+                        {/* <Route path='/products_index' component={ProductsIndex} />
                         <Route path='/products/:type' component={ProductsIndex} />
-                        <Route path='/product_view' component={ProductView} />
+                        <Route path='/product_view' component={ProductView} /> */}
+
+                        {/* Order of the below two routes is important. Don't change without reason */}
+                        <Route path='/products/:type/:product_id' component={ProductView} />
+                        <Route path='/products/:type' component={ProductsIndex} />
 
                         <PrivateRoute exact path="/shopping" component={ShoppingCartPage} authed={this.state.authed}/>
                     </Switch>

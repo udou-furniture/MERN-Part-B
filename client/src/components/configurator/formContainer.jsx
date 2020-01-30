@@ -131,7 +131,7 @@ class FormContainer extends React.Component {
             />
             <div className="slider-label">
               <h3>Depth</h3>
-              <p>{this.props.depth * 40} cm</p>
+              <p>{this.props.depth * 50} cm</p>
             </div>
           </label>
           <label>
