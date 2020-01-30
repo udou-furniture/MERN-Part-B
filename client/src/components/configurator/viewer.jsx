@@ -177,7 +177,7 @@ class Viewer extends React.Component {
       scene.add(object);
       object.scale.set(
         this.props.height / 100,
-        this.props.width / 100,
+        this.props.width / 150,
         this.props.depth / 100
       );
       // console.log('object', object);
