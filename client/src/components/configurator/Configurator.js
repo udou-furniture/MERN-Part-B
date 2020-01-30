@@ -50,7 +50,7 @@ class Configurator extends React.Component {
   // store = createStore(this.reducer);
 
   render() {
-
+{console.log('heeeellllloooo', this.props)}
     return (
       
         <div className='config-container'>
