@@ -58,7 +58,7 @@ class FormContainer extends React.Component {
     };
 
     this.props.dispatch({
-      type: 'ADD_TO_CART_3',
+      type: 'ADD_TO_CART',
       newConfiguration: newOrder
     });
   };
