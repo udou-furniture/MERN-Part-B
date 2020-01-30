@@ -21,32 +21,6 @@ function mapStateToProps(state) {
 }
 
 class FormContainer extends React.Component {
-  // getDefaultsfromID = e => {
-  //   var example;
-    
-  //   productsList.forEach(i => {
-  //     if (i.id === e) {
-  //       example = i;
-  //       console.log(`handle Click2 ${JSON.stringify(example)}`);
-  //       return example;
-  //     }
-  //   });
-
-  //   let exampleConfig = {
-  //     newHeight: example.configuration.height,
-  //     newWidth: example.configuration.width,
-  //     newDepth: example.configuration.depth,
-  //     newColour: example.configuration.colour
-  //   }
-
-  //   this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig })
-    
-  //   // this.setDefaultConfig(example);
-  // };
-  // componentDidMount = () =>
-  // {
-  //   // this.getDefaultsfromID(4)
-  // }
   priceCalculator = () => {
     //this calculates the price based on the sliders and dispatches it to store.
     const price =
@@ -57,12 +31,10 @@ class FormContainer extends React.Component {
     return price.toFixed();
   };
 
-  displayNumber = (num) =>
-  {
-    let result = num * 100
-    return result.toFixed(2)
-
-  }
+  displayNumber = num => {
+    let result = num * 100;
+    return result.toFixed(2);
+  };
 
   handleOptionChange = e => {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
@@ -84,8 +56,11 @@ class FormContainer extends React.Component {
         furnitureType: 'custom'
       }
     };
-   
-    this.props.dispatch({type: "ADD_TO_CART_2", configuration: newOrder.configuration})
+
+    this.props.dispatch({
+      type: 'ADD_TO_CART_3',
+      newConfiguration: newOrder
+    });
   };
 
   render() {
@@ -192,14 +167,14 @@ class FormContainer extends React.Component {
           </div>
         </label>
         <label>
-          <div className="form-block" >
+          <div className="form-block">
             <div className="price-block">
-            <div className="price-display">${this.priceCalculator()}</div>
-            <h3>Price</h3>
-            <button onClick={this.handleSubmit} type="submit">
-              Add To Cart 2
-            </button>
-          </div>
+              <div className="price-display">${this.priceCalculator()}</div>
+              <h3>Price</h3>
+              <button onClick={this.handleSubmit} type="submit">
+                Add To Cart 2
+              </button>
+            </div>
           </div>
         </label>
       </form>
