@@ -1,58 +1,47 @@
 import React from 'react';
-import { connect } from 'react-redux';
-// import { render } from 'react-dom';
 import axios from 'axios';
-// import { reviewTest } from '../../test-db';
+
+import { connect } from 'react-redux';
 
 import ReviewCard from './ReviewCard';
 
 function mapStateToProps(state) {
     return {
-        // This is an array of order objects.
         reviews: state.review.reviews
     };
 }
 
 class CardIndex extends React.Component {
-    setReviews = e => {
-        this.props.dispatch({ type: 'UPDATE_REVIEWS', newReviews: e });
-    };
+    componentDidMount() {
+        this.getReviews();
+    }
 
     getReviews = async () => {
         try {
-        let response = await axios({
-            method: 'GET',
-            url: `/api/orders/reviews`
-        });
-        // console.log(`response.data:${response.data}`);
-        this.setReviews(response.data);
+            let response = await axios.get('http://localhost:3000/api/orders/reviews');
+        
+            this.setReviews(response.data);
         } catch (err) {
             console.log(err);
         }
     };
 
-    // getReviews2 = () => {
-    //     this.setReviews(reviewTest);
-    // };
-
-    componentDidMount() {
-        this.getReviews();
-    }
+    setReviews = e => {
+        this.props.dispatch({ type: 'UPDATE_REVIEWS', newReviews: e })
+    };
 
     createArray = item => {
         return item.map(i => {
             const review = i.review;
-            // return <ReviewCard key={i.id} review={review} email={i.customerEmail} />;
+            return <ReviewCard key={i.id} review={review} email={i.customerEmail} />;
         });
     };
 
     render() {
         return (
-        <div className="card-index">
-            {this.createArray(this.props.reviews).map(reviewCard => {
-                return reviewCard;
-            })}
-        </div>
+            <div>
+                {this.createArray(this.props.reviews)}
+            </div>
         );
     }
 }
