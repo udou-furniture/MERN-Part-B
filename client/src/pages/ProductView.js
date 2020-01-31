@@ -7,41 +7,35 @@ import CardSection from '../components/payments/cardSection'
 
 
 const mapStateToProps = (state) => {
-  return {
-    height: state.configurator.height,
-    width: state.configurator.width,
-    depth: state.configurator.depth,
-    colour: state.configurator.colour,
-    price: state.configurator.price,
-    type: state.order.type,
-    name: state.order.name,
-  };
-
+    return {
+        height: state.configurator.height,
+        width: state.configurator.width,
+        depth: state.configurator.depth,
+        colour: state.configurator.colour,
+        price: state.configurator.price,
+        type: state.order.type,
+        name: state.order.name,
+    };
 };
 
 class ProductView extends React.Component {
-componentDidMount = () =>
-{
-
-
-}
-
-  render() {
-    return (
-      <div className="product-page-wrapper">
-        <h4>{this.props.colour} {this.props.type}</h4>
-        <p>{this.props.name}</p>
-        <Dropdown />
-        <Configurator />
-        {/* <CardSection /> */}
-        
-      </div>
-    );
+  componentDidMount = () => {
+    
   }
+  
+    render() {
+        return (
+            <div className="product-page-wrapper">
+                <h4>{this.props.colour} {this.props.type}</h4>
+                <p>{this.props.name}</p>
+                <Dropdown />
+                <Configurator />
+            </div>
+        );
+    };
 }
+
 
 
 
 export default connect(mapStateToProps)(ProductView);
-
-

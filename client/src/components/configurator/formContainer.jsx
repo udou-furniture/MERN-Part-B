@@ -4,16 +4,16 @@ import Slider from './slider';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
-  return {
-    name: state.order.name,
-    type: state.order.type,
-    height: state.configurator.height,
-    width: state.configurator.width,
-    depth: state.configurator.depth,
-    colour: state.configurator.colour,
-    price: state.configurator.price,
-    example: state.configurator.example
-  };
+    return {
+        name: state.order.name,
+        type: state.order.type,
+        height: state.configurator.height,
+        width: state.configurator.width,
+        depth: state.configurator.depth,
+        colour: state.configurator.colour,
+        price: state.configurator.price,
+        example: state.configurator.example
+    };
 }
 
 class FormContainer extends React.Component {
@@ -36,6 +36,7 @@ class FormContainer extends React.Component {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
   };
 
+
   handleSubmit = async e => {
     //   // this should send the info from the form to the post orders end point.
     e.preventDefault(); // i think this prevents page refresh.
@@ -49,6 +50,14 @@ class FormContainer extends React.Component {
         furnitureType: 'custom'
       }
     };
+    // this.props.dispatch({
+    //   type: 'UPDATE_TYPE',
+    //   newType: 'something that is passes from the config'
+    // })
+    // this.props.dispatch({
+    //   type: 'UPDATE_name',
+    //   newName: 'something that is passes from the config'
+    // })
 
     this.props.dispatch({
       type: 'ADD_TO_CART',

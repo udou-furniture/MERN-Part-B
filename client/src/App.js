@@ -54,74 +54,36 @@ class App extends React.Component {
     } else {
       return (
         <BrowserRouter>
-          <div className="App">
-            <Navbar
-              authed={this.state.authed}
-              isUserLoggedIn={this.isUserLoggedIn}
-            />
-            <Switch>
-              <Route exact path="/" component={Home} />
+                <div className="App">
+                    <Navbar authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn} />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
 
-              <Route
-                path="/registration"
-                render={props => {
-                  return (
-                    <Registration
-                      isUserLoggedIn={this.isUserLoggedIn}
-                      {...props}
-                    />
-                  );
-                }}
-              />
-              <Route
-                path="/login"
-                render={props => {
-                  return (
-                    <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
-                  );
-                }}
-              />
+                        <Route path="/registration" render={(props) => {
+                            return <Registration isUserLoggedIn={this.isUserLoggedIn} {...props} />
+                        }}  />
+                        <Route path="/login" render={(props) => {
+                            return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
+                        }} />
+                        {/* Order of the below two routes is important. Don't change without reason */}
+                        <Route path="/products/:type/:product_id" component={ProductView} />
+                        <Route path="/products/:type" component={ProductsIndex} />
 
-              {/* Order of the below two routes is important. Don't change without reason */}
-              <Route
-                path="/products/:type/:product_id"
-                component={ProductView}
-              />
-              <Route path="/products/:type" component={ProductsIndex} />
-              {/* <Route path="/cart" component={Cart} /> */}
-              {/* please don't delete this route. We still need it for the the vanilla configurator that links from the navbar.  */}
-              <Route
-                path="/product_view"
-                component={ProductView}
-                type={'custom'}
-                name={'Shelf'}
-              />
+                        <Route path="/cart" render={(props) => {
+                            return <Cart authed={this.state.authed} {...props} />
+                        }} />
 
-              <PrivateRoute
-                exact
-                path="/cart"
-                component={Cart}
-                authed={this.state.authed}
-                isUserLoggedIn={this.isUserLoggedIn}
-              />
-              <PrivateRoute
-                exact
-                path="/leave-review/:orderID"
-                component={ReviewFormPage}
-                authed={this.state.authed}
-              />
-              <PrivateRoute
-                exact
-                path="/account"
-                component={AccountDashboard}
-                authed={this.state.authed}
-              />
-            </Switch>
-          </div>
-        </BrowserRouter>
-      );
-    }
-  }
+                        <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />
+                        
+                        <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>
+                        <PrivateRoute exact path="/account" component={AccountDashboard} authed={this.state.authed}/>
+                        <PrivateRoute exact path="/checkout" component={Checkout} authed={this.state.authed} />
+                        <PrivateRoute exact path="/payment" component={Payment} authed={this.state.authed} />
+                    </Switch>
+                </div>
+         </BrowserRouter> 
+     );
+   }
 }
 
 export default App;

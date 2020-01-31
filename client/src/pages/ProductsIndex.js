@@ -46,24 +46,27 @@ class ProductsIndex extends React.Component {
 
   setDefaultConfig = example => {
     console.log(example);
-
-    let exampleConfig = {
-      newHeight: example.configuration.height,
-      newWidth: example.configuration.width,
-      newDepth: example.configuration.depth,
-      newColour: example.configuration.colour
-    };
-    this.props.dispatch({
-      type: 'UPDATE_TYPE',
-      newType: example.type
-    });
-
-    this.props.dispatch({
-      type: 'UPDATE_NAME',
-      newName: example.name
-    });
-    console.log(example.configuration.height);
-    this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig });
+        let exampleConfig = {
+            newHeight: example.configuration.height,
+            newWidth: example.configuration.width,
+            newDepth: example.configuration.depth,
+            newColour: example.configuration.colour	
+        };
+        // console.log(example.configuration.height)
+        this.props.dispatch({
+            type: 'UPDATE_TYPE',
+            newType: example.type
+        });
+      
+        this.props.dispatch({
+            type: 'UPDATE_NAME',
+            newName: example.name
+        });
+          
+        this.props.dispatch({ 
+            type: 'SET_DEFAULTS', 
+            exampleConfig 
+        });
   };
 
   render() {
