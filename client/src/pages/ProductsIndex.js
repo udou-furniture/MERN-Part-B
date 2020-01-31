@@ -59,7 +59,7 @@ class ProductsIndex extends React.Component {
     });
 
     this.props.dispatch({
-      type: 'UPDATE_name',
+      type: 'UPDATE_NAME',
       newName: example.name
     });
     console.log(example.configuration.height);

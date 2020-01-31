@@ -19,12 +19,16 @@ const mapStateToProps = (state) => {
 };
 
 class ProductView extends React.Component {
+componentDidMount = () =>
+{
 
+
+}
 
   render() {
     return (
       <div className="product-page-wrapper">
-        <h4>{this.props.type}</h4>
+        <h4>{this.props.colour} {this.props.type}</h4>
         <p>{this.props.name}</p>
         <Dropdown />
         <Configurator />
