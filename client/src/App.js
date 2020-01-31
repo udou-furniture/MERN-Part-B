@@ -90,6 +90,9 @@ class App extends React.Component {
               />
               <Route path="/products/:type" component={ProductsIndex} />
               {/* <Route path="/cart" component={Cart} /> */}
+              {/* please don't delete this route. We still need it for the the vanilla configurator that links from the navbar.  */}
+              <Route path="/product_view" component={ProductView} />
+
               <PrivateRoute
                 exact
                 path="/cart"

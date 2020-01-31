@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
+    name: state.order.name,
+    type: state.order.type,
     height: state.configurator.height,
     width: state.configurator.width,
     depth: state.configurator.depth,
@@ -59,8 +61,18 @@ class FormContainer extends React.Component {
 
     this.props.dispatch({
       type: 'ADD_TO_CART',
-      newConfiguration: newOrder
+      newConfiguration: newOrder,
+      newType: this.props.type,
+      newName: this.props.name,
     });
+    // this.props.dispatch({
+    //   type: 'UPDATE_TYPE',
+    //   newType: 'something that is passes from the config'
+    // })
+    // this.props.dispatch({
+    //   type: 'UPDATE_name',
+    //   newName: 'something that is passes from the config'
+    // })
   };
 
   render() {

@@ -12,6 +12,7 @@ class Item extends React.Component {
 
   render() {
 		const { type, name } = this.props;
+		console.log('item', this.props)
 		return (
 			<div>
 				<h4>{type}</h4>
