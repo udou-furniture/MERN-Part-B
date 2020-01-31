@@ -58,21 +58,6 @@ export const reviewTest = [
       "price": "100",
       "furnitureType": "Bookshelf"
     }
-  },
-  {
-    "id": 5,
-    "purchased": true,
-    "saved": true,
-    "review": "What a super Lovely Cabinet 5",
-    "customerEmail": "test@test5",
-    "configuration": {
-      "height": 1,
-      "width": 1,
-      "depth": 0.5,
-      "colour": "black",
-      "price": "100",
-      "furnitureType": "Bookshelf"
-    }
   }
 ]
 

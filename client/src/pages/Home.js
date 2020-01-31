@@ -5,6 +5,7 @@ import  {reviewTest} from '../test-db';
 import CardIndex from '../components/reviews/CardIndex';
 import Hero from '../components/Hero';
 import About from '../components/About';
+import Dashboard from '../components/modal/Dashboard';
 import Footer from '../components/footer/Footer';
 
 class Home extends React.Component {

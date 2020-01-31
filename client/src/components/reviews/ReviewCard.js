@@ -5,10 +5,9 @@ import { render } from 'react-dom';
 class ReviewCard extends React.Component {
   render() {
     return (
-      <div id="review-card" class="grid" key={this.props.id}>
-        <ul>
-          <li> {this.props.email} <br/> {this.props.review}</li>
-        </ul>
+      <div className="review-card" key={this.props.id}>
+        <p>{this.props.email}</p>
+        <p>{this.props.review}</p>
       </div>
     );
   }
