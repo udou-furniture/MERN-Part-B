@@ -10,9 +10,9 @@ class PurchaseHistory extends React.Component {
         purchases: []
     }
     
-    componentDidMount() {
+    async componentDidMount() {
         const token = getLocalStorageToken()
-        axios.get("http://localhost:5000/api/orders/my-orders", { headers: {
+        await axios.get("http://localhost:5000/api/orders/my-orders", { headers: {
             Authorisation: `Bearer ${token}`}})
         .then(response => {
             this.setState({purchases: response.data})
