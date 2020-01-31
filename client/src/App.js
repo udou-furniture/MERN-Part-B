@@ -11,49 +11,49 @@ import ProductView from './pages/ProductView';
 import ReviewFormPage from './pages/ReviewFormPage';
 import AccountDashboard from './pages/AccountDashboard';
 import Checkout from './pages/Checkout';
-import Payment from './pages/Payment'
+import Payment from './pages/Payment';
 
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import Cart from './components/cart/Cart';
 
 class App extends React.Component {
-    state = {
-        authed: false,
-        loading: true
-    };
+  state = {
+    authed: false,
+    loading: true
+  };
 
-    componentDidMount() {
-        this.isUserLoggedIn();
-    }
+  componentDidMount() {
+    this.isUserLoggedIn();
+  }
 
-    isUserLoggedIn = async () => {
-        try {
-            const token = localStorage.getItem('authorisation');
-            await axios.get('http://localhost:5000/api/customer/check-token', {
-                headers: {
-                Authorisation: `Bearer ${token}`
-                }
-            });
-
-            this.setState({
-                authed: true,
-                loading: false
-            });
-        } catch (err) {
-            this.setState({
-                authed: false,
-                loading: false
-            });
+  isUserLoggedIn = async () => {
+    try {
+      const token = localStorage.getItem('authorisation');
+      await axios.get('http://localhost:5000/api/customer/check-token', {
+        headers: {
+          Authorisation: `Bearer ${token}`
         }
-    };
+      });
 
-    render() {
-        if(this.state.loading) {
-            return null 
-        } else {
-            return(
-                <BrowserRouter>
+      this.setState({
+        authed: true,
+        loading: false
+      });
+    } catch (err) {
+      this.setState({
+        authed: false,
+        loading: false
+      });
+    }
+  };
+
+  render() {
+    if (this.state.loading) {
+      return null;
+    } else {
+      return (
+        <BrowserRouter>
                 <div className="App">
                     <Navbar authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn} />
                     <Switch>
@@ -81,10 +81,9 @@ class App extends React.Component {
                         <PrivateRoute exact path="/payment" component={Payment} authed={this.state.authed} />
                     </Switch>
                 </div>
-                </BrowserRouter> 
-            );
-        }
-    }
+         </BrowserRouter> 
+     );
+   }
 }
 
 export default App;

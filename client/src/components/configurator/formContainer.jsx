@@ -17,45 +17,38 @@ function mapStateToProps(state) {
 }
 
 class FormContainer extends React.Component {
-    priceCalculator = () => {
+  priceCalculator = () => {
     //this calculates the price based on the sliders and dispatches it to store.
-        const price =
-            this.props.width * this.props.depth * this.props.height * 1000;
+    const price =
+      this.props.width * this.props.depth * this.props.height * 1000;
 
-        this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price.toFixed() });
+    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price.toFixed() });
 
-        return price.toFixed();
-    };
+    return price.toFixed();
+  };
 
-    displayNumber = num => {
-        let result = num * 100;
-        return result.toFixed(2);
-    };
+  displayNumber = num => {
+    let result = num * 100;
+    return result.toFixed(2);
+  };
 
-    handleOptionChange = e => {
-        this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
-    };
+  handleOptionChange = e => {
+    this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
+  };
 
-    handleSubmit = async e => {
-     //   // this should send the info from the form to the post orders end point.
-      e.preventDefault(); // i think this prevents page refresh.
-        const newOrder = {
-            configuration: {
-                height: this.props.height,
-                width: this.props.width,
-                depth: this.props.depth,
-                colour: this.props.colour,
-                price: this.props.price,
-                furnitureType: 'custom'
-            }
-        };
 
-        this.props.dispatch({
-        type: 'ADD_TO_CART',
-        newConfiguration: newOrder,
-        newType: this.props.type,
-        newName: this.props.name,
-        });
+  handleSubmit = async e => {
+    //   // this should send the info from the form to the post orders end point.
+    e.preventDefault(); // i think this prevents page refresh.
+    const newOrder = {
+      configuration: {
+        height: this.props.height,
+        width: this.props.width,
+        depth: this.props.depth,
+        colour: this.props.colour,
+        price: this.props.price,
+        furnitureType: 'custom'
+      }
     };
     // this.props.dispatch({
     //   type: 'UPDATE_TYPE',
@@ -65,6 +58,14 @@ class FormContainer extends React.Component {
     //   type: 'UPDATE_name',
     //   newName: 'something that is passes from the config'
     // })
+
+    this.props.dispatch({
+      type: 'ADD_TO_CART',
+      newConfiguration: newOrder,
+      newType: this.props.type,
+      newName: this.props.name
+    });
+  };
 
   render() {
     return (

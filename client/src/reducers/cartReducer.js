@@ -1,15 +1,12 @@
-
-
-const cartReducer = (state = {items: []}, action) => {
- 
+const cartReducer = (state = { items: [] }, action) => {
   let newState = {};
-  
+
   switch (action.type) {
-  
-	   case 'REMOVE_FROM_CART':
-			 // this needs to isolate cart that matches item in array. 
-			const newCart = state.items.filter(item => item.configuration !== action.removeItem.configuration);
-		
+    case 'REMOVE_FROM_CART':
+      // this needs to isolate cart that matches item in array.
+      const newCart = state.items.filter(
+        item => item.configuration !== action.removeItem.configuration
+      );
 
       newState = { ...state, items: newCart };
       break;
@@ -21,13 +18,12 @@ const cartReducer = (state = {items: []}, action) => {
         configuration: action.newConfiguration
       };
       newState = { ...state, items: state.items.concat(newProduct) };
-			break;
-		
+      break;
 
     default:
       newState = { ...state };
   }
- 
+
   return newState;
 };
 
