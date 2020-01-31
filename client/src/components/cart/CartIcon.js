@@ -22,7 +22,7 @@ class CartIcon extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    number: state.cart.cart.length
+    number: state.cart.items.length
   };
 };
 

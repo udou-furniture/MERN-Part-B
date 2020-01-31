@@ -41,9 +41,9 @@ class Cart extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        items: state.cart.cart 
-    };
+  return {
+    items: state.cart.items
+  };
 };
 
 export default connect(mapStateToProps)(Cart);

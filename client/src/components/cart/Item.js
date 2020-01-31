@@ -7,7 +7,7 @@ import {getLocalStorageToken} from '../../utils/localStorage'
 class Item extends React.Component {
 	
     handleRemoveCartClick = () => {
-        this.props.removeFromCart(this.props.id);
+        this.props.removeFromCart(this.props);
     };
 
     checkAuthedForSaveDesign = () => {
@@ -51,9 +51,13 @@ class Item extends React.Component {
     }
 }
 
+
+
+
+
 const mapDispatchToProps = dispatch => {
 	return {
-		removeFromCart: (id) => { dispatch({ type: 'REMOVE_FROM_CART', id: id})}
+		removeFromCart: (id) => { dispatch({ type: 'REMOVE_FROM_CART', removeItem: id})}
 	}
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import axios from 'axios'
-import './OOCSS.css'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
+import './OOCSS.css';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
@@ -11,38 +11,41 @@ import ProductView from './pages/ProductView';
 import Show from './components/Show';
 import PrivateRoute from './components/PrivateRoute';
 import Cart from './components/cart/Cart';
-import ReviewFormPage from './pages/ReviewFormPage'
+import ReviewFormPage from './pages/ReviewFormPage';
 import AccountDashboard from './pages/AccountDashboard';
 import Checkout from './pages/Checkout';
 import Payment from './pages/Payment'
 
 class App extends React.Component {
-    state = {
-        authed: false,
-        loading: true
-    }
+  state = {
+    authed: false,
+    loading: true
+  };
 
-    componentDidMount() {
-        this.isUserLoggedIn()
-    }
-    
-    isUserLoggedIn = async () => {
-        try {
-            const token = localStorage.getItem('authorisation')
-            await axios.get("http://localhost:5000/api/customer/check-token", { headers: {
-                Authorisation: `Bearer ${token}`}})
-            
-            this.setState({
-                authed: true,
-                loading: false
-            })
-        } catch(err) {
-            this.setState({
-                authed: false,
-                loading: false
-            })
+  componentDidMount() {
+    this.isUserLoggedIn();
+  }
+
+  isUserLoggedIn = async () => {
+    try {
+      const token = localStorage.getItem('authorisation');
+      await axios.get('http://localhost:5000/api/customer/check-token', {
+        headers: {
+          Authorisation: `Bearer ${token}`
         }
+      });
+
+      this.setState({
+        authed: true,
+        loading: false
+      });
+    } catch (err) {
+      this.setState({
+        authed: false,
+        loading: false
+      });
     }
+  };
 
     render() {
         if(this.state.loading) {
@@ -80,8 +83,7 @@ class App extends React.Component {
                     </Switch>
                 </div>
                 </BrowserRouter> 
-
-            )
+            );
         }
     }
 }
