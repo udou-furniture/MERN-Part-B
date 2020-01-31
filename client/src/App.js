@@ -11,78 +11,117 @@ import ProductView from './pages/ProductView';
 import ReviewFormPage from './pages/ReviewFormPage';
 import AccountDashboard from './pages/AccountDashboard';
 import Checkout from './pages/Checkout';
-import Payment from './pages/Payment'
+import Payment from './pages/Payment';
 
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import Cart from './components/cart/Cart';
 
 class App extends React.Component {
-    state = {
+  state = {
+    authed: false,
+    loading: true
+  };
+
+  componentDidMount() {
+    this.isUserLoggedIn();
+  }
+
+  isUserLoggedIn = async () => {
+    try {
+      const token = localStorage.getItem('authorisation');
+      await axios.get('http://localhost:5000/api/customer/check-token', {
+        headers: {
+          Authorisation: `Bearer ${token}`
+        }
+      });
+
+      this.setState({
+        authed: true,
+        loading: false
+      });
+    } catch (err) {
+      this.setState({
         authed: false,
-        loading: true
-    };
-
-    componentDidMount() {
-        this.isUserLoggedIn();
+        loading: false
+      });
     }
+  };
 
-    isUserLoggedIn = async () => {
-        try {
-            const token = localStorage.getItem('authorisation');
-            await axios.get('http://localhost:5000/api/customer/check-token', {
-                headers: {
-                Authorisation: `Bearer ${token}`
-                }
-            });
+  render() {
+    if (this.state.loading) {
+      return null;
+    } else {
+      return (
+        <BrowserRouter>
+          <div className="App">
+            <Navbar
+              authed={this.state.authed}
+              isUserLoggedIn={this.isUserLoggedIn}
+            />
+            <Switch>
+              <Route exact path="/" component={Home} />
 
-            this.setState({
-                authed: true,
-                loading: false
-            });
-        } catch (err) {
-            this.setState({
-                authed: false,
-                loading: false
-            });
-        }
-    };
+              <Route
+                path="/registration"
+                render={props => {
+                  return (
+                    <Registration
+                      isUserLoggedIn={this.isUserLoggedIn}
+                      {...props}
+                    />
+                  );
+                }}
+              />
+              <Route
+                path="/login"
+                render={props => {
+                  return (
+                    <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
+                  );
+                }}
+              />
 
-    render() {
-        if(this.state.loading) {
-            return null 
-        } else {
-            return(
-                <BrowserRouter>
-                <div className="App">
-                    <Navbar authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn} />
-                    <Switch>
-                        <Route exact path="/" component={Home} />
+              {/* Order of the below two routes is important. Don't change without reason */}
+              <Route
+                path="/products/:type/:product_id"
+                component={ProductView}
+              />
+              <Route path="/products/:type" component={ProductsIndex} />
+              {/* <Route path="/cart" component={Cart} /> */}
+              {/* please don't delete this route. We still need it for the the vanilla configurator that links from the navbar.  */}
+              <Route
+                path="/product_view"
+                component={ProductView}
+                type={'custom'}
+                name={'Shelf'}
+              />
 
-                        <Route path="/registration" render={(props) => {
-                            return <Registration isUserLoggedIn={this.isUserLoggedIn} {...props} />
-                        }}  />
-                        <Route path="/login" render={(props) => {
-                            return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
-                        }} />
-                        {/* Order of the below two routes is important. Don't change without reason */}
-                        <Route path="/products/:type/:product_id" component={ProductView} />
-                        <Route path="/products/:type" component={ProductsIndex} />
-
-                        <Route path="/cart" render={(props) => {
-                            return <Cart authed={this.state.authed} {...props} />
-                        }} />
-                        
-                        <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>
-                        <PrivateRoute exact path="/account" component={AccountDashboard} authed={this.state.authed}/>
-                        <PrivateRoute exact path="/checkout" component={Checkout} authed={this.state.authed} />
-                        <PrivateRoute exact path="/payment" component={Payment} authed={this.state.authed} />
-                    </Switch>
-                </div>
-                </BrowserRouter> 
-            );
-        }
+              <PrivateRoute
+                exact
+                path="/cart"
+                component={Cart}
+                authed={this.state.authed}
+                isUserLoggedIn={this.isUserLoggedIn}
+              />
+              <PrivateRoute
+                exact
+                path="/leave-review/:orderID"
+                component={ReviewFormPage}
+                authed={this.state.authed}
+              />
+              <PrivateRoute
+                exact
+                path="/account"
+                component={AccountDashboard}
+                authed={this.state.authed}
+              />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      );
     }
+  }
 }
 
 export default App;
