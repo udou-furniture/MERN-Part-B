@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import productsList from '../../productsList';
 // import { TransformControls } from 'three-transformcontrols';
@@ -7,7 +7,7 @@ import productsList from '../../productsList';
 // var controls = new TransformControls(camera, domElement);
 // import * as THREE from 'three';
 var OBJLoader = require('three-obj-loader');
-var MTLLoader = require('three-mtl-loader');
+// var MTLLoader = require('three-mtl-loader');
 var THREE = require('three');
 var OrbitControls = require('three-orbit-controls')(THREE);
 let myOBJ;
@@ -15,7 +15,7 @@ OBJLoader(THREE);
 // MTLLoader(THREE);
 
 function mapStateToProps(state) {
-  console.log('viewer', state);
+  // console.log('viewer', state);
   return {
     height: state.configurator.height,
     width: state.configurator.width,
@@ -51,7 +51,7 @@ class Viewer extends React.Component {
     productsList.forEach(i => {
       if (i.id === e) {
         example = i;
-        console.log(`handle Click2 ${JSON.stringify(example)}`);
+        // console.log(`handle Click2 ${JSON.stringify(example)}`);
         return example;
       }
     });
@@ -80,7 +80,7 @@ class Viewer extends React.Component {
     this.setControls();
 
     this.loadObject();
-    console.log('object Loaded');
+    // console.log('object Loaded');
   }
 
   componentDidUpdate() {
@@ -164,7 +164,7 @@ class Viewer extends React.Component {
   };
 
   loadObject = () => {
-    console.log('LOADING');
+    // console.log('LOADING');
 
     const scene = this.scene;
 
@@ -195,7 +195,7 @@ class Viewer extends React.Component {
       // console.log(`myOBJ:${JSON.stringify(this.myOBJ)}`);
       // console.log(object);
     });
-    console.log(myOBJ)
+    // console.log(myOBJ)
    
   };
 

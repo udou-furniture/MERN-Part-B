@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import Slider from './slider';
 
 import { connect } from 'react-redux';
