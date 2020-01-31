@@ -25,7 +25,7 @@ class PurchaseTableRow extends React.Component {
                 </td>
             </tr>
         );
-      }
+    }
 }
 
 export default PurchaseTableRow

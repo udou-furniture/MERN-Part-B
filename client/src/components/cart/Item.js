@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import {getLocalStorageToken} from '../../utils/localStorage'
 
 class Item extends React.Component {
-	
     handleRemoveCartClick = () => {
         this.props.removeFromCart(this.props);
     };
@@ -31,7 +30,7 @@ class Item extends React.Component {
 			}, {
                 headers: {Authorisation: `Bearer ${token}`}
             })
-            console.log("saved")
+            // console.log("saved")
         }
         catch (err) {
             console.log(err.message)
@@ -50,10 +49,6 @@ class Item extends React.Component {
         )
     }
 }
-
-
-
-
 
 const mapDispatchToProps = dispatch => {
 	return {

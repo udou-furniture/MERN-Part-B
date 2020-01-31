@@ -8,11 +8,8 @@ const PrivateRoute = ({component: Component, authed, history, ...rest}) => {
             return(
                 authed ? 
                 <Component {...props} /> 
-                // console.log("this is true")
                 : 
-                
                 <Redirect to="/" />
-                // console.log("this is false")
             )
         }} />
     )

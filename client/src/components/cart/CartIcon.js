@@ -6,24 +6,24 @@ import icon from "./CartIcon.svg"
 
 
 class CartIcon extends React.Component {
-  render() {
-    return (
+    render() {
+        return (
 			<div> 
-			 <Link to="/cart">
-          <div>
-            <img src={icon} alt="Cart" />
-          </div>
-        </Link>
-        <p>You have {this.props.number} items in your cart</p>
-			</div>	
-    );
-  }
+			    <Link to="/cart">
+                    <div>
+                        <img src={icon} alt="Cart" />
+                    </div>
+                </Link>
+                <p>You have {this.props.number} items in your cart</p>
+		    </div>	
+        );
+    }
 }
 
 const mapStateToProps = state => {
-  return {
-    number: state.cart.items.length
-  };
+    return {
+        number: state.cart.items.length
+    };
 };
 
 export default connect(mapStateToProps)(CartIcon)

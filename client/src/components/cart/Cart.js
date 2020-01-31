@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Item from "./Item";
 
@@ -41,9 +41,9 @@ class Cart extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    items: state.cart.items
-  };
+    return {
+        items: state.cart.items
+    };
 };
 
 export default connect(mapStateToProps)(Cart);

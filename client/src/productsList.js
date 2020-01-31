@@ -1,5 +1,5 @@
 const productsList = [
-  {
+  	{
 		id: 1,
 		type: "bookshelf",
 		name: "Type01",

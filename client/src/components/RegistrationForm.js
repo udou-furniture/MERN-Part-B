@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 
 
 class RegistrationForm extends React.Component {
-	
 	render() {
 		const {handleSubmit} = this.props
 		return (
