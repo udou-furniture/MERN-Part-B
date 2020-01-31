@@ -8,7 +8,7 @@ const OrderSchema = new Schema({
     },
     saved: {
         type: Boolean,
-        default: true
+        default: false
     },
     review: {
         type: String,

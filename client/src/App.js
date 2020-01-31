@@ -1,18 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './OOCSS.css';
+
 import Home from './pages/Home';
-import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import ProductsIndex from './pages/ProductsIndex';
 import Registration from './pages/Registration';
 import ProductView from './pages/ProductView';
-import Show from './components/Show';
-import PrivateRoute from './components/PrivateRoute';
-import Cart from './components/cart/Cart';
 import ReviewFormPage from './pages/ReviewFormPage';
 import AccountDashboard from './pages/AccountDashboard';
+import Checkout from './pages/Checkout';
+import Payment from './pages/Payment';
+
+import Navbar from './components/Navbar';
+import PrivateRoute from './components/PrivateRoute';
+import Cart from './components/cart/Cart';
 
 class App extends React.Component {
   state = {
@@ -79,10 +82,6 @@ class App extends React.Component {
                 }}
               />
 
-              {/* <Route path='/products_index' component={ProductsIndex} />
-                        <Route path='/products/:type' component={ProductsIndex} />
-                        <Route path='/product_view' component={ProductView} /> */}
-
               {/* Order of the below two routes is important. Don't change without reason */}
               <Route
                 path="/products/:type/:product_id"
@@ -91,7 +90,12 @@ class App extends React.Component {
               <Route path="/products/:type" component={ProductsIndex} />
               {/* <Route path="/cart" component={Cart} /> */}
               {/* please don't delete this route. We still need it for the the vanilla configurator that links from the navbar.  */}
-              <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />
+              <Route
+                path="/product_view"
+                component={ProductView}
+                type={'custom'}
+                name={'Shelf'}
+              />
 
               <PrivateRoute
                 exact

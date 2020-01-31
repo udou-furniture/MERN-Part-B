@@ -1,13 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
 import Slider from './slider';
-// import productsList from '../../productsList';
-
-import axios from 'axios';
 
 import { connect } from 'react-redux';
-
-// import productsList from '../../productsList'
 
 function mapStateToProps(state) {
   return {
@@ -43,11 +37,8 @@ class FormContainer extends React.Component {
   };
 
   handleSubmit = async e => {
-    // this should send the info from the form to the post orders end point.
-
-    console.log(`button: ${this.props}`);
+    //   // this should send the info from the form to the post orders end point.
     e.preventDefault(); // i think this prevents page refresh.
-
     const newOrder = {
       configuration: {
         height: this.props.height,
@@ -63,16 +54,8 @@ class FormContainer extends React.Component {
       type: 'ADD_TO_CART',
       newConfiguration: newOrder,
       newType: this.props.type,
-      newName: this.props.name,
+      newName: this.props.name
     });
-    // this.props.dispatch({
-    //   type: 'UPDATE_TYPE',
-    //   newType: 'something that is passes from the config'
-    // })
-    // this.props.dispatch({
-    //   type: 'UPDATE_name',
-    //   newName: 'something that is passes from the config'
-    // })
   };
 
   render() {

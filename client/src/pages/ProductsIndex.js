@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import productsList from '../productsList';
 
 function mapStateToProps(state) {
-  return {
-    height: state.configurator.height,
-    width: state.configurator.width,
-    depth: state.configurator.depth,
-    colour: state.configurator.colour,
-    price: state.configurator.price
-  };
+    return {
+        height: state.configurator.height,
+        width: state.configurator.width,
+        depth: state.configurator.depth,
+        colour: state.configurator.colour,
+        price: state.configurator.price
+    };
 }
 
 class ProductsIndex extends React.Component {

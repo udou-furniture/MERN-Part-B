@@ -52,4 +52,22 @@ router.post('/register', async (req,res) => {
     }
 })
 
+router.patch('/new-customer-details', verifyToken, (req,res) => {
+    const {firstName, lastName, address, city, state, postcode, phoneNumber} = req.body
+    const query = {email: req.decoded.email}
+    
+    Customer.findOneAndUpdate(query, {
+        firstName: firstName, 
+        lastName: lastName, 
+        address: address, 
+        city: city, 
+        state: state, 
+        postcode: postcode, 
+        phoneNumber: phoneNumber}, {new: true}
+    )
+    .then( () => {
+        return res.end()
+    })
+})
+
 module.exports = router

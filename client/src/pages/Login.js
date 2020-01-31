@@ -15,7 +15,7 @@ class Login extends React.Component {
 			})
 			
 			setLocalStorageToken(response.data.access_token)
-			this.props.isUserLoggedIn()
+            this.props.isUserLoggedIn()
 			this.props.history.push('/')
 		} catch (err) {
 			console.log(err.message)
