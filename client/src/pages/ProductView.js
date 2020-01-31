@@ -3,6 +3,7 @@ import Dropdown from '../components/Dropdown';
 import Configurator from '../components/configurator/Configurator';
 import { connect } from 'react-redux';
 import productsList from  '../productsList';
+import CardSection from '../components/payments/cardSection'
 
 
 const mapStateToProps = (state) => {
@@ -32,6 +33,7 @@ componentDidMount = () =>
         <p>{this.props.name}</p>
         <Dropdown />
         <Configurator />
+        {/* <CardSection /> */}
         
       </div>
     );

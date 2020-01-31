@@ -36,7 +36,7 @@ class CardIndex extends React.Component {
   };
 
   componentDidMount() {
-    this.getReviews();
+    this.getReviews2();
   }
 
   createArray = item => {
