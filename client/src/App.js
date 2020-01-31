@@ -72,6 +72,8 @@ class App extends React.Component {
                         <Route path="/cart" render={(props) => {
                             return <Cart authed={this.state.authed} {...props} />
                         }} />
+
+                        <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />
                         
                         <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>
                         <PrivateRoute exact path="/account" component={AccountDashboard} authed={this.state.authed}/>

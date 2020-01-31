@@ -52,7 +52,7 @@ class Item extends React.Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		removeFromCart: (id) => { dispatch({ type: 'REMOVE_FROM_CART', removeItem: id})}
+		removeFromCart: (i) => { dispatch({ type: 'REMOVE_FROM_CART', removeItem: i})}
 	}
 };
 

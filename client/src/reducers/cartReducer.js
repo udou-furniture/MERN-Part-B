@@ -16,8 +16,8 @@ const cartReducer = (state = {items: []}, action) => {
     case 'ADD_TO_CART':
       let newProduct = {
         id: 'ID',
-        type: 'TYPE',
-        name: 'NAME',
+        type: action.newType,
+        name: action.newName,
         configuration: action.newConfiguration
       };
       newState = { ...state, items: state.items.concat(newProduct) };

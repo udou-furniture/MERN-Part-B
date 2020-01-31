@@ -9,7 +9,9 @@ const mapStateToProps = (state) => {
         width: state.configurator.width,
         depth: state.configurator.depth,
         colour: state.configurator.colour,
-        price: state.configurator.price
+        price: state.configurator.price,
+        type: state.order.type,
+        name: state.order.name,
     };
 };
 
@@ -17,6 +19,8 @@ class ProductView extends React.Component {
     render() {
         return (
             <div className="product-page-wrapper">
+                <h4>{this.props.colour} {this.props.type}</h4>
+                <p>{this.props.name}</p>
                 <Dropdown />
                 <Configurator />
             </div>

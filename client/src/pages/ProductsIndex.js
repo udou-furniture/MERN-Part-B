@@ -49,7 +49,20 @@ class ProductsIndex extends React.Component {
             newColour: example.configuration.colour	
         };
         // console.log(example.configuration.height)
-        this.props.dispatch({ type: 'SET_DEFAULTS', exampleConfig });
+        this.props.dispatch({
+            type: 'UPDATE_TYPE',
+            newType: example.type
+        });
+      
+        this.props.dispatch({
+            type: 'UPDATE_NAME',
+            newName: example.name
+        });
+          
+        this.props.dispatch({ 
+            type: 'SET_DEFAULTS', 
+            exampleConfig 
+        });
     };
 
 
