@@ -16,15 +16,15 @@ class RegistrationForm extends React.Component {
 					<h1>Sign Up</h1>	
 					<form onSubmit={handleSubmit}>
 						<div className="email">
-							<label className="email-label" htmlFor="email"></label>
+							<label htmlFor="email"></label>
 							<Field name="email" component="input" type="email" placeholder="Email" />
 						</div>
 						<div className="password">
-							<label className="password-label" htmlFor="password"></label>
+							<label htmlFor="password"></label>
 							<Field name="password" component="input" type="password" placeholder="Password" />
 						</div>
 						<div className="password">
-							<label className="password-label" htmlFor="password"></label>
+							<label htmlFor="password"></label>
 							<Field name="password" component="input" type="password" placeholder="Confirm password" />
 						</div>
 						<button className="registration-button" type="submit">Create Account</button>

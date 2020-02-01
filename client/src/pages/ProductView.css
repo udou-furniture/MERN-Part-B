@@ -1,11 +1,11 @@
 
 .product-page-wrapper {
-  background-color: lightgoldenrodyellow;
+  background-color: var(--bg-grey-200);
 }
 
 .config-container {
   border: solid 3px magenta;
-  background-color: lightgreen;
+  background-color: #fff;
   display: grid;
 	grid-template-columns: repeat(8, 1fr);
 	gap: 10px;
@@ -20,16 +20,16 @@
 
 .slider-form {
   grid-column: 6/9;
+  border: solid 2px chartreuse;
+  border-radius: 5px;
 }
 
 .viewer {
-  padding: 30px;
   background-color: red;
 }
 
 canvas {
   background-color: purple;
-  width: 100%;
 }
 
 /* canvas {
@@ -40,17 +40,42 @@ canvas {
 
 .form-block {
   background-color: lightsalmon;
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .slider-label {
   background-color: lightskyblue;
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .radio {
   background-color: plum;
 }
 
+.radio-label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .price-block {
   background-color: lightslategrey;
+  justify-content: space-around;
+  align-items:center;
+  display:flex;
+  flex-direction: column;
 }
+
+
+
+
+
 

@@ -41,6 +41,10 @@ li {
 
 
 /* BASE STYLES */
+* {
+	box-sizing: border-box;
+}
+
 body {
 	overflow-x: hidden;
 }
@@ -107,7 +111,6 @@ h4 {
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
 	gap: 10px;
-	box-sizing: border-box;
 }
 
 

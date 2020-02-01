@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { setLocalStorage } from '../utils/localStorage'
 
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/log-in/LoginForm'
 
 class Login extends React.Component {
 	submit = async (values) => {
@@ -24,10 +24,9 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<>
-				<h1>Log In</h1>
+			<div id="log-in-page">
 				<LoginForm onSubmit={this.submit}/>
-			</>
+			</div>
 		)
 	}
 }
