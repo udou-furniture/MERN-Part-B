@@ -17,6 +17,16 @@
     width: 100%;
 	}
 
+	/* NEED TO COME BACK TO THIS - NOT RESPONSIVE AND A HACKY SOLUTION */
+	.product-index-heading {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+		box-sizing: border-box;
+		max-width: 1060px;
+		margin: 150px 0px 0px 245px;
+		width: 100%;
+	}
 
 	.product-card {
 		display: grid;

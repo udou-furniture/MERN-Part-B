@@ -33,7 +33,7 @@ class ProductsIndex extends React.Component {
 		));		
 		return (
 			<>
-				<h1>Type of cabinet</h1>	
+				<h1 className="product-index-heading">Bookshelves</h1>	
 				<div id="product-index">
 					{list}
 				</div>
