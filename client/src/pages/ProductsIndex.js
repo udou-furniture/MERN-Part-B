@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect} from 'react-redux';
 import './ProductsIndex.css';
+import placeHolder from '../assets/placeholder-image.png';
 
 
 class ProductsIndex extends React.Component {
@@ -20,8 +21,9 @@ class ProductsIndex extends React.Component {
 		})
 		.map((product => 
 			(
-				<div key={product.id}>
-					<p>{product.type}</p>
+				<div className="product-card" key={product.id}>
+					{/* <h1>{product.type}</h1> */}
+					<img src={placeHolder}></img>
 					<Link to={product.type + '/' + product.id}>
 						<p>{product.name}</p>
 					</Link>	
@@ -29,9 +31,10 @@ class ProductsIndex extends React.Component {
 			)
 		));		
 		return (
-			<>
+
+			<div id="product-index">
 				{list}
-			</>
+			</div>
 		)
 	}
 }

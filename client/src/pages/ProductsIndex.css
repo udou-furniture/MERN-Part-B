@@ -2,7 +2,16 @@
 
 /* LARGE TABLET AND LAPTOP STYLES */
 @media screen and (min-width: 960px) {
-	
 
+	#product-index {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+		box-sizing: border-box;
+	}
+
+	.product-card {
+		grid-column: span 1;
+	}
 
 }
