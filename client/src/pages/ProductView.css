@@ -4,7 +4,7 @@
 }
 
 .config-container {
-  
+  border: solid 3px magenta;
   background-color: lightgreen;
   display: grid;
 	grid-template-columns: repeat(8, 1fr);
@@ -13,16 +13,30 @@
 
 }
 
-.viewerContainer viewer {
-  display: block;
-  background-color: lightpink;
-  
+.viewer-container {
+  background-color: yellow;
+  grid-column: 1/6;
+}
+
+.slider-form {
+  grid-column: 6/9;
+}
+
+.viewer {
+  padding: 30px;
+  background-color: red;
 }
 
 canvas {
+  background-color: purple;
+  width: 100%;
+}
+
+/* canvas {
   padding: 20px;
   background-color: lightseagreen;
-}
+
+} */
 
 .form-block {
   background-color: lightsalmon;
