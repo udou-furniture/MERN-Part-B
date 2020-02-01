@@ -2,6 +2,7 @@ import React from 'react';
 import Dropdown from '../components/dropdown/Dropdown'
 import Configurator from '../components/configurator/Configurator'
 import {connect} from 'react-redux'
+import './ProductView.css'
 
 class ProductView extends React.Component {
   handleClick = () => {
@@ -13,7 +14,6 @@ class ProductView extends React.Component {
 				<div className="product-page-wrapper">
 					<h4>{this.props.product.type}</h4>
 					<p>{this.props.product.name}</p>
-          <Dropdown />
 					<Configurator />
 					<button onClick={this.handleClick}>Add to cart</button>
 				</div>

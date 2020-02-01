@@ -1,14 +1,42 @@
+
+.product-page-wrapper {
+  background-color: lightgoldenrodyellow;
+}
+
 .config-container {
-  width: 100vw;
-  height: 50%;
-  display: flex;
+  
+  background-color: lightgreen;
+  display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	gap: 10px;
+  box-sizing: border-box;
+
 }
 
 .viewerContainer viewer {
   display: block;
-}
-
-.viewerContainer {
-  width: 50%;
+  background-color: lightpink;
   
 }
+
+canvas {
+  padding: 20px;
+  background-color: lightseagreen;
+}
+
+.form-block {
+  background-color: lightsalmon;
+}
+
+.slider-label {
+  background-color: lightskyblue;
+}
+
+.radio {
+  background-color: plum;
+}
+
+.price-block {
+  background-color: lightslategrey;
+}
+
