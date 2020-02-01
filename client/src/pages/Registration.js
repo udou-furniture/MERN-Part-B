@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { setLocalStorage } from '../utils/localStorage'
 
-import RegistrationForm from '../components/RegistrationForm'
+import RegistrationForm from '../components/registrationForm/RegistrationForm'
 
 
 class Registration extends React.Component {
@@ -25,10 +25,12 @@ class Registration extends React.Component {
 
 	render(){
 		return (
-		<>
-			<h1>Sign Up</h1>	
+		<div id="registration" className="grid">
 			<RegistrationForm onSubmit={this.submit} />
-		</>
+			<div className="already-account">
+				Already have an account? <a>Log in</a>
+			</div>
+		</div>
 	)}
 }
 

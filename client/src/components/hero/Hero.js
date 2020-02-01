@@ -1,4 +1,6 @@
 import React from 'react';
+import './Hero.css';
+
 
 const Hero = () => {
 	return(
@@ -7,7 +9,6 @@ const Hero = () => {
 				<h1>Shelves that fit any home</h1>
 				<a className="button-primary">Get yours</a>
 			</div>
-			{/* <img className="hero-img" src={heroImage} alt='lady standing in furnished apartment' /> */}
 		</div> 
 	)
 }

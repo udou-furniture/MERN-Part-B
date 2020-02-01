@@ -1,0 +1,30 @@
+/* MOBILE STYLES */
+
+#hero {
+	background: url('../../assets/hero.png');
+	height: 500px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top-left;
+}
+
+.hero-text {
+	grid-column: 2/7;
+	color: #fff;
+	margin: 80px 20px;
+}
+
+.hero-text h1 {
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+
+/* LARGE TABLET AND LAPTOP STYLES */
+@media screen and (min-width: 960px) {
+
+	#hero {
+		height: 90vh;
+	}
+
+}

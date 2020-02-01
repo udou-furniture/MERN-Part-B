@@ -5,6 +5,7 @@ import CartIcon from '../cart/CartIcon';
 import Dropdown from '../dropdown/Dropdown';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PlaceHolderImage from '../../assets/placeholder-image.png';
+import './Navbar.css';
 
 class Navbar extends React.Component {
 

@@ -3,9 +3,8 @@ import Dropdown from '../components/dropdown/Dropdown'
 import Review from '../components/reviews/ReviewCard'
 import  {reviewTest} from '../test-db';
 import CardIndex from '../components/reviews/CardIndex';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Dashboard from '../components/modal/Dashboard';
+import Hero from '../components/hero/Hero';
+import About from '../components/about/About';
 import Footer from '../components/footer/Footer';
 
 class Home extends React.Component {
