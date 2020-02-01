@@ -28,6 +28,10 @@
 }
 
 /* RESET */
+* {
+	box-sizing: border-box;
+}
+
 body,
 p,
 a,
@@ -39,11 +43,8 @@ li {
 	list-style-type: none;
 }
 
-
 /* BASE STYLES */
-* {
-	box-sizing: border-box;
-}
+
 
 body {
 	overflow-x: hidden;
@@ -111,6 +112,7 @@ h4 {
 	display: grid;
 	grid-template-columns: repeat(8, 1fr);
 	gap: 10px;
+	box-sizing: border-box;
 }
 
 
@@ -128,10 +130,9 @@ h4 {
 	}
 
 	.grid {
-		max-width: 1400px;
+		max-width: 1060px;
 		margin: 0 auto;
 		width: 100%;
-		gap: 10px;
 	}
 
 }

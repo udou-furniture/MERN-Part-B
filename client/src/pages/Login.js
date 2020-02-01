@@ -24,7 +24,7 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<div id="log-in-page">
+			<div id="login-page">
 				<LoginForm onSubmit={this.submit}/>
 			</div>
 		)
