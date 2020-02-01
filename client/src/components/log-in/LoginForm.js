@@ -8,7 +8,7 @@ class LoginForm extends React.Component {
 	render() {
         const {handleSubmit} = this.props
 		return (
-			<div class="grid">
+			<div className="grid">
 				<form className="login-form" onSubmit={handleSubmit}>
 					<h1>Log in</h1>
 					<div className="login-form-label">

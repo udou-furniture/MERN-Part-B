@@ -1,27 +1,63 @@
 /* MOBILE STYLES */
-nav {
+
+/* INCLUDES GRID SETTINGS */
+.site-nav {
 	margin: 0 20px;
-	padding-bottom: 10px;
 }
 
-nav h3 {
-	/* color: var(--text-grey-900); */
+.site-nav h1 {
 	grid-column: 1/2;
 	grid-row: 1;
-	padding-bottom: 10px;
-	/* border-bottom: 3px solid var(--primary); */
 	display: inline-block;
 	text-decoration: none;
 }
 
-nav .links {
+.site-nav ul {
 	display: none;
 }
+
+
+/* nav {
+	margin: 0 20px;
+	padding-bottom: 10px;
+} */
+
+
+/* nav .links {
+	display: none;
+} */
 
 /* LARGE TABLET AND LAPTOP STYLES */
 @media screen and (min-width: 960px) {
 
-	nav {
+	.site-nav {
+		padding: 0 20px;
+  }
+
+	.site-nav h1{
+		grid-column: 1/4;
+		grid-row: 1;
+	}
+
+  .site-nav ul{
+    display: flex;
+    grid-column: 6/9;
+    justify-content: flex-end;
+  }
+	
+  .site-nav li{
+		margin-left: 20px;
+
+	}
+	
+
+
+
+
+
+
+
+	/* nav {
 		display: grid;
 		grid-template-rows: minmax(min-content, 100px) min-content;
 	}
@@ -51,7 +87,6 @@ nav .links {
 		grid-auto-flow: column;
 		place-items: center;
 		position: absolute;
-		/* z-index: 999; */
 		width: 100%;
 		background: var(--bg-grey-200);
 		display: grid;
@@ -81,6 +116,6 @@ nav .links {
 	nav .dropdown-image {
 		height: 180px;
 		width: 200px;
-	}
+	} */
 
 }

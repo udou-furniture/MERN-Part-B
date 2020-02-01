@@ -9,7 +9,7 @@
 }
 
 .hero-text {
-	grid-column: 2/7;
+	grid-column: 1/7;
 	color: #fff;
 	margin: 80px 20px;
 }
@@ -24,7 +24,10 @@
 @media screen and (min-width: 960px) {
 
 	#hero {
-		height: 90vh;
+		height: 83vh;
 	}
+
+	
+
 
 }

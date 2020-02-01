@@ -12,9 +12,9 @@ class RegistrationForm extends React.Component {
 				{/* <div className="registration-text">
 					<h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis harum ex exercitationem praesentium, maiores consequuntur accusamus amet modi voluptatum quis repellendus numquam est similique, eaque rem laboriosam doloremque deserunt nulla.Dolorum eaque, asperiores atque odit dignissimos aspernatur corporis quo officiis quasi expedita molestias facere vel quae unde deserunt? Officia, quo. Commodi quis et facilis dolor dicta neque saepe quos aut.</h3>
 				</div> */}
-				<div id="registration-form">
-					<h1>Sign Up</h1>	
-					<form onSubmit={handleSubmit}>
+				<div className="grid">	
+					<form className="registration-form" onSubmit={handleSubmit}>
+						<h1>Sign Up</h1>
 						<div className="email">
 							<label htmlFor="email"></label>
 							<Field name="email" component="input" type="email" placeholder="Email" />
@@ -32,6 +32,9 @@ class RegistrationForm extends React.Component {
 							By signing up you agree to the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
 						</div>
 					</form>
+					<div className="already-account">
+						Already have an account? <a>Log in</a>
+					</div>
 				</div>
 			</>		
 		);

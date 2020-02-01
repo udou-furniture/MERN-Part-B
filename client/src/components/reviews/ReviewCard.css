@@ -1,7 +1,7 @@
 /* MOBILE STYLES */
 	#reviews {
 		background: #EDF2F7;
-		padding: 60px;
+		padding: 40px;
 	}
 	
 	.review-card {
@@ -28,11 +28,9 @@
 @media screen and (min-width: 960px) {
 
 	.review-card {
-		grid-column: 2/8;
+		grid-column: 4/9;
 		border: 2px, solid, grey;
 		border-radius: 5px;
-		padding: 10px;
-		margin: 15px 15px;
 		background: #fff;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	}

@@ -48,10 +48,12 @@ class CardIndex extends React.Component {
 
   render() {
     return (
-      <div id="reviews" class="grid">
-        {this.createArray(this.props.reviews).map(reviewCard => {
-          return reviewCard;
-        })}
+      <div id="reviews">
+        <div className="grid">
+          {this.createArray(this.props.reviews).map(reviewCard => {
+            return reviewCard;
+          })}
+        </div>
       </div>
     );
   }

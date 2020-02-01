@@ -13,6 +13,10 @@
 /* LARGE TABLET AND LAPTOP STYLES */
 @media screen and (min-width: 960px) {
 
+	#about {
+		background: var(--text-grey-500);
+	}
+
 	.about-text {
 		grid-column: 1/4;
 		margin: 40px 20px;

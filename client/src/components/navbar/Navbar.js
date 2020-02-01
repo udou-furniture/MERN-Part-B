@@ -46,25 +46,26 @@ class Navbar extends React.Component {
 
 	render() {
 		return (
-			<nav>
-				<div className="content">
-					<h3><Link to="/">UDOU</Link></h3>
-					<div className="links">
-						<a className="menu" onClick={this.handleButtonClick}>Shelves<span className="dropdown-icon"><ExpandMoreIcon /></span></a>	
+			<nav className="site-nav">
+				<div className="grid">
+					<h1><Link to="/">UDOU</Link></h1>
+					<ul>
+						<li onClick={this.handleButtonClick}><Link to="/products">Shelves</Link>
+							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
+						</li>	
 						{this.props.authed ? 
-							<a><Link to="/" onClick={() => this.logout()}>Log out</Link></a> : 
-							<>
-								<a><Link to="/registration">Register</Link> </a>
-								<a><Link to="/login">Login</Link></a>
-								<a><Link to ="/cart"><CartIcon /></Link></a>
-							</>	
+						<li><Link to="/" onClick={() => this.logout()}>Log out</Link></li> : 
+						<>
+							<li><Link to="/registration">Sign up</Link></li>
+							<li><Link to="/login">Login</Link></li>
+							<li><Link to ="/cart"><CartIcon /></Link></li>
+						</>	
 						}
 						{this.props.authed ? 
-							<a><Link to ="/cart"><CartIcon /></Link></a> : 
+							<Link to ="/cart"><CartIcon /></Link> : 
 							<></>
 						}
-						
-					</div>
+					</ul>
 				</div>
 				<div className="container" ref={this.container}>
 				{this.state.open && (

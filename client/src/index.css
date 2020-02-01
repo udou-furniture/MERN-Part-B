@@ -77,7 +77,7 @@ h4 {
 	font-family: var(--headline-font);
 	color: var(--text-grey-900);
 	font-weight: normal;
-	/* line-height: 1.4em; */
+	line-height: 1.4em;
 	margin: 0px;
 }
 
@@ -86,8 +86,8 @@ a,
 li {
 	font-family: var(--bodytext-font);
 	color: var(--text-grey-900);
-	/* line-height: 1.4em;
-	font-size: 1em; */
+	line-height: 1.4em;
+	font-size: 1em;
 }
 
 /* h1 {
