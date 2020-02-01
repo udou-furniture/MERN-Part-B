@@ -1,5 +1,7 @@
 /* MOBILE STYLES */
 
+
+
 /* LARGE TABLET AND LAPTOP STYLES */
 @media screen and (min-width: 960px) {
 
@@ -8,10 +10,34 @@
 		grid-template-columns: repeat(3, 1fr);
 		gap: 10px;
 		box-sizing: border-box;
+		place-items: center;
+
+		max-width: 1060px;
+    margin: 100px auto;
+    width: 100%;
 	}
 
+
 	.product-card {
+		display: grid;
 		grid-column: span 1;
+		box-shadow: var(--shadow-2xl);
+		border-radius: 5px;
+		place-items: center;
+	}
+
+	.product-card p {
+		margin: 10px;
+	}
+
+	.customise-button {
+		border-radius: 5px;
+		background-color: var(--indigo-500);
+		padding: 6px 20px;
+		font-size: 10px;
+		color: #fff;
+		cursor: pointer;
+		margin-bottom: 20px;
 	}
 
 }

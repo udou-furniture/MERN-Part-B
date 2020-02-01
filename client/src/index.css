@@ -10,8 +10,16 @@
 	--indigo-700: #4C51BF;
 	--indigo-600: #5A67D8;
 	--indigo-500: #667EEA;
+	
+	
 	--headline-font: 'Open Sans', sans-serif;
 	--bodytext-font: 'Source Sans Pro', sans-serif;
+
+	--shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--shadow-med: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
 }
 
 /* DEFAULT PLACEHOLDER TEXT COLOUR */
@@ -40,11 +48,11 @@ body {
 
 .button-primary {
 	border-radius: 5px;
-	color: #fff;
+	color: lightpink;
 	padding: 4px 10px;
 	display: inline-block;
 	font-size: 1em;
-	border: solid 1px #fff;
+	border: solid 1px lightpink;
 	cursor: pointer;
 }
 

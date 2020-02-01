@@ -27,14 +27,17 @@ class ProductsIndex extends React.Component {
 					<Link to={product.type + '/' + product.id}>
 						<p>{product.name}</p>
 					</Link>	
+					<button class="customise-button">Customise</button>
 				</div>
 			)
 		));		
 		return (
-
-			<div id="product-index">
-				{list}
-			</div>
+			<>
+				<h1>Type of cabinet</h1>	
+				<div id="product-index">
+					{list}
+				</div>
+			</>	
 		)
 	}
 }
