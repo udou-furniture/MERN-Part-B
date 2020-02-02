@@ -67,7 +67,7 @@ class FormContainer extends React.Component {
       <form className="slider-form" onSubmit={this.handleSubmit}>
         <div className="price-block">
           <div className="price-display">
-            <h2>${this.priceCalculator()}</h2>
+            <h1>${this.priceCalculator()}</h1>
             <button className="save-later-button">
             Save for later
             </button>
@@ -140,39 +140,41 @@ class FormContainer extends React.Component {
         <label>
           <div className="colour-block">
             <p>Colour</p>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value="Natural"
-                  checked={this.props.colour === 'Natural'}
-                  onChange={this.handleOptionChange}
-                />
-                <p>Natural</p>
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value="Black"
-                  checked={this.props.colour === 'Black'}
-                  onChange={this.handleOptionChange}
-                />
-                <p>Black</p>
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value="White"
-                  checked={this.props.colour === 'White'}
-                  onChange={this.handleOptionChange}
-                />
-                <p>White</p>
-              </label>
-            </div>
+            <div className="radio-block">
+              <div className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value="Natural"
+                    checked={this.props.colour === 'Natural'}
+                    onChange={this.handleOptionChange}
+                  />
+                  <p>Natural</p>
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value="Black"
+                    checked={this.props.colour === 'Black'}
+                    onChange={this.handleOptionChange}
+                  />
+                  <p>Black</p>
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value="White"
+                    checked={this.props.colour === 'White'}
+                    onChange={this.handleOptionChange}
+                  />
+                  <p>White</p>
+                </label>
+              </div>
+            </div>  
           </div>
         </label>
         <label>

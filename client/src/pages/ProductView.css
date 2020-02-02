@@ -1,6 +1,5 @@
 
 .product-page-wrapper {
-  background-color: lightpink;
   height: 90vh;
 }
 
@@ -14,15 +13,11 @@
   width: 100%;
 }
 
-
 .viewer-container {
   grid-column: 1/6;
   background-color: black;
   padding: 5px;
 }
-
-
-
 
 .slider-form {
   grid-column: 6/9;
@@ -32,7 +27,6 @@
   box-shadow: var(--shadow-2xl);
   border: solid 1px var(--bg-grey-200);
 }
-
 
 .price-block {
   margin-left: 20px;
@@ -48,8 +42,9 @@
   align-items: center;
 }
 
-.price-display h2 {
-  color: var(--wireframe-purple);
+.price-display h1 {
+  color: var(--text-grey-500);
+  font-style: bold;
   margin-right: auto;
 }
 
@@ -70,7 +65,6 @@
 	background: #fff;
 }
 
-
 .slider-block {
   margin: 10px 0px;
   display: flex;
@@ -83,7 +77,7 @@
     width: 100%;
     margin-top: 30px;
     margin-right: 20px;
-    height: 3px;
+    height: 4px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
@@ -121,19 +115,30 @@
 }
 
 .colour-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  align-items: start;
+  display: flex;
+  align-self: end;
+  align-items: center;
+  margin-right: 20px;
   margin-left: 20px;
-  width: 100%;
 }
 
-.colour-block .radio {
-  grid-column: span 1;
-  justify-content: end;
+.radio-block {
+  display: flex;
 }
 
+.radio {
+  margin: 0px 16px;
+}
 
+.colour-block p {
+  color: var(--text-grey-700);
+  margin-right: auto;
+}
+
+.radio p {
+  color: var(--text-grey-700);
+  font-size: 14px;
+}
 
 .slider-label {
   margin-left: 20px;
@@ -152,23 +157,6 @@
   color: var(--wireframe-purple);
 }
 
-
-.colour-block p {
-  color: var(--text-grey-700);
-  font-size: 14px;
-}
-
-.radio p {
-  color: var(--text-grey-700);
-  font-size: 14px;
-}
-
-.radio-label {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .add-to-cart-button {
 	background: var(--wireframe-purple);
 	border-radius: 5px;
@@ -179,7 +167,6 @@
 	cursor: pointer;
   margin-top: 40px;
   margin-left: 40px;
-
   text-transform: uppercase;
 
 }
