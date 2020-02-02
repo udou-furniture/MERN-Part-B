@@ -8,7 +8,7 @@ const Hero = () => {
 			<div className="grid">
 				<div className="hero-text">
 					<h1>Shelves that fit any home</h1>
-					<a className="button-primary">Get yours</a>
+					<a className="button-hero">Get yours</a>
 				</div>
 			</div>
 		</div> 

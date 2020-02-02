@@ -1,6 +1,4 @@
 :root {
-	--primary: #FFC636;
-	--secondary: #FFF;
 	--bg-grey-200: #EDF2F7;
 	--bg-grey-300: #e2e8f0;
 	--text-grey-900: #1a202c;
@@ -12,7 +10,7 @@
 	--indigo-500: #667EEA;
 	--wireframe-purple: #6558F5;
 	--wireframe-green: #4BAE9F;
-	
+	--wireframe-border-grey: #C5D0DA;
 	
 	--headline-font: 'Open Sans', sans-serif;
 	--bodytext-font: 'Source Sans Pro', sans-serif;
@@ -34,11 +32,7 @@
 	box-sizing: border-box;
 }
 
-body,
-p,
-a,
-ul,
-li {
+body, p, a, ul, li {
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
@@ -53,29 +47,18 @@ body {
 }
 
 
-.button-primary {
-	border-radius: 5px;
-	color: lightpink;
-	padding: 4px 10px;
-	display: inline-block;
-	font-size: 1em;
-	border: solid 1px lightpink;
-	cursor: pointer;
-}
 
-.button-primary:hover {
+
+/* .button-primary:hover {
 	background: #fff;
-	color: #252525;
-}
+	color:
+} */
 
 
 
 /* FONT BASE STYLES  */
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
 	font-family: var(--headline-font);
 	color: var(--text-grey-900);
 	font-weight: normal;
@@ -83,18 +66,20 @@ h4 {
 	margin: 0px;
 }
 
-p,
-a,
-li {
+p, a, li {
 	font-family: var(--bodytext-font);
 	color: var(--text-grey-900);
 	line-height: 1.4em;
 	font-size: 1em;
 }
 
-/* h1 {
-	font-size: 2em;
+a:visited {
+	text-decoration: none;
 }
+
+h1 {
+	font-size: 1.8em;
+} 
 
 h2 {
 	font-size: 1.6em;
@@ -106,7 +91,8 @@ h3 {
 
 h4 {
 	font-size: 1em;
-} */
+}
+
 
 
 /* MOBILE STYLES */

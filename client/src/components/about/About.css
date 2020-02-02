@@ -15,12 +15,20 @@
 
 	#about {
 		background: #fff;
-		height: 60vh;
 	}
 
 	.about-text {
-		grid-column: 2/8;
-		margin-top: 100px;
+		grid-column: 3/7;
+		margin-top: 80px;
+		margin-bottom: 120px;
+	}
+
+	.about-text h1 {
+		margin-bottom: 20px;
+	}
+
+	.about-text p {
+		font-size: 1.1em;
 	}
 
 }
