@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form';
+import {required, phoneNumberValidation} from '../validations'
 
 class CustomerDetailsForm extends React.Component {
     render() {
@@ -8,7 +9,12 @@ class CustomerDetailsForm extends React.Component {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="firstName">First Name</label>
-                        <Field name="firstName" component="input" type="firstName" />
+                        <Field 
+                            name="firstName" 
+                            component="input" 
+                            type="firstName"
+                            
+                        />
                     </div>
                     <div>
                         <label htmlFor="lastName">Last Name</label>

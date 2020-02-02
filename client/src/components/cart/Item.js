@@ -19,14 +19,15 @@ class Item extends React.Component {
 
     handleSaveDesignClick = async () => {
         try {
+            // console.log(this.props.configuration.configuration)
             const token = getLocalStorageToken()
             await axios.post('http://localhost:5000/api/orders/new-saved-order', {
-				height: this.props.configuration.height, 
-				width: this.props.configuration.width, 
-				depth: this.props.configuration.depth, 
-				colour: this.props.configuration.colour,
-				price: this.props.configuration.price, 
-				furnitureType: this.props.configuration.furnitureType
+				height: this.props.configuration.configuration.height, 
+				width: this.props.configuration.configuration.width, 
+				depth: this.props.configuration.configuration.depth, 
+				colour: this.props.configuration.configuration.colour,
+				price: this.props.configuration.configuration.price, 
+				furnitureType: this.props.configuration.configuration.furnitureType
 			}, {
                 headers: {Authorisation: `Bearer ${token}`}
             })
