@@ -50,7 +50,8 @@ class Navbar extends React.Component {
 				<div className="grid">
 					<h1><Link to="/">UDOU</Link></h1>
 					<ul>
-						<li onClick={this.handleButtonClick}><Link to="/products">Shelves</Link>
+						<li onClick={this.handleButtonClick}>Shelves
+							{/* <Link to="/products">Shelves</Link> */}
 							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
 						</li>	
 						{this.props.authed ? 
@@ -67,7 +68,7 @@ class Navbar extends React.Component {
 						}
 					</ul>
 				</div>
-				<div className="container" ref={this.container}>
+				{/* <div className="container" ref={this.container}>
 				{this.state.open && (
 					<div className="dropdown">
 						<div className="dropdown-card-1">
@@ -90,7 +91,7 @@ class Navbar extends React.Component {
 						</div>
 					</div>	
 				)}
-				</div>
+				</div> */}
 			</nav>
 		)
 	}

@@ -23,7 +23,9 @@ class ProductsIndex extends React.Component {
 			(
 				<div className="product-card" key={product.id}>
 					{/* <h1>{product.type}</h1> */}
-					<img src={placeHolder}></img>
+					<div className="product-card-img-container">
+						<img src={placeHolder}></img>
+					</div>
 					<Link to={product.type + '/' + product.id}>
 						<p>{product.name}</p>
 					</Link>	
@@ -32,12 +34,11 @@ class ProductsIndex extends React.Component {
 			)
 		));		
 		return (
-			<>
-				<h1 className="product-index-heading">Bookshelves</h1>	
-				<div id="product-index">
+			<div id="product-index">	
+				<div className="product-index-grid">
 					{list}
 				</div>
-			</>	
+			</div>	
 		)
 	}
 }
