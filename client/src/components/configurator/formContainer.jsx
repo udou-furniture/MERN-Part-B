@@ -65,8 +65,15 @@ class FormContainer extends React.Component {
   render() {
     return (
       <form className="slider-form" onSubmit={this.handleSubmit}>
+        <div className="price-block">
+          <div className="price-display">${this.priceCalculator()}</div>
+        </div>
         <div className="slider-inputs" className="form-block">
           <label>
+            <div className="slider-label">
+                <h4>Height</h4>
+                <p>{this.props.height * 120} cm</p>
+            </div>
             <Slider
               type="range"
               // min={this.props.min}
@@ -83,12 +90,12 @@ class FormContainer extends React.Component {
                 });
               }}
             />
-            <div className="slider-label">
-              <h3>Height</h3>
-              <p>{this.props.height * 120} cm</p>
-            </div>
           </label>
           <label>
+            <div className="slider-label">
+              <h4>Depth</h4>
+              <p>{this.props.depth * 40} cm</p>
+            </div>
             <Slider
               type="range"
               min={0.5}
@@ -102,12 +109,13 @@ class FormContainer extends React.Component {
                 });
               }}
             />
-            <div className="slider-label">
-              <h3>Depth</h3>
-              <p>{this.props.depth * 40} cm</p>
-            </div>
+
           </label>
           <label>
+           <div className="slider-label">
+              <h4>Width</h4>
+              <p>{this.props.width * 120} cm</p>
+            </div>
             <Slider
               type="range"
               min={0.5}
@@ -121,14 +129,11 @@ class FormContainer extends React.Component {
                 });
               }}
             />
-            <div className="slider-label">
-              <h3>Width</h3>
-              <p>{this.props.width * 120} cm</p>
-            </div>
           </label>
         </div>
+     
         <label>
-          <div className="colour-radio" className="form-block">
+          <div className="colour-block">
             <div className="radio">
               <label>
                 <input
@@ -137,7 +142,7 @@ class FormContainer extends React.Component {
                   checked={this.props.colour === 'Natural'}
                   onChange={this.handleOptionChange}
                 />
-                <h3>Natural</h3>
+                <h4>Natural</h4>
               </label>
             </div>
             <div className="radio">
@@ -148,7 +153,7 @@ class FormContainer extends React.Component {
                   checked={this.props.colour === 'Black'}
                   onChange={this.handleOptionChange}
                 />
-                <h3>Black</h3>
+                <h4>Black</h4>
               </label>
             </div>
             <div className="radio">
@@ -159,22 +164,18 @@ class FormContainer extends React.Component {
                   checked={this.props.colour === 'White'}
                   onChange={this.handleOptionChange}
                 />
-                <h3>White</h3>
+                <h4>White</h4>
               </label>
             </div>
-            <h3>Colour</h3>
           </div>
         </label>
         <label>
-          <div className="form-block" >
-            <div className="price-block">
-            <div className="price-display">${this.priceCalculator()}</div>
-            <h3>Price</h3>
-            <button onClick={this.handleSubmit} type="submit">
-              Add to cart
-            </button>
-          </div>
-          </div>
+          <button onClick={this.handleSubmit} type="submit">
+            Add to cart
+          </button>
+          <button>
+            Save for later
+          </button>
         </label>
       </form>
     );
