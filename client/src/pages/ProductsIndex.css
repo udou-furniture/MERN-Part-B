@@ -12,8 +12,7 @@
 	.product-index-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
-		grid-gap: 25px;
-
+		grid-gap: 50px;
 		max-width: 1060px;
 		margin: 0 auto;
 		width: 100%;
@@ -21,10 +20,8 @@
 
 	.product-card {
 		grid-column: span 1;
-		border: solid 2px var(--text-grey-500);
 		box-shadow: var(--shadow-lg);
 		border-radius: 5px;
-		place-items: center;
 	}
 
 	.product-card-img-container img{

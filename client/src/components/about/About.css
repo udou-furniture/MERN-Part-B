@@ -14,12 +14,13 @@
 @media screen and (min-width: 960px) {
 
 	#about {
-		background: var(--text-grey-500);
+		background: #fff;
+		height: 60vh;
 	}
 
 	.about-text {
-		grid-column: 1/4;
-		margin: 40px 20px;
+		grid-column: 2/8;
+		margin-top: 100px;
 	}
 
 }
