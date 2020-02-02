@@ -171,7 +171,7 @@ class FormContainer extends React.Component {
             <div className="price-display">${this.priceCalculator()}</div>
             <h3>Price</h3>
             <button onClick={this.handleSubmit} type="submit">
-              Place Order
+              Add to cart
             </button>
           </div>
           </div>

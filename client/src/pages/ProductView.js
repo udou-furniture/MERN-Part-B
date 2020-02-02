@@ -15,7 +15,6 @@ class ProductView extends React.Component {
 					<h4>{this.props.product.type}</h4>
 					<p>{this.props.product.name}</p>
 					<Configurator />
-					<button onClick={this.handleClick}>Add to cart</button>
 				</div>
 			)
 	}

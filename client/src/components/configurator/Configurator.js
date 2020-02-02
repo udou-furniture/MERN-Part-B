@@ -53,14 +53,9 @@ class Configurator extends React.Component {
 
     return (
       
-        <div className='config-container'>
-
-
-
-
+        <div className='grid'>
           <ViewerContainer />
           <FormContainer />
-
         </div>
       
     )

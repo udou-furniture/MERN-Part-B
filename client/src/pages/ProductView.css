@@ -3,48 +3,34 @@
   background-color: var(--bg-grey-200);
 }
 
-.config-container {
+.grid {
   border: solid 3px magenta;
-  background-color: #fff;
-  display: grid;
-	grid-template-columns: repeat(8, 1fr);
-	gap: 10px;
-  box-sizing: border-box;
-
 }
 
 .viewer-container {
-  background-color: yellow;
   grid-column: 1/6;
+  /* margin-right: 20px; */
 }
 
 .slider-form {
   grid-column: 6/9;
   border: solid 2px chartreuse;
+  background: white;
   border-radius: 5px;
 }
 
 .viewer {
-  background-color: red;
+
 }
 
-canvas {
-  background-color: purple;
-}
 
-/* canvas {
-  padding: 20px;
-  background-color: lightseagreen;
-
-} */
 
 .form-block {
-  background-color: lightsalmon;
   margin: 10px;
   padding: 5px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   justify-content: space-around;
 }
 
@@ -53,7 +39,7 @@ canvas {
   margin: 10px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: start;
 }
 
 .radio {
