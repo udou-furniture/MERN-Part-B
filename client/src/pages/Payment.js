@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { connect } from "react-redux";
+import CardSection from '../components/payments/cardSection';
+
 
 import {getLocalStorageToken} from '../utils/localStorage'
 
@@ -36,6 +38,7 @@ class Payment extends React.Component {
                 <button 
                 onClick={this.mapThroughCart}
                 >Complete Purchase</button>
+                <CardSection />
             </>
         )
     }
