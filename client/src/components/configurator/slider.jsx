@@ -7,6 +7,7 @@ const THREE = require('three');
 
   const Slider = ({ value, defaultValue, min, max, step, onChange }) => (
     <input
+      className="slider"
       type="range"
       defaultValue={defaultValue}
       min={min}

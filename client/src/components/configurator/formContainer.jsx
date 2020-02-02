@@ -66,9 +66,14 @@ class FormContainer extends React.Component {
     return (
       <form className="slider-form" onSubmit={this.handleSubmit}>
         <div className="price-block">
-          <div className="price-display">${this.priceCalculator()}</div>
+          <div className="price-display">
+            <h2>${this.priceCalculator()}</h2>
+            <button className="save-later-button">
+            Save for later
+            </button>
+          </div>
         </div>
-        <div className="slider-inputs" className="form-block">
+        <div className="slider-block">
           <label>
             <div className="slider-label">
                 <h4>Height</h4>
@@ -134,6 +139,7 @@ class FormContainer extends React.Component {
      
         <label>
           <div className="colour-block">
+            <p>Colour</p>
             <div className="radio">
               <label>
                 <input
@@ -142,7 +148,7 @@ class FormContainer extends React.Component {
                   checked={this.props.colour === 'Natural'}
                   onChange={this.handleOptionChange}
                 />
-                <h4>Natural</h4>
+                <p>Natural</p>
               </label>
             </div>
             <div className="radio">
@@ -153,7 +159,7 @@ class FormContainer extends React.Component {
                   checked={this.props.colour === 'Black'}
                   onChange={this.handleOptionChange}
                 />
-                <h4>Black</h4>
+                <p>Black</p>
               </label>
             </div>
             <div className="radio">
@@ -164,17 +170,14 @@ class FormContainer extends React.Component {
                   checked={this.props.colour === 'White'}
                   onChange={this.handleOptionChange}
                 />
-                <h4>White</h4>
+                <p>White</p>
               </label>
             </div>
           </div>
         </label>
         <label>
-          <button onClick={this.handleSubmit} type="submit">
+          <button className="add-to-cart-button" onClick={this.handleSubmit} type="submit">
             Add to cart
-          </button>
-          <button>
-            Save for later
           </button>
         </label>
       </form>

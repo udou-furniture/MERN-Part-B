@@ -53,7 +53,7 @@ class Configurator extends React.Component {
 
     return (
       
-        <div className='grid'>
+        <div className='product-page-grid'>
           <ViewerContainer />
           <FormContainer />
         </div>
