@@ -32,6 +32,9 @@ class RegistrationForm extends React.Component {
 							By signing up you agree to the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
 						</div>
 					</form>
+					<div className="registration-form-img">
+					{/* <img src={placeHolder}></img> */}
+					</div>
 					<div className="already-account">
 						Already have an account? <a>Log in</a>
 					</div>

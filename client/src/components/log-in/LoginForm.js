@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import './LoginForm.css';
-import placeHolder from '../../assets/placeholder-image.png';
+
 
 
 class LoginForm extends React.Component {
