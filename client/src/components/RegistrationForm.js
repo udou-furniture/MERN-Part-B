@@ -26,6 +26,7 @@ class RegistrationForm extends React.Component {
                         label="Email"
                         validate={[required, email]}
 				    />
+                    <div>{this.props.errorMessage && <span>email already exists</span>}</div>
                     <Field 
                         name="password" 
                         type="password"
