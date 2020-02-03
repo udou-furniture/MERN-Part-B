@@ -8,16 +8,16 @@ import About from '../components/about/About';
 import Footer from '../components/footer/Footer';
 
 class Home extends React.Component {
-  render() {
-    return (
+    render() {
+        return (
 			<>
-        <Hero />
-        <About />
-        <CardIndex />
-        <Footer />
+                <Hero />
+                <About />
+                <CardIndex />
+                <Footer />
 			</>	
-    );
-  }
+        );
+    }
 }
 
 export default Home;

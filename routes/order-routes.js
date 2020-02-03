@@ -4,90 +4,96 @@ const router = express.Router();
 const Order = require('../models/Order')
 const {verifyToken} = require('../auth/tokenMiddleware')
 
-// this route is only for debugging
+router.get('/my-orders', verifyToken, (req,res) => {
+    const query = {
+        customerEmail: req.decoded.email,
+        purchased: true
+    }
+    Order.find(query)
+    .then(allOrders => {
+        return res.json(allOrders);
+    })
+    .catch(err => res.json(err));
+});
 
-// router.get('/', (req,res) => {
-//     Order.find({
-//     })
-//     .then(allOrders => {
-//         return res.json(allOrders)
-//     })
-//     .catch(err => res.json(err))
-// })
+router.get('/my-saved-orders', verifyToken, (req,res) => {
+    const query = {
+        customerEmail: req.decoded.email,
+        saved: true
+    }
+    Order.find(query)
+    .then(allOrders => {
+        // console.log(allOrders)
+        return res.json(allOrders);
+    })
+    .catch(err => res.json(err));
+});
 
 router.get('/reviews', (req, res) => {
-  Order.find({})
+    Order.find({})
     .then(allOrders => {
-      return res.json(allOrders.review);
+        return res.json(allOrders)
     })
     .catch(err => res.json(err));
 });
 
-// need to setup reviews end point for post when purchased is true
-router.post('/new-review', (req,res) => {
-    console.log(req.decoded)
-    const customerEmail = req.decoded.email;
-    console.log(customerEmail)
-    const query = {customerEmail: req.decoded.email}
-    const newReview = req.body.review
+router.patch('/new-review/', verifyToken, (req,res) => {
+    const {orderID, review} = req.body
+    const query = {customerEmail: req.decoded.email, _id: orderID}
 
-    Order.findOneAndUpdate(query, {review: newReview})
-    // Order.find({customerEmail: req.decoded.email})
-    // .then(allOrders=> {
-    //     return res.json(allOrders.review);
-    // })
-    // .catch(err => res.json(err))
+    Order.findOneAndUpdate(query, {review: review})
+    .then( () => {
+        return res.end()
+    })
 })
 
+router.patch('/remove-saved-order', verifyToken, (req,res) => {
+    const {orderID} = req.body
+    const query = {customerEmail: req.decoded.email, _id: orderID}
 
-router.get('/', verifyToken, (req,res) => {
-    Order.find({customerEmail: req.decoded.email
+    Order.findOneAndUpdate(query, {saved: false})
+    .then( () => {
+        return res.end()
     })
-    .then(allOrders => {
-      return res.json(allOrders);
+})
+
+router.post('/new-saved-order', verifyToken, (req, res) => {
+    const customerEmail = req.decoded.email;
+    const {height, width, depth, colour, price, furnitureType} = req.body
+    const purchased = false
+    const saved = true
+    const review = ''
+
+    Order.create({
+        purchased,
+        saved,
+        review,
+        customerEmail,
+        configuration: { height, width, depth, colour, price, furnitureType }
     })
-    .catch(err => res.json(err));
-});
-
-router.get('/:_id', verifyToken, (req,res) => {
-    const {_id} = req.params
-
-  Order.findOne({ customerEmail: req.decoded.email, _id })
-    .then(order => {
-      return res.json(order);
-    })
-    .catch(err => res.json(err));
-});
-
-router.post('/new-order', verifyToken, (req, res) => {
-  const customerEmail = req.decoded.email;
-  const {
-    configuration: { height, width, depth, colour, price, furnitureType }
-  } = req.body;
-
-  Order.create({
-    purchased,
-    saved,
-    review,
-    customerEmail,
-    configuration: { height, width, depth, colour, price, furnitureType }
-  })
     .then(newOrder => {
+        console.log(newOrder)
       res.json(newOrder);
     })
     .catch(err => res.json(err));
 });
 
-router.delete('/:_id', (req, res) => {
-  const { _id } = req.params;
+router.post('/new-purchased-order', verifyToken, (req, res) => {
+    const customerEmail = req.decoded.email;
+    const {height, width, depth, colour, price, furnitureType} = req.body
+    const purchased = true
+    const saved = false
+    const review = ''
 
-  Order.findOneAndDelete({ _id })
-    .then(order => {
-      if (!order) {
-        return res.send('No order found with that ID');
-      } else {
-        res.send('Order deleted from cart');
-      }
+    Order.create({
+        purchased,
+        saved,
+        review,
+        customerEmail,
+        configuration: { height, width, depth, colour, price, furnitureType }
+    })
+    .then(newOrder => {
+      res.json(newOrder);
     })
     .catch(err => res.json(err));
 });

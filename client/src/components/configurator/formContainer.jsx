@@ -1,22 +1,19 @@
 import React from 'react';
-import { render } from 'react-dom';
 import Slider from './slider';
-
-import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-// import productsList from '../../productsList'
-
 function mapStateToProps(state) {
-  return {
-    height: state.configurator.height,
-    width: state.configurator.width,
-    depth: state.configurator.depth,
-    colour: state.configurator.colour,
-    price: state.configurator.price,
-    example: state.configurator.example
-  };
+    return {
+        name: state.order.name,
+        type: state.order.type,
+        height: state.configurator.height,
+        width: state.configurator.width,
+        depth: state.configurator.depth,
+        colour: state.configurator.colour,
+        price: state.configurator.price,
+        example: state.configurator.example
+    };
 }
 
 class FormContainer extends React.Component {
@@ -25,21 +22,24 @@ class FormContainer extends React.Component {
     const price =
       this.props.width * this.props.depth * this.props.height * 1000;
 
-    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price });
+    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price.toFixed() });
 
-    return price;
+    return price.toFixed();
+  };
+
+  displayNumber = num => {
+    let result = num * 100;
+    return result.toFixed(2);
   };
 
   handleOptionChange = e => {
     this.props.dispatch({ type: 'UPDATE_COLOUR', newColour: e.target.value });
   };
 
+
   handleSubmit = async e => {
-    // this should send the info from the form to the post orders end point.
-
-    console.log(`button: ${this.props}`);
+    //   // this should send the info from the form to the post orders end point.
     e.preventDefault(); // i think this prevents page refresh.
-
     const newOrder = {
       configuration: {
         height: this.props.height,
@@ -50,16 +50,21 @@ class FormContainer extends React.Component {
         furnitureType: 'custom'
       }
     };
-    try {
-      console.log(newOrder);
-      let response = await axios({
-        method: 'POST',
-        url: `/api/orders/new-order`,
-        data: newOrder
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    // this.props.dispatch({
+    //   type: 'UPDATE_TYPE',
+    //   newType: 'something that is passes from the config'
+    // })
+    // this.props.dispatch({
+    //   type: 'UPDATE_name',
+    //   newName: 'something that is passes from the config'
+    // })
+
+    this.props.dispatch({
+      type: 'ADD_TO_CART',
+      newConfiguration: newOrder,
+      newType: this.props.type,
+      newName: this.props.name
+    });
   };
 
   render() {
@@ -84,8 +89,8 @@ class FormContainer extends React.Component {
               // min={this.props.min}
               min={0.5}
               // max={this.props.max}
-              max={3}
-              defaultValue={this.props.height}
+              max={5}
+              // defaultValue={this.props.height}
               value={this.props.height}
               step={0.1}
               onChange={e => {
@@ -103,8 +108,8 @@ class FormContainer extends React.Component {
             </div>
             <Slider
               type="range"
-              min={0.5}
-              max={3}
+              min={0.3}
+              max={0.6}
               value={this.props.depth}
               step={0.1}
               onChange={e => {
@@ -114,7 +119,6 @@ class FormContainer extends React.Component {
                 });
               }}
             />
-
           </label>
           <label>
            <div className="slider-label">
@@ -124,7 +128,7 @@ class FormContainer extends React.Component {
             <Slider
               type="range"
               min={0.5}
-              max={3}
+              max={5}
               value={this.props.width}
               step={0.1}
               onChange={e => {

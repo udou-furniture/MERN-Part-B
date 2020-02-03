@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 
-import { setLocalStorage } from '../utils/localStorage'
+import { setLocalStorageToken } from '../utils/localStorage'
 
 import LoginForm from '../components/log-in/LoginForm'
 
@@ -14,8 +14,8 @@ class Login extends React.Component {
 				password: values.password
 			})
 			
-			setLocalStorage(response.data.access_token)
-			this.props.isUserLoggedIn()
+			setLocalStorageToken(response.data.access_token)
+            this.props.isUserLoggedIn()
 			this.props.history.push('/')
 		} catch (err) {
 			console.log(err.message)

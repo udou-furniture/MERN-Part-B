@@ -8,32 +8,44 @@ import icon from "./CartIcon.svg"
 
 class CartIcon extends React.Component {
   
-  wrapperRef = React.createRef();
+  // wrapperRef = React.createRef();
   
-  handleClick() {
-    const wrapper = this.wrapperRef.current;
-    wrapper.classList.toggle('is-nav-open')
-  }
+  // handleClick() {
+  //   const wrapper = this.wrapperRef.current;
+  //   wrapper.classList.toggle('is-nav-open')
+  // }
   
   
-  render() {
-    return (
-			<div ref={this.wrapperRef} className="cart-wrapper"> 
-			 <Link to="/cart">
-          <div className="cart-icon">
-            <img src={icon} alt="Cart" onClick={() => this.handleClick()} />
-          </div>
-        </Link>
-        {/* <span>{this.props.number}</span> */}
-			</div>	
-    );
-  }
+  // render() {
+  //   return (
+	// 		<div ref={this.wrapperRef} className="cart-wrapper"> 
+	// 		 <Link to="/cart">
+  //         <div className="cart-icon">
+  //           <img src={icon} alt="Cart" onClick={() => this.handleClick()} />
+  //         </div>
+  //       </Link>
+  //       {/* <span>{this.props.number}</span> */}
+	// 		</div>	
+  //   );
+  // }
+    render() {
+        return (
+			<div> 
+			    <Link to="/cart">
+                    <div>
+                        <img src={icon} alt="Cart" />
+                    </div>
+                </Link>
+                <p>You have {this.props.number} items in your cart</p>
+		    </div>	
+        );
+    }
 }
 
 const mapStateToProps = state => {
-  return {
-    number: state.cart.cart.length
-  };
+    return {
+        number: state.cart.items.length
+    };
 };
 
 export default connect(mapStateToProps)(CartIcon)

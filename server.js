@@ -8,6 +8,8 @@ const app = express()
 
 app.use(express.json())
 
+mongoose.set('useFindAndModify', false);
+
 // heroku wont always use port 5000
 const PORT = process.env.PORT || 5000
 
@@ -17,7 +19,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 mongoose.connect(process.env.DB_URL, dbConfig, (err) => {
     if(err) {
-        console.log('error')
+        console.log('error connecting to mongo')
     } else {
         console.log('Connected to MongoDB')
     }
