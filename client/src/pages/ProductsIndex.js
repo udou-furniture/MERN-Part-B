@@ -16,15 +16,14 @@ function mapStateToProps(state) {
 class ProductsIndex extends React.Component {
   handleClick(id, e) {
     // this function takes the id number that was passed through with the menu list item that was created and finds the item in the productsList array that matches it.
-    console.log(`handle click`, e);
-    console.log(id);
+    
 
     var example;
     console.log(productsList);
     productsList.forEach(i => {
       if (i.id === id) {
         example = i;
-        console.log(`handle Click2 ${JSON.stringify(example)}`);
+        
         return example;
       }
     });

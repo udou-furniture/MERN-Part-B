@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardElement} from 'react-stripe-elements';
+// import {CardElement} from 'react-stripe-elements';
 
 const style = {
   base: {
@@ -21,7 +21,7 @@ const CardSection = () => {
   return (
     <label>
       Card details
-      <CardElement className="MyCardElement" style={style} />
+      {/* <CardElement className="MyCardElement" style={style} /> */}
     </label>
   );
 };
