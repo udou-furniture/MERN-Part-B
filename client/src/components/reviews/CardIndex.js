@@ -20,7 +20,14 @@ class CardIndex extends React.Component {
         try {
             let response = await axios.get('http://localhost:3000/api/orders/reviews');
         
-            this.setReviews(response.data);
+            const allReviews = response.data
+
+            let nonEmptyReviews = allReviews.filter(order => order.review.length > 0)
+            console.log(nonEmptyReviews)
+            
+            const fiveReviews = nonEmptyReviews.slice(0, 5)
+
+            this.setReviews(fiveReviews);
         } catch (err) {
             console.log(err);
         }
@@ -30,10 +37,15 @@ class CardIndex extends React.Component {
         this.props.dispatch({ type: 'UPDATE_REVIEWS', newReviews: e })
     };
 
-    createArray = item => {
-        return item.map(i => {
-            const review = i.review;
-            return <ReviewCard key={i.id} review={review} email={i.customerEmail} />;
+    createArray = allReviews => {
+        const nameArray = ["Melissa", "Mark", "Kyle", "Izzy", "Molly"]
+        return allReviews.map((i, index) => {
+            return <ReviewCard 
+                key={i.id} 
+                review={i.review} 
+                date={i.updatedAt}
+                name={nameArray[index % nameArray.length]}
+            />
         });
     };
 
