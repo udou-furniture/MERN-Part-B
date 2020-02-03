@@ -73,6 +73,11 @@ class App extends React.Component {
                                 return <Cart authed={this.state.authed} {...props} />
                             }} />
 
+                            {/* FOR USE WHILE SERVER NOT WORKING - DELETE ONCE SERVER WORKING */}
+                            <Route exact path="/account" component={AccountDashboard} /> 
+                            <Route exact path="/checkout" component={Checkout} />
+
+
                             <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />
                             
                             <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>
