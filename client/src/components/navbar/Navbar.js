@@ -55,17 +55,16 @@ class Navbar extends React.Component {
 							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
 						</li>	
 						{this.props.authed ? 
-						<li><Link to="/" onClick={() => this.logout()}>Log out</Link></li> : 
 						<>
-							<li><Link to="/registration">Sign up</Link></li>
+							<li><Link to="/" onClick={() => this.logout()}>Log out</Link></li>
+							<li><Link to="/account">My account</Link></li>
+						</> :
+						<>
+							<li><Link to="/registration">Registration</Link></li>
 							<li><Link to="/login">Login</Link></li>
-							<CartIcon />
 						</>	
 						}
-						{this.props.authed ? 
-							<Link to ="/cart"><CartIcon /></Link> : 
-							<></>
-						}
+						<CartIcon />
 					</ul>
 				</div>
 				{/* <div className="container" ref={this.container}>
