@@ -21,6 +21,8 @@ value && !/^(?:\+?61|0)4 ?(?:(?:[01] ?[0-9]|2 ?[0-57-9]|3 ?[1-9]|4 ?[7-9]|5 ?[01
 export const email = value =>
 value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined
 
+
+
 // const passwordsMatch = (password, confirmPassword) => 
 //   password !== confirmPassword
 // ? 'Passwords don\'t match' 
@@ -28,6 +30,10 @@ value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid ema
 
 // export const matchPassword = passwordsMatch(password, confirmPassword)
 
+const minLength = min => value =>
+  value && value.length < min ? `Must be ${min} characters or more` : undefined
+
+export const passwordMinLength = minLength(8)
 
 
 
@@ -43,10 +49,6 @@ value && /[^a-zA-Z0-9 ]/i.test(value)
 // export const maxLength15 = maxLength(15)
 
 
-// const minLength = min => value =>
-//   value && value.length < min ? `Must be ${min} characters or more` : undefined
-
-// export const minLength2 = minLength(2)
 
 // const minValue = min => value =>
 // value && value < min ? `Must be at least ${min}` : undefined
