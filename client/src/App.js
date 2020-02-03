@@ -76,6 +76,8 @@ class App extends React.Component {
                             {/* FOR USE WHILE SERVER NOT WORKING - DELETE ONCE SERVER WORKING */}
                             <Route exact path="/account" component={AccountDashboard} /> 
                             <Route exact path="/checkout" component={Checkout} />
+                            <Route exact path="/leave-review/" component={ReviewFormPage} />
+
 
 
                             <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />

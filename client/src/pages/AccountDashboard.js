@@ -6,11 +6,13 @@ import SavedDesigns from '../components/Dashboard/SavedDesigns'
 class AccountDashboard extends React.Component {
     render() {
         return(
-            <>
-                <div>Account Dashboard</div>
+            <div>
+                <div className="grid account-dashboard">
+                    <h1>Account Dashboard</h1>
+                </div>
                 <PurchaseHistory />
                 <SavedDesigns />
-            </>
+            </div>
         )
     }
 }

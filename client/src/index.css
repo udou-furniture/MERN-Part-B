@@ -1,8 +1,11 @@
 :root {
 	--bg-grey-200: #EDF2F7;
 	--bg-grey-300: #e2e8f0;
+	--bg-grey-lighter: #F3F7F9;
 	--text-grey-900: #1a202c;
 	--text-grey-700: #4a5568;
+	--text-grey-darker: #596A73;
+	--placeholder-text: #B1BBC1;
 	--text-grey-600: #718096;
 	--text-grey-500: #a0aec0;
 	--indigo-700: #4C51BF;
@@ -24,7 +27,7 @@
 
 /* DEFAULT PLACEHOLDER TEXT COLOUR */
 ::placeholder {
-	color: var(--text-grey-600);
+	color: var(--placeholder-text);
 }
 
 /* RESET */
@@ -32,7 +35,7 @@
 	box-sizing: border-box;
 }
 
-body, p, a, ul, li {
+body, p, a, ul, li, th {
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
@@ -66,7 +69,7 @@ h1, h2, h3, h4 {
 	margin: 0px;
 }
 
-p, a, li {
+p, a, li, th {
 	font-family: var(--bodytext-font);
 	color: var(--text-grey-900);
 	line-height: 1.4em;
@@ -116,6 +119,13 @@ h4 {
 	body {
 		font-size: 16px;
 	}
+
+	.center-element {
+		max-width: 1060px;
+		margin: 0 auto;
+		width: 100%;
+	}
+
 
 	.grid {
 		max-width: 1060px;

@@ -41,7 +41,7 @@
 	margin-bottom: 12px;
 	font-size: 16px;
 	line-height: 24px;
-	color: var(--text-grey-600);
+	background-color: var(--bg-grey-200);
 	padding: 8px 12px;
 }
 
