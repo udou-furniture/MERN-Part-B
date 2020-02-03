@@ -1,46 +1,84 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form';
-import {required, phoneNumberValidation} from '../validations'
+import {required, phoneNumber, postcodeValidation, number} from '../validations'
+
+const renderTextField = ({ input, label, type, meta: { touched, error, warning } }) => (
+    <div>
+        <label>{label}</label>
+
+        <div>
+            <input {...input} placeholder={label} type={type}/>
+
+            {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+        </div>
+    </div>
+)
 
 class CustomerDetailsForm extends React.Component {
     render() {
-        const {handleSubmit} = this.props
+        const { handleSubmit, pristine, reset, submitting } = this.props
         return (
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="firstName">First Name</label>
-                        <Field 
-                            name="firstName" 
-                            component="input" 
-                            type="firstName"
-                            
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="lastName">Last Name</label>
-                        <Field name="lastName" component="input" type="lastName" />
-                    </div>
-                    <div>
-                        <label htmlFor="address">Address</label>
-                        <Field name="address" component="input" type="address" />
-                    </div>
-                    <div>
-                        <label htmlFor="city">City</label>
-                        <Field name="city" component="input" type="city" />
-                    </div>
+                    <Field 
+                        name="firstName" 
+                        type="text"
+                        component={renderTextField} 
+                        label="First Name"
+                        validate={required}
+                    />
+                    <Field 
+                        name="lastName" 
+                        type="text"
+                        component={renderTextField} 
+                        label="Last Name"
+                        validate={required}
+                    />
+                    <Field 
+                        name="address" 
+                        type="text"
+                        component={renderTextField} 
+                        label="Address"
+                        validate={[required]}
+                    />
+                    <Field 
+                        name="city" 
+                        type="text"
+                        component={renderTextField} 
+                        label="City"
+                        validate={required}
+                    />
                     <div>
                         <label htmlFor="state">State</label>
-                        <Field name="state" component="input" type="state" />
+                        <Field 
+                            name="state" 
+                            component='select'
+                            validate={required}
+                        >
+                            <option value="VIC">Victoria</option>
+                            <option value="NSW">New South Wales</option>
+                            <option value="QLD">Queensland</option>
+                            <option value="NT">Northern Territory</option>
+                            <option value="SA">South Australia</option>
+                            <option value="WA">Western Australia</option>
+                            <option value="TAS">Tasmania</option>
+                            <option value="ACT">Australian Capital Territory</option>
+                        </Field>
                     </div>
-                    <div>
-                        <label htmlFor="postcode">Postcode</label>
-                        <Field name="postcode" component="input" type="postcode" />
-                    </div>
-                    <div>
-                        <label htmlFor="phoneNumber">Phone Number</label>
-                        <Field name="phoneNumber" component="input" type="phoneNumber" />
-                    </div>
-                    <button type="submit" label='submit'>Submit</button>
+                    <Field 
+                        name="postcode" 
+                        type="text"
+                        component={renderTextField} 
+                        label="Postcode"
+                        validate={[required, postcodeValidation, number]}
+                    />
+                    <Field 
+                        name="phoneNumber" 
+                        type="text"
+                        component={renderTextField} 
+                        label="Phone Number"
+                        validate={[ required, phoneNumber, number ]}
+                    />
+                    <button type="submit" disabled={pristine || submitting}>Submit</button>
                 </form>
         );
     }

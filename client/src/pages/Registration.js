@@ -7,6 +7,10 @@ import RegistrationForm from '../components/RegistrationForm'
 
 
 class Registration extends React.Component {
+    state = {
+        error: false
+    }
+
 	submit = async (values) => {
 		try {
 			let response = await axios.post('http://localhost:5000/api/customer/register', 
@@ -19,7 +23,8 @@ class Registration extends React.Component {
 			this.props.isUserLoggedIn()
 			this.props.history.push('/')
 		} catch (err) {
-			console.log(err.message)
+            console.log(err.message)
+            this.setState({error: true})
 		}
 	}
 
@@ -27,7 +32,7 @@ class Registration extends React.Component {
 		return (
 		<>
 			<h1>Sign Up</h1>	
-			<RegistrationForm onSubmit={this.submit} />
+			<RegistrationForm onSubmit={this.submit} errorMessage={this.state.error}/>
 		</>
 	)}
 }

@@ -6,7 +6,8 @@ import {getLocalStorageToken} from '../utils/localStorage'
 
 class Payment extends React.Component {
     mapThroughCart = (item) => {
-        return this.props.items.map(item => this.handleCompletePurchase(item))
+        console.log(item)
+        // return this.props.items.map(item => this.handleCompletePurchase(item))
     }
 
     async handleCompletePurchase(item) {
