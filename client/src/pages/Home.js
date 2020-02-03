@@ -12,6 +12,7 @@ class Home extends React.Component {
         return (
 			<>
                 <Hero />
+                <Dropdown />
                 <About />
                 <CardIndex />
                 <Footer />

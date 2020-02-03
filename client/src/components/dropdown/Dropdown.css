@@ -38,3 +38,111 @@ li:hover {
 	background-color: rgba(0, 0, 0, 0.14);
 	cursor: pointer;
 } */
+
+.dropdown-grid {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	gap: 10px;
+	box-sizing: border-box;
+
+}
+
+
+.container {
+  position: relative;
+  cursor: pointer;
+}
+
+.display {
+  position: relative;
+  z-index: 1;
+  width: 120px;
+  height: 40px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 350ms;
+}
+
+.display:active {
+  background-color: #000000;
+}
+
+.list-body {
+  position: absolute;
+  top: 45px;
+  z-index: 1;
+  box-sizing: border-box;
+	width: 100%;
+	height: 400px;
+  padding: 0 20px;
+  overflow: hidden;
+  background-color: lightgrey;
+  border-radius: 5px;
+}
+
+.list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.list-item {
+  padding: 5px 0;
+}
+
+.list-item--active {
+  color: blue;
+  transition: color 1500ms;
+}
+
+/* This fires as soon as the element enters the dom */
+.list-transition-enter,
+.list-transition-appear {
+  /*We give the list the initial dimension of the list button*/
+  top: 0;
+  width: 120px;
+  max-height: 40px;
+  color: transparent;
+  background-color: lightgrey;
+}
+/* This is where we can add the transition*/
+.list-transition-enter-active,
+.list-transition-appear-active {
+  top: 45px;
+  width: 100%;
+  max-height: 600px;
+  background-color: lightgrey;
+  transition: all 500ms;
+}
+
+/* This fires as soon as the this.state.showList is false */
+.list-transition-exit {
+  top: 45px;
+  width: 200px;
+  max-height: 200px;
+  background-color: lightgrey;
+}
+/* fires as element leaves the DOM*/
+.list-transition-exit-active {
+  top: 0;
+  width: 120px;
+  max-height: 40px;
+  color: transparent;
+  background-color: lightgrey;
+  transition: all 400ms;
+}
+
+
+.dropdown-card-1 {
+	grid-column: 2/3;
+}
+
+.dropdown-card-2 {
+	grid-column: 4/6;
+}
+
+.dropdown-card-3 {
+	grid-column: 7/9;
+}
