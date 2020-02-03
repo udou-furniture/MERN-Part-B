@@ -102,9 +102,10 @@ class Viewer extends React.Component {
     );
 
     // set some distance from a cube that is located at z = 0
-    this.camera.position.x = 0;
-    this.camera.position.y = 0;
-    this.camera.position.z = 27;
+    // this.camera.position.x = this.props.height*15;
+    // this.camera.position.y = this.props.height*15;
+    this.camera.position.z = this.props.height*5 + 20;
+    console.log("camera", this.camera.position)
 
     this.camera.aspect = width / height;
     this.renderer = new THREE.WebGLRenderer();
@@ -118,7 +119,7 @@ class Viewer extends React.Component {
 
   addCustomSceneObjects = () => {
     const lights = [];
-    lights[0] = new THREE.PointLight(0xffffff, 1, 0);
+    lights[0] = new THREE.PointLight(0x111111, 1, 0);
     lights[1] = new THREE.PointLight(0xffffff, 1, 0);
     lights[2] = new THREE.PointLight(0xffffff, 1, 0);
 
@@ -149,13 +150,19 @@ class Viewer extends React.Component {
     // .setRotation([180,0,0])
   };
   setControls = () => {
-    let controls = new OrbitControls(this.camera, this.el);
-    controls.width = this.el.clientWidth;
-    controls.height = 500;
-    controls.update();
+    this.controls = new OrbitControls(this.camera, this.el);
+    this.controls.width = this.el.clientWidth;
+    this.controls.height = 500;
+    this.controls.update();
   };
 
   updateScale = () => {
+    // this.camera.position.x = this.props.height*15;
+    // this.camera.position.y = this.props.height*15;
+    // this.camera.position.z = this.props.height*15;
+    console.log("camera", this.camera.position)
+    // this.controls.update();
+    // this.camera.position.z = this.props.height*27;
     // this.plane.translateZ(this.props.height * 10)
     myOBJ = this.myOBJ;
     //these are coming back as undefined myOBJ - I wanna use a .bind somewhere.
@@ -163,11 +170,11 @@ class Viewer extends React.Component {
     myOBJ.scale.x = this.props.width / 100;
 
     myOBJ.scale.y = this.props.height / 100;
-    myOBJ.scale.z = this.props.depth / 100;
+    myOBJ.scale.z = this.props.depth / 50;
 
     switch (this.props.colour) {
       case 'Natural':
-        this.colourValue = 0xe6c49c;
+        this.colourValue = 0x7d6a57;
         break;
 
       case 'Black':
@@ -175,7 +182,7 @@ class Viewer extends React.Component {
 
         break;
       case 'White':
-        this.colourValue = 0xd9d6d2;
+        this.colourValue = 0xffffff;
 
         break;
       default:
@@ -185,9 +192,9 @@ class Viewer extends React.Component {
     myOBJ.children.forEach(item => {
       item.material.color.setHex(this.colourValue);
     });
-    myOBJ.children[1].material.color.setHex(0xe6c49c);
-      myOBJ.children[2].material.color.setHex(0xe6c49c);
-      myOBJ.children[3].material.color.setHex(0xe6c49c);
+    myOBJ.children[1].material.color.setHex(0xffe8bf);
+      myOBJ.children[2].material.color.setHex(0xffe8bf);
+      myOBJ.children[3].material.color.setHex(0xffe8bf);
   };
 
   loadObject = () => {
@@ -210,7 +217,7 @@ class Viewer extends React.Component {
       object.scale.set(
         this.props.height / 100,
         this.props.width / 100,
-        this.props.depth / 100
+        this.props.depth / 50
       );
       // console.log('object', object);
       // console.log(this.props.height);
@@ -222,9 +229,9 @@ class Viewer extends React.Component {
         item.material.color.setHex(0x2d2f30);
       });
 
-      object.children[1].material.color.setHex(0xe6c49c);
-      object.children[2].material.color.setHex(0xe6c49c);
-      object.children[3].material.color.setHex(0xe6c49c);
+      object.children[1].material.color.setHex(0xffe8bf);
+      object.children[2].material.color.setHex(0xffe8bf);
+      object.children[3].material.color.setHex(0xffe8bf);
 
       // console.log(`myOBJ:${JSON.stringify(this.myOBJ)}`);
       // console.log(object);

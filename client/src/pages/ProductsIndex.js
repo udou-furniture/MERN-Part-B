@@ -28,18 +28,7 @@ class ProductsIndex extends React.Component {
       }
     });
 
-    // const mapStateToProps = (state) => {
-    // 	console.log(state)
-    // 	return {
-    // 		products: state.products,
-    // 		height: state.configurator.height,
-    //     width: state.configurator.width,
-    //     depth: state.configurator.depth,
-    //     colour: state.configurator.colour,
-    //     price: state.configurator.price
-    // 	}
-    // }
-
+ 
     this.setDefaultConfig(example);
   }
 

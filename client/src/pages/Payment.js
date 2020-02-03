@@ -1,8 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { getLocalStorageToken } from '../utils/localStorage';
+
+const style = {
+    base: {
+      display: "flex",
+      flexDirection: "column",
+  
+    }
+  }
 
 class Payment extends React.Component {
   mapThroughCart = item => {
@@ -37,7 +46,7 @@ class Payment extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <>
+      <div style={style}>
         <h1>This is where stripe will be</h1>
         <form>
           <label>
@@ -56,7 +65,7 @@ class Payment extends React.Component {
             <input type="text" value="this is a fake form"></input>
             Fake CVC
           </label>
-          <Link to={'/payment-success'}>
+          <Link to={'/payment-complete'}>
             <button
               type="submit"
               onClick={this.mapThroughCart(this.props.items)}
@@ -65,7 +74,7 @@ class Payment extends React.Component {
             </button>
           </Link>
         </form>
-      </>
+      </div>
     );
   }
 }

@@ -12,6 +12,7 @@ import ReviewFormPage from './pages/ReviewFormPage';
 import AccountDashboard from './pages/AccountDashboard';
 import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
+import PaymentComplete from './pages/PaymentComplete';
 
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
@@ -79,7 +80,7 @@ class App extends React.Component {
                             <PrivateRoute exact path="/account" component={AccountDashboard} authed={this.state.authed}/>
                             <PrivateRoute exact path="/checkout" component={Checkout} authed={this.state.authed} />
                             <PrivateRoute exact path="/payment" component={Payment} authed={this.state.authed} />
-                            <PrivateRoute exact path="/payment-success" component={PaymentSuccess} authed={this.state.authed} />
+                            <PrivateRoute exact path="/payment-complete" component={PaymentComplete} authed={this.state.authed} />
                         </Switch>
                     </div>
                 </BrowserRouter> 
