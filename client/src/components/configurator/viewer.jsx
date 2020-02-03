@@ -93,7 +93,7 @@ class Viewer extends React.Component {
     const height = 500;
     console.log(this);
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color( 0xffffff );
+    this.scene.background = new THREE.Color(0xffffff);
     this.camera = new THREE.PerspectiveCamera(
       75, // fov = field of view
       width / height, // aspect ratio
@@ -110,6 +110,9 @@ class Viewer extends React.Component {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(width, height);
     this.renderer.setClearColor(0x000000, 1);
+    this.renderer.shadowMapEnabled = true;
+    this.renderer.shadowMapType = THREE.PCFSoftShadowMap;
+
     this.el.appendChild(this.renderer.domElement); // mount using React ref
   };
 
@@ -122,10 +125,28 @@ class Viewer extends React.Component {
     lights[0].position.set(0, 2000, 0);
     lights[1].position.set(1000, 2000, 1000);
     lights[2].position.set(-1000, -2000, -1000);
+    // lights[0].shadowCameraVisible = true;
+    // lights[0].castShadow = true;
+    // lights[1].castShadow = true;
+    // lights[2].castShadow = true;
 
     this.scene.add(lights[0]);
     this.scene.add(lights[1]);
     this.scene.add(lights[2]);
+
+//     var geometry = new THREE.PlaneGeometry((10, 10, 50, 50));
+//     var material = new THREE.MeshBasicMaterial({
+//       color: 0xffff00,
+//       side: THREE.DoubleSide
+//     });
+//     this.plane = new THREE.Mesh(geometry, material);
+// this.scene.add(this.plane);
+
+//     this.plane.rotateX(1.57);
+//     this.plane.translateZ(this.props.height * 10)
+//     this.plane.position((0,0,this.props.height* 10)) 
+    
+    // .setRotation([180,0,0])
   };
   setControls = () => {
     let controls = new OrbitControls(this.camera, this.el);
@@ -135,34 +156,35 @@ class Viewer extends React.Component {
   };
 
   updateScale = () => {
+    // this.plane.translateZ(this.props.height * 10)
     myOBJ = this.myOBJ;
     //these are coming back as undefined myOBJ - I wanna use a .bind somewhere.
-  
-    myOBJ.scale.x = this.props.width /100;
+    console.log(myOBJ);
+    myOBJ.scale.x = this.props.width / 100;
 
-    myOBJ.scale.y = this.props.height/100;
-    myOBJ.scale.z = this.props.depth/100;
+    myOBJ.scale.y = this.props.height / 100;
+    myOBJ.scale.z = this.props.depth / 100;
 
-    // switch (this.props.colour) {
-    //   case 'Natural':
-    //     this.colourValue = 0xabc123;
-    //     break;
+    switch (this.props.colour) {
+      case 'Natural':
+        this.colourValue = 0xe6c49c;
+        break;
 
-    //   case 'Black':
-    //     this.colourValue = 0xffd537;
+      case 'Black':
+        this.colourValue = 0x2d2f30;
 
-    //     break;
-    //   case 'White':
-    //     this.colourValue = 0xa6a6a6;
+        break;
+      case 'White':
+        this.colourValue = 0xd9d6d2;
 
-    //     break;
-    //   default:
-    //     this.colourValue = 0xa6a6a6;
-    // }
+        break;
+      default:
+        this.colourValue = 0x2d2f30;
+    }
 
-    // myOBJ.material.forEach(item => {
-    //   item.color.setHex(this.colourValue);
-    // });
+    myOBJ.children.forEach(item => {
+      item.material.color.setHex(this.colourValue);
+    });
   };
 
   loadObject = () => {
@@ -178,34 +200,32 @@ class Viewer extends React.Component {
     let objLoader = new THREE.OBJLoader();
 
     myOBJ = this.myOBJ;
-    
+
     objLoader.setPath('/');
     objLoader.load('./shelf-model.obj', object => {
       scene.add(object);
       object.scale.set(
-        this.props.height /100 ,
-        this.props.width /100,
-        this.props.depth /100
+        this.props.height / 100,
+        this.props.width / 100,
+        this.props.depth / 100
       );
       // console.log('object', object);
       // console.log(this.props.height);
-        console.log("OBJECT:", object)
-      this.myOBJ = object
-
-     
+      object.castShadow = true;
+      object.receiveShadow =true;
+      this.myOBJ = object;
 
       object.children.forEach(item => {
-        item.material.color.setHex(0xadf111);
+        item.material.color.setHex(0x2d2f30);
       });
-     
 
       // console.log(`myOBJ:${JSON.stringify(this.myOBJ)}`);
       // console.log(object);
     });
     // console.log(myOBJ)
-   
-  // })
-}
+
+    // })
+  };
 
   resizeRendererToDisplaySize = renderer => {
     const canvas = this.renderer.domElement;
@@ -224,7 +244,6 @@ class Viewer extends React.Component {
   };
 
   render() {
-    
     return <div className="viewer" ref={ref => (this.el = ref)} />;
   }
 }
