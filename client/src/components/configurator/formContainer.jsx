@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from './slider';
-
+import '../../pages/ProductView.css';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
