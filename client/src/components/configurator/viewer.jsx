@@ -104,8 +104,7 @@ class Viewer extends React.Component {
     // set some distance from a cube that is located at z = 0
     // this.camera.position.x = this.props.height*15;
     // this.camera.position.y = this.props.height*15;
-    this.camera.position.z = this.props.height*5 + 20;
-    console.log("camera", this.camera.position)
+    this.camera.position.z = this.props.height * 5 + 20;
 
     this.camera.aspect = width / height;
     this.renderer = new THREE.WebGLRenderer();
@@ -135,18 +134,18 @@ class Viewer extends React.Component {
     this.scene.add(lights[1]);
     this.scene.add(lights[2]);
 
-//     var geometry = new THREE.PlaneGeometry((10, 10, 50, 50));
-//     var material = new THREE.MeshBasicMaterial({
-//       color: 0xffff00,
-//       side: THREE.DoubleSide
-//     });
-//     this.plane = new THREE.Mesh(geometry, material);
-// this.scene.add(this.plane);
+    //     var geometry = new THREE.PlaneGeometry((10, 10, 50, 50));
+    //     var material = new THREE.MeshBasicMaterial({
+    //       color: 0xffff00,
+    //       side: THREE.DoubleSide
+    //     });
+    //     this.plane = new THREE.Mesh(geometry, material);
+    // this.scene.add(this.plane);
 
-//     this.plane.rotateX(1.57);
-//     this.plane.translateZ(this.props.height * 10)
-//     this.plane.position((0,0,this.props.height* 10)) 
-    
+    //     this.plane.rotateX(1.57);
+    //     this.plane.translateZ(this.props.height * 10)
+    //     this.plane.position((0,0,this.props.height* 10))
+
     // .setRotation([180,0,0])
   };
   setControls = () => {
@@ -157,16 +156,8 @@ class Viewer extends React.Component {
   };
 
   updateScale = () => {
-    // this.camera.position.x = this.props.height*15;
-    // this.camera.position.y = this.props.height*15;
-    // this.camera.position.z = this.props.height*15;
-    console.log("camera", this.camera.position)
-    // this.controls.update();
-    // this.camera.position.z = this.props.height*27;
-    // this.plane.translateZ(this.props.height * 10)
     myOBJ = this.myOBJ;
-    //these are coming back as undefined myOBJ - I wanna use a .bind somewhere.
-    console.log(myOBJ);
+
     myOBJ.scale.x = this.props.width / 100;
 
     myOBJ.scale.y = this.props.height / 100;
@@ -193,8 +184,8 @@ class Viewer extends React.Component {
       item.material.color.setHex(this.colourValue);
     });
     myOBJ.children[1].material.color.setHex(0xffe8bf);
-      myOBJ.children[2].material.color.setHex(0xffe8bf);
-      myOBJ.children[3].material.color.setHex(0xffe8bf);
+    myOBJ.children[2].material.color.setHex(0xffe8bf);
+    myOBJ.children[3].material.color.setHex(0xffe8bf);
   };
 
   loadObject = () => {
@@ -215,8 +206,8 @@ class Viewer extends React.Component {
     objLoader.load('./shelf-model-no-plane.obj', object => {
       scene.add(object);
       object.scale.set(
-        this.props.height / 100,
         this.props.width / 100,
+        this.props.height / 100,
         this.props.depth / 50
       );
       // console.log('object', object);
@@ -232,11 +223,13 @@ class Viewer extends React.Component {
       object.children[1].material.color.setHex(0xffe8bf);
       object.children[2].material.color.setHex(0xffe8bf);
       object.children[3].material.color.setHex(0xffe8bf);
-
+      // this.myOBJ.scale.x = this.props.height / 100;
+      // this.myOBJ.scale.y = this.props.width / 100;
+      // this.myOBJ.scale.z = this.props.depth / 50;
       // console.log(`myOBJ:${JSON.stringify(this.myOBJ)}`);
       // console.log(object);
     });
-    // console.log(myOBJ)
+    
 
     // })
   };
