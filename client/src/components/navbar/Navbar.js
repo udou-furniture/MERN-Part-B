@@ -59,7 +59,7 @@ class Navbar extends React.Component {
 						<>
 							<li><Link to="/registration">Sign up</Link></li>
 							<li><Link to="/login">Login</Link></li>
-							<li><Link to ="/cart"><CartIcon /></Link></li>
+							<CartIcon />
 						</>	
 						}
 						{this.props.authed ? 
