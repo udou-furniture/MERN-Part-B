@@ -23,6 +23,7 @@ router.get('/my-saved-orders', verifyToken, (req,res) => {
     }
     Order.find(query)
     .then(allOrders => {
+        // console.log(allOrders)
         return res.json(allOrders);
     })
     .catch(err => res.json(err));
@@ -71,6 +72,7 @@ router.post('/new-saved-order', verifyToken, (req, res) => {
         configuration: { height, width, depth, colour, price, furnitureType }
     })
     .then(newOrder => {
+        console.log(newOrder)
       res.json(newOrder);
     })
     .catch(err => res.json(err));

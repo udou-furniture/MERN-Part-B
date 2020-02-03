@@ -7,7 +7,7 @@ import CardSection from '../components/payments/cardSection';
 import {getLocalStorageToken} from '../utils/localStorage'
 
 class Payment extends React.Component {
-    mapThroughCart = () => {
+    mapThroughCart = (item) => {
         return this.props.items.map(item => this.handleCompletePurchase(item))
     }
 
@@ -25,6 +25,7 @@ class Payment extends React.Component {
 			}, {
                 headers: {Authorisation: `Bearer ${token}`}
             })
+            console.log("sent")
 
         } catch (err) {
             console.log(err.message)
@@ -32,11 +33,12 @@ class Payment extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         return(
             <>
                 <h1>This is where stripe will be</h1>
                 <button 
-                onClick={this.mapThroughCart}
+                onClick={this.mapThroughCart(this.props.items)}
                 >Complete Purchase</button>
                 <CardSection />
             </>
