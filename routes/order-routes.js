@@ -30,7 +30,11 @@ router.get('/my-saved-orders', verifyToken, (req,res) => {
 });
 
 router.get('/reviews', (req, res) => {
-    Order.find({})
+    const query = {
+        purchased: true
+    }
+
+    Order.find(query)
     .then(allOrders => {
         return res.json(allOrders)
     })
