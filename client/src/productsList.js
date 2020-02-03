@@ -17,7 +17,7 @@ const productsList = [
 		type: "bookshelf",
 		name: "Type02",
 		configuration: {
-			height: 2.2,
+			height: 1.8,
 			width: 1,
 			depth: 0.4,
 			colour: "natural",
@@ -96,7 +96,7 @@ const productsList = [
 		name: "Type02",
 		configuration: {
 			height: 1,
-			width: 1.8,
+			width: 2.1,
 			depth: 0.4,
 			colour: "natural",
 			price: 99,
@@ -109,8 +109,8 @@ const productsList = [
 		name: "Type03",
 		configuration: {
 			height: 1,
-			width: 1.9,
-			depth: 0.4,
+			width: 2.5,
+			depth: 0.7,
 			colour: "natural",
 			price: 99,
 			furnitureType: 'custom'

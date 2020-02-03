@@ -12,6 +12,7 @@ import ReviewFormPage from './pages/ReviewFormPage';
 import AccountDashboard from './pages/AccountDashboard';
 import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
+import PaymentComplete from './pages/PaymentComplete';
 
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
@@ -71,13 +72,15 @@ class App extends React.Component {
                             <Route path="/cart" render={(props) => {
                                 return <Cart authed={this.state.authed} {...props} />
                             }} />
-
+                            {/* this route is just for testing
+                            <Route exact path="/payment" component={Payment}  /> */}
                             <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />
                             
                             <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>
                             <PrivateRoute exact path="/account" component={AccountDashboard} authed={this.state.authed}/>
                             <PrivateRoute exact path="/checkout" component={Checkout} authed={this.state.authed} />
                             <PrivateRoute exact path="/payment" component={Payment} authed={this.state.authed} />
+                            <PrivateRoute exact path="/payment-complete" component={PaymentComplete} authed={this.state.authed} />
                         </Switch>
                     </div>
                 </BrowserRouter> 
@@ -85,5 +88,6 @@ class App extends React.Component {
         }
     }
 }
+
 
 export default App;
