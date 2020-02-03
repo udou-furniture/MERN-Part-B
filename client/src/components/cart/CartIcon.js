@@ -32,7 +32,7 @@ class CartIcon extends React.Component {
     render() {
         return (
           <>
-            <li><Link to="/cart"> <img src={icon} alt="Cart" /></Link></li>
+            <li><Link to="/cart"> <img className="shopping-cart" src={icon} alt="Cart" /></Link></li>
             <li className="number-of-items">
               {this.props.number}
             </li>
