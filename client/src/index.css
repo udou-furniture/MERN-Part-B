@@ -1,10 +1,10 @@
 :root {
 	--bg-grey-200: #EDF2F7;
 	--bg-grey-300: #e2e8f0;
-	--bg-grey-lighter: #F3F7F9;
+	--bg-grey-lighter: #f1f5f8;
 	--text-grey-900: #1a202c;
 	--text-grey-700: #4a5568;
-	--text-grey-darker: #596A73;
+	--text-grey-darker: #606f7b;
 	--placeholder-text: #B1BBC1;
 	--text-grey-600: #718096;
 	--text-grey-500: #a0aec0;
@@ -21,7 +21,10 @@
 	--shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	--shadow-med: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--alt-shadow-med: 0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08);
 	--shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+	--stripe-linear-gradient: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
 
 }
 

@@ -1,5 +1,6 @@
 #checkout-page {
 	background-color: #edf2f7;
+	/* background: var(--stripe-linear-gradient); */
 }
 
 #checkout-page h4{
@@ -22,7 +23,7 @@
 	margin-top: 100px;
 	margin-bottom: 100px;
 	background-color: #fff;
-	box-shadow: var(--shadow-med);
+	box-shadow: var(--alt-shadow-med);
 
 }
 
