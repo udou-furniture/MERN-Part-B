@@ -109,9 +109,9 @@ class Viewer extends React.Component {
     this.camera.aspect = width / height;
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(width, height);
-    this.renderer.setClearColor(0x000000, 1);
-    this.renderer.shadowMapEnabled = true;
-    this.renderer.shadowMapType = THREE.PCFSoftShadowMap;
+    // this.renderer.setClearColor(0x000000, 1);
+    // this.renderer.shadowMapEnabled = true;
+    // this.renderer.shadowMapType = THREE.PCFSoftShadowMap;
 
     this.el.appendChild(this.renderer.domElement); // mount using React ref
   };
@@ -185,6 +185,9 @@ class Viewer extends React.Component {
     myOBJ.children.forEach(item => {
       item.material.color.setHex(this.colourValue);
     });
+    myOBJ.children[1].material.color.setHex(0xe6c49c);
+      myOBJ.children[2].material.color.setHex(0xe6c49c);
+      myOBJ.children[3].material.color.setHex(0xe6c49c);
   };
 
   loadObject = () => {
@@ -202,7 +205,7 @@ class Viewer extends React.Component {
     myOBJ = this.myOBJ;
 
     objLoader.setPath('/');
-    objLoader.load('./shelf-model.obj', object => {
+    objLoader.load('./shelf-model-no-plane.obj', object => {
       scene.add(object);
       object.scale.set(
         this.props.height / 100,
@@ -211,13 +214,17 @@ class Viewer extends React.Component {
       );
       // console.log('object', object);
       // console.log(this.props.height);
-      object.castShadow = true;
-      object.receiveShadow =true;
+      // object.castShadow = true;
+      // object.receiveShadow =true;
       this.myOBJ = object;
 
       object.children.forEach(item => {
         item.material.color.setHex(0x2d2f30);
       });
+
+      object.children[1].material.color.setHex(0xe6c49c);
+      object.children[2].material.color.setHex(0xe6c49c);
+      object.children[3].material.color.setHex(0xe6c49c);
 
       // console.log(`myOBJ:${JSON.stringify(this.myOBJ)}`);
       // console.log(object);

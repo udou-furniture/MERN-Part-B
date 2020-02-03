@@ -77,7 +77,7 @@ class FormContainer extends React.Component {
               // min={this.props.min}
               min={0.5}
               // max={this.props.max}
-              max={5}
+              max={3}
               // defaultValue={this.props.height}
               value={this.props.height}
               step={0.1}
@@ -97,7 +97,7 @@ class FormContainer extends React.Component {
             <Slider
               type="range"
               min={0.3}
-              max={0.6}
+              max={1}
               value={this.props.depth}
               step={0.1}
               onChange={e => {
@@ -116,7 +116,7 @@ class FormContainer extends React.Component {
             <Slider
               type="range"
               min={0.5}
-              max={5}
+              max={3}
               value={this.props.width}
               step={0.1}
               onChange={e => {
