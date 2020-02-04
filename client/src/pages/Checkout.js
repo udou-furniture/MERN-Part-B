@@ -4,6 +4,7 @@ import axios from 'axios'
 import {getLocalStorageToken} from '../utils/localStorage'
 
 import CustomerDetailsForm from '../components/CustomerDetailsForm'
+import OrderSummaryIndex from '../components/orderSummary/orderSummaryIndex';
 
 class Checkout extends React.Component {
     submit = async (values) => {
@@ -32,6 +33,7 @@ class Checkout extends React.Component {
             <>
                 <div>Checkout</div>
                 <CustomerDetailsForm onSubmit={this.submit}/>
+                <OrderSummaryIndex />
             </>
         )
     }
