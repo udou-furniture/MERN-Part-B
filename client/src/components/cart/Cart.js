@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom'
 
+
+
 import Item from "./Item";
-import CartIcon from './CartIcon';
+
 
 class Cart extends React.Component {
     renderItems() {
@@ -33,7 +35,6 @@ class Cart extends React.Component {
     render() {
         return (
         <div>
-            <h2>Your Cart</h2>
             {this.renderItems()}
             {this.renderCheckoutButton()}
         </div>
