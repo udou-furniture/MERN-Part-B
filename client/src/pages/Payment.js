@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { getLocalStorageToken } from '../utils/localStorage';
 
-import OrderSummaryIndex from '../components/orderSummary/orderSummaryIndex';
+import OrderSummaryIndex from '../components/orderSummary/OrderSummaryIndex';
 
 const style = {
   base: {
