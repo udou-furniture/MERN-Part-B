@@ -6,7 +6,7 @@ describe('Given I have never signed up to this website before', () => {
     // this is not going to work as it will still post to the database in tests
     cy.get('[name=email]').type('newuser@gmail.com')
     cy.get('[name=password]').type('anewpassword')
-    cy.contains('button', 'Submit').should('be.enabled').click()
+    cy.contains('button', 'Create Account').should('be.enabled').click()
 
     cy.location('pathname').should('equal', '/')
 
