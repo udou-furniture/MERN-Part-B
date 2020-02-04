@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 import { getLocalStorageToken } from '../utils/localStorage';
 
 const style = {
-    base: {
-      display: "flex",
-      flexDirection: "column",
-  
-    }
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '10',
   }
+};
 
 class Payment extends React.Component {
   mapThroughCart = item => {
@@ -46,26 +46,51 @@ class Payment extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div style={style}>
+      <div >
         <h1>This is where stripe will be</h1>
-        <form>
+        <form style={style}>
+            <div>
           <label>
-            <input type="text" value="this is a fake form"></input>
-            Fake Name
+            <h3>Fake Name</h3>
+            <input type="text" placeholder="This is a fake form"></input>
           </label>
           <label>
-            <input type="text" value="this is a fake form"></input>
-            Fake Card Number
+            <h3>Fake Card Number</h3>
+            <input type="number" placeholder="1234" maxLength={4}></input>
+            <input type="number" placeholder="1234" maxLength={4}></input>
+            <input type="number" placeholder="1234" maxLength={4}></input>
+            <input type="number" placeholder="1234" maxLength={4}></input>
           </label>
           <label>
-            <input type="text" value="this is a fake form"></input>
-            Fake Expiry
+            <h3>Fake Expiry</h3>
+            <select default={'01'}>
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+            <input
+              type="number"
+              default={'2020'}
+              max={'2050'}
+              min={'2020'}
+            ></input>
           </label>
           <label>
-            <input type="text" value="this is a fake form"></input>
-            Fake CVC
+            <h3>Fake CVC</h3>
+            <input type="number" placeholder="123"></input>
           </label>
-          <Link to={'/payment-complete'}>
+          </div>
+
+          <Link to={'/payment-complete'} style={style}>
             <button
               type="submit"
               onClick={this.mapThroughCart(this.props.items)}
