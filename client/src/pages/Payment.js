@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getLocalStorageToken } from '../utils/localStorage';
-import OrderSummaryIndex from '../components/orderSummary/orderSummaryIndex';
 
-import OrderSummaryIndex from '../components/orderSummary/OrderSummaryIndex';
+import OrderSummaryIndex from '../components/orderSummary/orderSummaryIndex';
 
 const style = {
   base: {
