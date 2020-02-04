@@ -19,6 +19,7 @@ function mapStateToProps(state) {
 class FormContainer extends React.Component {
   priceCalculator = () => {
     //this calculates the price based on the sliders and dispatches it to store.
+
     var price =
       this.props.width * this.props.depth * this.props.height * 1000;
       price = price.toFixed(2)
@@ -26,6 +27,7 @@ class FormContainer extends React.Component {
       this.props.dispatch({ type: 'CALCULATE_PRICE', newPrice: price });
 
     return price;
+
   };
 
   displayNumber = num => {
@@ -41,13 +43,19 @@ class FormContainer extends React.Component {
   handleSubmit = async e => {
     //   // this should send the info from the form to the post orders end point.
     e.preventDefault(); // i think this prevents page refresh.
+    console.log("handleSubmit",this.props)
+    this.priceCalculator()
+    console.log("handleSubmit",this.props)
+
     const newOrder = {
+
         height: this.props.height,
         width: this.props.width,
         depth: this.props.depth,
         colour: this.props.colour,
         price: this.props.price,
         furnitureType: 'custom'
+
     };
     // this.props.dispatch({
     //   type: 'UPDATE_TYPE',
@@ -181,9 +189,11 @@ class FormContainer extends React.Component {
           </div>
         </label>
         <label>
+
           <button className="add-to-cart-button" onClick={this.handleSubmit} type="submit">
             Add To Cart
           </button>
+
         </label>
       </form>
     );
