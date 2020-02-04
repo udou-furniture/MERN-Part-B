@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartIcon from '../cart/CartIcon';
+import HeartIcon from '../../assets/heart-icon.png';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PlaceHolderImage from '../../assets/placeholder-image.png';
 import './Navbar.css';
@@ -42,6 +43,7 @@ class Navbar extends React.Component {
 							<Link to="/login">Login</Link>
 						</>	
 						}
+						<Link to="/account"><img src={HeartIcon}/></Link>
 						<CartIcon />
 					</div>	
 				</div>	

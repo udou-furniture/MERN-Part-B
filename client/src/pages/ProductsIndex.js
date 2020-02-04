@@ -4,6 +4,7 @@ import { connect} from 'react-redux';
 import './ProductsIndex.css';
 import placeHolder from '../assets/placeholder-image.png';
 import productsList from '../productsList';
+import TuneIcon from '@material-ui/icons/Tune';
 
 function mapStateToProps(state) {
     return {
@@ -85,10 +86,12 @@ class ProductsIndex extends React.Component {
 					<div className="product-card-img-container">
 						<img src={placeHolder}></img>
 					</div>
-					<Link to={product.type + '/' + product.id}>
-						<p>{product.name}</p>
-					</Link>	
-					<button class="customise-button">Customise</button>
+          <div className="product-card-content">
+            <Link to={product.type + '/' + product.id} className="customise-button">
+                <TuneIcon fontSize="small" />
+              Customise
+            </Link>
+          </div>
 				</div>
       ));
 
