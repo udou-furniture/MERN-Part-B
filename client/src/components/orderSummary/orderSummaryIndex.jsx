@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import OrderSummaryCard from './orderSummaryCard';
+import OrderSummaryCard from './OrderSummaryCard';
 
 function mapStateToProps(state) {
   return {
@@ -17,7 +17,7 @@ function mapStateToProps(state) {
 }
 
 class OrderSummaryIndex extends React.Component {
- 
+
 
   createArray = allItems => {
     console.log(this.props.items)
