@@ -2,6 +2,11 @@
 	cursor: pointer;
 }
 
+.items-counter {
+	color: #fff;
+	font-family: var(--bodytext-font);
+}
+
 
 /* .number-of-items {
 	padding: 0px 6px;

@@ -3,25 +3,37 @@
 		padding: 20px 0px;
 	}
 
-	#logo h1 {
+	#logo a {
 		color: #fff;
 		grid-column: 1;
 		font-family: var(--headline-font);
+		font-size: 36px;
+	}
+
+	.line {
+		grid-column: 2;
+		background: var(--powerpoint-teal);
+		height: 10px;
+		width: 10px;
 	}
 	
 	.site-nav a {
 		color: #fff;
 	}
 
+	.site-nav a:hover {
+		color: var(--powerpoint-teal);
+	}
 
 	.nav-content-grid {
+
 		display: grid;
 		grid-template-columns: repeat(8, 1fr);
 		gap: 10px;
 		box-sizing: border-box;
 		background-color: var(--powerpoint-indigo);
 		max-width: 1060px;
-		margin: 0 auto;
+		margin: 10px auto 0px;
 		width: 100%;
 	}
 
@@ -32,6 +44,7 @@
 		grid-column: 6/9;
 		justify-content: space-evenly;
 		font-size: 18px;
+		position: relative
 	}
 
 	.items-counter {

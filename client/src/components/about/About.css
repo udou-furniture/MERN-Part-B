@@ -1,35 +1,51 @@
-/* MOBILE STYLES */
+#about {
+	background: #fff;
+	margin-top: 100px;
+}
+
+.about-grid {
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	max-width: 1060px;
+	margin: 0 auto;
+	width: 100%;
+	box-sizing: border-box;
+}
 
 .about-text {
-	grid-column: 2/8;
-	margin: 40px 20px;
+	grid-column: 4/9;
+	margin-bottom: 120px;
+	background: var(--powerpoint-teal);
+	padding: 60px;
+	border-radius: 4px;
+	box-shadow: var(--shadow-2xl);
+	z-index: 1;
+	opacity: .7;
 }
 
 .about-text h1 {
-	text-align: center;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	color: #fff;
+	font-size: 48px;
 }
 
-/* LARGE TABLET AND LAPTOP STYLES */
-@media screen and (min-width: 960px) {
+.about-text p {
+	color: #fff;
+	font-size: 18px;
+}
 
-	#about {
-		background: #fff;
-	}
-
-	.about-text {
-		grid-column: 3/7;
-		margin-top: 80px;
-		margin-bottom: 120px;
-	}
-
-	.about-text h1 {
-		margin-bottom: 20px;
-	}
-
-	.about-text p {
-		font-size: 1.1em;
-	}
-
+.about-img-container {
+	grid-column: 1/4;
+	background: url('../../assets/hero.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	height: 400px;
+	margin-top: -120px;
+	margin-right: -80px;
+	box-shadow: var(--shadow-2xl);
+	opacity: .9;
+	
 }
 

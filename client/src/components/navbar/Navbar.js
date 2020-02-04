@@ -33,6 +33,7 @@ class Navbar extends React.Component {
 			<nav className="site-nav">
 				<div className="nav-content-grid">
 					<h1 id="logo"><Link to="/">UDOU</Link></h1>
+					<span className="line"></span>
 					<div className="links">
 							<Link className="display" onClick={this.handleClick}>Shelves</Link>
 							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
@@ -48,7 +49,7 @@ class Navbar extends React.Component {
 						}
 						<Link to="/account"><FontAwesomeIcon color="white" size="1x" icon={faHeart}/></Link>
 						<CartIcon />
-					</div>	
+					</div>
 				</div>	
 				<div className="container">
 					<CSSTransition
