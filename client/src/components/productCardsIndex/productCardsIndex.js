@@ -85,7 +85,7 @@ class ProductCardsIndex extends React.Component {
       return item.map(product => (
         <li style={liStyle} key={product.id}>
           <Link
-            to={product.type + '/' + product.id}
+            to={'products/' + product.type + '/' + product.id}
             onClick={e => this.handleClick(product.id, e)}
           >
             {product.type} {product.name}
