@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect} from 'react-redux';
+import './ProductsIndex.css';
+import placeHolder from '../assets/placeholder-image.png';
 import productsList from '../productsList';
+import TuneIcon from '@material-ui/icons/Tune';
 
 function mapStateToProps(state) {
     return {
@@ -66,22 +69,26 @@ class ProductsIndex extends React.Component {
         return product.type === type;
       })
       .map((product, key) => (
-        <li key={product.id}>
-          {console.log(product.id)}
-          <Link
-            to={product.type + '/' + product.id}
-            onClick={e => this.handleClick(product.id, e)}
-          >
-            {product.type} {product.name}
-          </Link>
-        </li>
+				<div className="product-card" key={product.id}>
+					{/* <h1>{product.type}</h1> */}
+					<div className="product-card-img-container">
+						<img src={placeHolder}></img>
+					</div>
+          <div className="product-card-content">
+            <Link to={product.type + '/' + product.id} className="customise-button">
+                <TuneIcon fontSize="small" />
+              Customise
+            </Link>
+          </div>
+				</div>
       ));
 
     return (
-      <div>
-        {console.log(products)}
-        <ul>{products}</ul>
-      </div>
+			<div id="product-index">	
+				<div className="product-index-grid">
+					{products}
+				</div>
+			</div>	
       // maybe i could pass the params inside the div tag? defaultConfigId= {product.id} and then load this from the config page
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
-// import { render } from 'react-dom';
+import './ReviewCard.css';
+
 
 class ReviewCard extends React.Component {
     render() {

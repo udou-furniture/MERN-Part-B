@@ -1,0 +1,41 @@
+/* MOBILE STYLES */
+	#reviews {
+		padding: 40px;
+	}
+	
+	.review-card {
+		grid-column: span 8;
+		border-radius: 1px;
+		padding: 10px;
+		background: #fff;
+		border: solid 2px var(--wireframe-border-grey);
+		margin-bottom: 20px;
+	}
+	
+	.review-card h1 {
+		text-align: left;
+		margin-bottom: 20px;
+	}
+	
+	.review-card p {
+		padding: 10px;
+	}
+
+
+/* LARGE TABLET AND LAPTOP STYLES */
+@media screen and (min-width: 960px) {
+
+	.review-card {
+		grid-column: 1/7;
+		border: 2px, solid, grey;
+		border-radius: 5px;
+		background: #fff;
+	}
+
+	#reviews h1 {
+		max-width: 1060px;
+		margin: 100px auto 20px;
+		width: 100%;
+	}
+
+}

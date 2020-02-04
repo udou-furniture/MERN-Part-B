@@ -1,9 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import {required} from '../validations'
+import {required} from '../../validations'
+import './LoginForm.css';
 
 const renderTextField = ({ input, label, type, meta: { touched, error, warning } }) => (
-    <div>
+    <div  className="login-form-label">
         <label>{label}</label>
 
         <div>
@@ -18,30 +19,31 @@ class LoginForm extends React.Component {
 	render() {
         const { handleSubmit, pristine, submitting } = this.props
 		return (
-				<form onSubmit={handleSubmit}>
+			<div className="grid">
+				<form className="login-form" onSubmit={handleSubmit}>
+					<h1>Log in</h1>
 					<Field 
 						name="email" 
 						type="email"
 						component={renderTextField} 
 						label="Email"
 						validate={required}
-				    />
-                    <Field 
+					/>
+					
+					<Field 
 						name="password" 
 						type="password"
 						component={renderTextField} 
 						label="Password"
 						validate={required}
-				    />
-                    {/* <Field 
-						name="passwordConfirmation" 
-						type="password"
-						component={renderTextField} 
-						label="Password"
-						validate={required, matchPassword()}
-				    /> */}
+					/>
+					
 					<button type="submit" disabled={pristine || submitting}>Submit</button>
 				</form>
+				<div className="login-img">
+					{/* <img src={placeHolder}></img> */}
+				</div>
+			</div>	
 		);
 	}
 }
