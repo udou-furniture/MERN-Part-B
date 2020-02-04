@@ -19,12 +19,16 @@ function mapStateToProps(state) {
 class FormContainer extends React.Component {
   priceCalculator = () => {
     //this calculates the price based on the sliders and dispatches it to store.
-    const price =
+    console.log('Price')
+    var price =
       this.props.width * this.props.depth * this.props.height * 1000;
+      price = price.toFixed(2)
+      console.log(price)
 
-    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price.toFixed() });
+    this.props.dispatch({ type: 'CALCULATE_PRICE', newPrice: price });
+    console.log(this.props.colour)
 
-    return price.toFixed();
+    return price
   };
 
   displayNumber = num => {
@@ -40,15 +44,19 @@ class FormContainer extends React.Component {
   handleSubmit = async e => {
     //   // this should send the info from the form to the post orders end point.
     e.preventDefault(); // i think this prevents page refresh.
+    console.log("handleSubmit",this.props)
+    this.priceCalculator()
+    console.log("handleSubmit",this.props)
+
     const newOrder = {
-      configuration: {
+      
         height: this.props.height,
         width: this.props.width,
         depth: this.props.depth,
         colour: this.props.colour,
         price: this.props.price,
         furnitureType: 'custom'
-      }
+      
     };
     // this.props.dispatch({
     //   type: 'UPDATE_TYPE',
@@ -176,7 +184,7 @@ class FormContainer extends React.Component {
               <div className="price-display">${this.priceCalculator()}</div>
               <h3>Price</h3>
               <button onClick={this.handleSubmit} type="submit">
-                Add To Cart 2
+                Add To Cart 
               </button>
             </div>
           </div>

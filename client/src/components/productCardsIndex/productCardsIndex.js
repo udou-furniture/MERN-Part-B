@@ -21,7 +21,8 @@ const liStyle = {
   height: '50px',
   width: '20vw',
   border: '1px', 
-  borderColor: 'black'
+  borderColor: 'black',
+  borderStyle: 'solid'
 };
 
 class ProductCardsIndex extends React.Component {
