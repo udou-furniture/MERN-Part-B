@@ -7,7 +7,7 @@ const Hero = () => {
 		<div id="hero" >
 			<div className="hero-grid">
 				<div className="hero-text">
-					<h1>Shelves to fit any home</h1>
+					<h1>Furniture to fit any home</h1>
 					<a className="button-hero">Get yours</a>
 				</div>
 				<div className="box"></div>

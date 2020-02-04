@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CartIcon from '../cart/CartIcon';
 import HeartIcon from '../../assets/heart-icon.png';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import PlaceHolderImage from '../../assets/placeholder-image.png';
+import LoungeRoom from '../../assets/lounge-room.jpg';
 import './Navbar.css';
 import { CSSTransition } from "react-transition-group";
 
@@ -61,29 +61,43 @@ class Navbar extends React.Component {
 						onEntered={this.listSwitch}
 						onExit={this.listSwitch}
 					>
-						<div className="list-body dropdown-grid">
-							{/* <ul className="list">
-								<li className="list-item">Bookshelves</li>
-								<li className="list-item"> Wall units</li>
-								<li className="list-item"> Sideboards</li>
-							</ul> */}
-							<div className="list-item dropdown-card-1">
-								<Link to={{pathname: "/products/bookshelf"}}>
-									<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
-									<h4>Bookshelves</h4>	
-								</Link>
-							</div>
-							<div className="list-item dropdown-card-2">
-								<Link to={{pathname: "/products/wallunit"}}>
-									<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
-									<h4>Wall Units</h4>	
-								</Link>
-							</div>
-							<div className="list-item dropdown-card-3">
-								<Link to={{pathname: "/products/sideboard"}}>
-									<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
-									<h4>Sideboards</h4>	
-								</Link>
+						<div className="list-body">
+							<div className="secondary grid">
+								{/* <ul className="list">
+									<li className="list-item">Bookshelves</li>
+									<li className="list-item"> Wall units</li>
+									<li className="list-item"> Sideboards</li>
+								</ul> */}
+								<div className="list-item one">
+									<Link to={{pathname: "/products/bookshelf"}}>
+										<div className="dropdown-card-img-container">
+											<img className="dropdown-image" src={LoungeRoom} alt="placeholder"></img>
+										</div>
+										<div className="dropdown-card-content">
+											<h4>Bookshelves</h4>
+										</div>										
+									</Link>
+								</div>
+								<div className="list-item two">
+									<Link to={{pathname: "/products/wallunit"}}>
+										<div className="dropdown-card-img-container">
+											<img className="dropdown-image" src={LoungeRoom} alt="placeholder"></img>
+										</div>
+										<div className="dropdown-card-content">
+											<h4>Wall Units</h4>
+										</div>	
+									</Link>
+								</div>
+								<div className="list-item three">
+									<Link to={{pathname: "/products/sideboard"}}>
+										<div className="dropdown-card-img-container">
+											<img className="dropdown-image" src={LoungeRoom} alt="placeholder"></img>
+										</div>
+										<div className="dropdown-card-content">
+											<h4>Sideboards</h4>
+										</div>
+									</Link>
+								</div>
 							</div>
           	</div>
         	</CSSTransition>

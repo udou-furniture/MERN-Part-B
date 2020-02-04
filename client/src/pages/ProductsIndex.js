@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect} from 'react-redux';
 import './ProductsIndex.css';
-import placeHolder from '../assets/placeholder-image.png';
+import greenDrawers from '../assets/green-drawers.jpg';
 import productsList from '../productsList';
 import TuneIcon from '@material-ui/icons/Tune';
 
@@ -72,7 +72,7 @@ class ProductsIndex extends React.Component {
 				<div className="product-card" key={product.id}>
 					{/* <h1>{product.type}</h1> */}
 					<div className="product-card-img-container">
-						<img src={placeHolder}></img>
+						<img src={greenDrawers}></img>
 					</div>
           <div className="product-card-content">
             <Link to={product.type + '/' + product.id} className="customise-button">
