@@ -1,23 +1,43 @@
 	.site-nav {
-		/* margin: 20px 0px; */
-		display: grid;
-		grid-template-rows: minmax(min-content, 100px) min-content;
+		background: var(--powerpoint-indigo);
+		padding: 20px 0px;
+	}
+
+	#logo h1 {
+		color: #fff;
+		grid-column: 1;
+		font-family: var(--headline-font);
 	}
 	
+	.site-nav a {
+		color: #fff;
+	}
+
+
 	.nav-content-grid {
 		display: grid;
-		place-items: center;
-		grid-auto-flow: column;
-		align-content: space-evenly;
+		grid-template-columns: repeat(8, 1fr);
+		gap: 10px;
+		box-sizing: border-box;
+		background-color: var(--powerpoint-indigo);
+		max-width: 1060px;
+		margin: 0 auto;
+		width: 100%;
 	}
 
 	.links {
-		display: grid;
-		grid-gap: 15px;
-		grid-auto-flow: column;
-		grid-auto-columns: minmax(min-content, 90px);
+		display: flex;
+    justify-content: flex-end;
 		place-items: center;
+		grid-column: 6/9;
+		justify-content: space-evenly;
+		font-size: 18px;
 	}
+
+	.items-counter {
+		color: #fff;
+	}
+
 
 	.dropdown {
 		display: grid;

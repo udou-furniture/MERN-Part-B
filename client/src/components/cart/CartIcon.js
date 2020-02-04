@@ -10,6 +10,9 @@ import Modal from 'react-modal';
 import SlidingPane from 'react-sliding-pane';
 import 'react-sliding-pane/dist/react-sliding-pane.css';
 
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 class CartIcon extends React.Component {
@@ -25,12 +28,24 @@ class CartIcon extends React.Component {
       Modal.setAppElement(this.el);
   }
 
+
+  renderItemsCounter() {
+    if (this.props.number < 1) {
+      return null;
+    } else 
+    return (
+      <>{
+        this.props.number}
+      </>)
+  }
+
     render() {
         return (
           <div ref={ref => this.el = ref}>
-            <img className="shopping-cart" onClick={() => this.setState({ isPaneOpen: true })}src={icon} alt="Cart" />
-            <span>
-              {this.props.number}
+            {/* <img className="shopping-cart" onClick={() => this.setState({ isPaneOpen: true })}src={icon} alt="Cart" /> */}
+            <FontAwesomeIcon className="shopping-cart" onClick={() => this.setState({ isPaneOpen: true })}color="white" size="2x" icon={faShoppingCart} /> 
+            <span className="items-counter">
+              {this.renderItemsCounter()}
             </span>
             <SlidingPane
               className='some-custom-class'

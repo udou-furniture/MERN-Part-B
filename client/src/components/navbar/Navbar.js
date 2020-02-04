@@ -7,6 +7,9 @@ import PlaceHolderImage from '../../assets/placeholder-image.png';
 import './Navbar.css';
 import { CSSTransition } from "react-transition-group";
 
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 class Navbar extends React.Component {
 
@@ -29,7 +32,7 @@ class Navbar extends React.Component {
 		return (
 			<nav className="site-nav">
 				<div className="nav-content-grid">
-					<h1><Link to="/">UDOU</Link></h1>
+					<h1 id="logo"><Link to="/">UDOU</Link></h1>
 					<div className="links">
 							<Link className="display" onClick={this.handleClick}>Shelves</Link>
 							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
@@ -43,7 +46,7 @@ class Navbar extends React.Component {
 							<Link to="/login">Login</Link>
 						</>	
 						}
-						<Link to="/account"><img src={HeartIcon}/></Link>
+						<Link to="/account"><FontAwesomeIcon color="white" size="1x" icon={faHeart}/></Link>
 						<CartIcon />
 					</div>	
 				</div>	

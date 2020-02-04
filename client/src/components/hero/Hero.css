@@ -1,16 +1,17 @@
 /* MOBILE STYLES */
 
 #hero {
-	background: url('../../assets/hero.png');
+	background: linear-gradient(180deg, rgba(182,192,230,1) 0%, rgba(255,255,255,1) 98%);
 	height: 500px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top-left;
 }
 
+
 .hero-text {
 	grid-column: 1/7;
-	color: #fff;
+	
 	margin: 80px 20px;
 }
 
