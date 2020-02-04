@@ -1,66 +1,65 @@
 import React from 'react';
-import './Dropdown.css';
-import { Link, Route } from 'react-router-dom';
-import ProductsIndex from '../../pages/ProductsIndex';
-import chevronIcon from './cheveron-down.svg';
-import { CSSTransition } from "react-transition-group";
+// import { Link, Route } from 'react-router-dom';
+// import ProductsIndex from '../../pages/ProductsIndex';
+// import chevronIcon from './cheveron-down.svg';
+// import { CSSTransition } from "react-transition-group";
 
 class Dropdown extends React.Component {
-	state = {
-    showList: true,
-  };
+// 	state = {
+//     showList: true,
+//   };
 
-  handleClick = () => {
-    this.setState(prevState => ({
-      showList: !prevState.showList
-    }));
-  };
+//   handleClick = () => {
+//     this.setState(prevState => ({
+//       showList: !prevState.showList
+//     }));
+//   };
 
-  render() {
-    return (
-      <div className="container">
-        <button className="display" onClick={this.handleClick}>
-          Shelves
-        </button>
-        <CSSTransition
-          in={this.state.showList}
-          timeout={400}
-          classNames="list-transition"
-          unmountOnExit
-          appear
-          onEntered={this.listSwitch}
-          onExit={this.listSwitch}
-        >
-          <div className="list-body dropdown-grid">
-            {/* <ul className="list">
-              <li className="list-item">Bookshelves</li>
-              <li className="list-item"> Wall units</li>
-              <li className="list-item"> Sideboards</li>
-            </ul> */}
-						<div className="list-item dropdown-card-1">
-							<Link to={{pathname: "/products/bookshelf"}}>
-								{/* <img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img> */}
-								<h4>Bookshelves</h4>	
-							</Link>
-						</div>
-						<div className="list-item dropdown-card-2">
-							<Link to={{pathname: "/products/wallunit"}}>
-								{/* <img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img> */}
-								<h4>Wall Units</h4>	
-							</Link>
-						</div>
-						<div className="list-item dropdown-card-3">
-							<Link to={{pathname: "/products/sideboard"}}>
-								{/* <img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img> */}
-								<h4>Sideboards</h4>	
-							</Link>
-						</div>
-          </div>
-        </CSSTransition>
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div className="dropdown container">
+//         <button className="display" onClick={this.handleClick}>
+//           Shelves
+//         </button>
+//         <CSSTransition
+//           in={this.state.showList}
+//           timeout={400}
+//           classNames="list-transition"
+//           unmountOnExit
+//           appear
+//           onEntered={this.listSwitch}
+//           onExit={this.listSwitch}
+//         >
+//           <div className="list-body dropdown-grid">
+//             <ul className="list">
+//               <li className="list-item">Bookshelves</li>
+//               <li className="list-item"> Wall units</li>
+//               <li className="list-item"> Sideboards</li>
+//             </ul>
+// 						<div className="list-item dropdown-card-1">
+// 							<Link to={{pathname: "/products/bookshelf"}}>
+// 								<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
+// 								<h4>Bookshelves</h4>	
+// 							</Link>
+// 						</div>
+// 						<div className="list-item dropdown-card-2">
+// 							<Link to={{pathname: "/products/wallunit"}}>
+// 								<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
+// 								<h4>Wall Units</h4>	
+// 							</Link>
+// 						</div>
+// 						<div className="list-item dropdown-card-3">
+// 							<Link to={{pathname: "/products/sideboard"}}>
+// 								<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
+// 								<h4>Sideboards</h4>	
+// 							</Link>
+// 						</div>
+//           </div>
+//         </CSSTransition>
+//       </div>
+//     );
+//   }
+// }
 	
 	
 	
@@ -148,7 +147,7 @@ class Dropdown extends React.Component {
 				)}
 				</div> */
 
-
+				}
 
 
 export default Dropdown;
