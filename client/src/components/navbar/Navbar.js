@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import CartIcon from '../cart/CartIcon';
 import HeartIcon from '../../assets/heart-icon.png';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import PlaceHolderImage from '../../assets/placeholder-image.png';
+import LoungeRoom from '../../assets/lounge-room.jpg';
 import './Navbar.css';
 import { CSSTransition } from "react-transition-group";
+
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 class Navbar extends React.Component {
@@ -29,7 +32,8 @@ class Navbar extends React.Component {
 		return (
 			<nav className="site-nav">
 				<div className="nav-content-grid">
-					<h1><Link to="/">UDOU</Link></h1>
+					<h1 id="logo"><Link to="/">UDOU</Link></h1>
+					<span className="line"></span>
 					<div className="links">
 							<Link className="display" onClick={this.handleClick}>Shelves</Link>
 							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
@@ -43,9 +47,9 @@ class Navbar extends React.Component {
 							<Link to="/login">Login</Link>
 						</>	
 						}
-						<Link to="/account"><img src={HeartIcon}/></Link>
+						<Link to="/account"><FontAwesomeIcon color="white" size="1x" icon={faHeart}/></Link>
 						<CartIcon />
-					</div>	
+					</div>
 				</div>	
 				<div className="container">
 					<CSSTransition
@@ -57,29 +61,43 @@ class Navbar extends React.Component {
 						onEntered={this.listSwitch}
 						onExit={this.listSwitch}
 					>
-						<div className="list-body dropdown-grid">
-							{/* <ul className="list">
-								<li className="list-item">Bookshelves</li>
-								<li className="list-item"> Wall units</li>
-								<li className="list-item"> Sideboards</li>
-							</ul> */}
-							<div className="list-item dropdown-card-1">
-								<Link to={{pathname: "/products/bookshelf"}}>
-									<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
-									<h4>Bookshelves</h4>	
-								</Link>
-							</div>
-							<div className="list-item dropdown-card-2">
-								<Link to={{pathname: "/products/wallunit"}}>
-									<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
-									<h4>Wall Units</h4>	
-								</Link>
-							</div>
-							<div className="list-item dropdown-card-3">
-								<Link to={{pathname: "/products/sideboard"}}>
-									<img className="dropdown-image" src={PlaceHolderImage} alt="placeholder"></img>
-									<h4>Sideboards</h4>	
-								</Link>
+						<div className="list-body">
+							<div className="secondary grid">
+								{/* <ul className="list">
+									<li className="list-item">Bookshelves</li>
+									<li className="list-item"> Wall units</li>
+									<li className="list-item"> Sideboards</li>
+								</ul> */}
+								<div className="list-item one">
+									<Link to={{pathname: "/products/bookshelf"}}>
+										<div className="dropdown-card-img-container">
+											<img className="dropdown-image" src={LoungeRoom} alt="placeholder"></img>
+										</div>
+										<div className="dropdown-card-content">
+											<h4>Bookshelves</h4>
+										</div>										
+									</Link>
+								</div>
+								<div className="list-item two">
+									<Link to={{pathname: "/products/wallunit"}}>
+										<div className="dropdown-card-img-container">
+											<img className="dropdown-image" src={LoungeRoom} alt="placeholder"></img>
+										</div>
+										<div className="dropdown-card-content">
+											<h4>Wall Units</h4>
+										</div>	
+									</Link>
+								</div>
+								<div className="list-item three">
+									<Link to={{pathname: "/products/sideboard"}}>
+										<div className="dropdown-card-img-container">
+											<img className="dropdown-image" src={LoungeRoom} alt="placeholder"></img>
+										</div>
+										<div className="dropdown-card-content">
+											<h4>Sideboards</h4>
+										</div>
+									</Link>
+								</div>
 							</div>
           	</div>
         	</CSSTransition>

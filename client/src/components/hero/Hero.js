@@ -5,11 +5,12 @@ import './Hero.css';
 const Hero = () => {
 	return(
 		<div id="hero" >
-			<div className="grid">
+			<div className="hero-grid">
 				<div className="hero-text">
-					<h1>Shelves that fit any home</h1>
+					<h1>Furniture to fit any home</h1>
 					<a className="button-hero">Get yours</a>
 				</div>
+				<div className="box"></div>
 			</div>
 		</div> 
 	)
