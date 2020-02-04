@@ -37,7 +37,7 @@ class Dropdown extends React.Component {
 	render() {
 		return (
 			<div className="container" ref={this.container}>
-				<h3 className="button" onClick={this.handleButtonClick}>Dropdown prototype, click me!</h3>
+				<h3 className="button" onClick={this.handleButtonClick}>Shelves</h3>
 				{this.state.open && (
 					<div className="dropdown">
 						<ul>
