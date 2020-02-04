@@ -5,7 +5,7 @@ import {getLocalStorageToken} from '../utils/localStorage'
 
 import CustomerDetailsForm from '../components/CustomerDetailsForm'
 
-import OrderSummaryIndex from '../components/orderSummary/orderSummaryIndex'
+import OrderSummaryIndex from '../components/orderSummary/OrderSummaryIndex'
 
 import './Checkout.css';
 
