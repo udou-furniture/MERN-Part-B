@@ -23,4 +23,10 @@ describe('Given I am a vistor to the UDOU website', () => {
 
     cy.get('.product-card-img-container').find('img')
   })
+
+  it('When I am browsing the website, then I should not be able to access certain pages if I am not logged in.', () => {
+    cy.visit('/account')
+
+    cy.location('pathname').should('equal', '/')
+  })
 })
