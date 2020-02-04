@@ -13,12 +13,12 @@ import ReviewFormPage from './pages/ReviewFormPage';
 import AccountDashboard from './pages/AccountDashboard';
 import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
-import CartPage from './pages/CartPage';
 import PaymentComplete from './pages/PaymentComplete';
 
 // import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import Cart from './components/cart/Cart';
+import CartIcon from './components/cart/CartIcon';
 
 class App extends React.Component {
     state = {
@@ -72,7 +72,7 @@ class App extends React.Component {
                             <Route path="/products/:type" component={ProductsIndex} />
 
                             <Route path="/cart" render={(props) => {
-                                return <CartPage authed={this.state.authed} {...props} />
+                                return <CartIcon authed={this.state.authed} {...props} />
                             }} />
                             <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />
                             
