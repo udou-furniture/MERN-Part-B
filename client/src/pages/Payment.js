@@ -15,8 +15,7 @@ const style = {
 
 class Payment extends React.Component {
   mapThroughCart = item => {
-    console.log(item);
-    // return this.props.items.map(item => this.handleCompletePurchase(item))
+    return this.props.items.map(item => this.handleCompletePurchase(item))
   };
 
   async handleCompletePurchase(item) {
@@ -26,12 +25,12 @@ class Payment extends React.Component {
       await axios.post(
         'http://localhost:5000/api/orders/new-purchased-order',
         {
-          height: item.configuration.height,
-          width: item.configuration.width,
-          depth: item.configuration.depth,
-          colour: item.configuration.colour,
-          price: item.configuration.price,
-          furnitureType: item.configuration.furnitureType
+          height: item.configuration.configuration.height,
+          width: item.configuration.configuration.width,
+          depth: item.configuration.configuration.depth,
+          colour: item.configuration.configuration.colour,
+          price: item.configuration.configuration.price,
+          furnitureType: item.configuration.configuration.furnitureType
         },
         {
           headers: { Authorisation: `Bearer ${token}` }
@@ -44,7 +43,6 @@ class Payment extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div >
         <h1>This is where stripe will be</h1>
@@ -106,7 +104,7 @@ class Payment extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.cart.cart
+    items: state.cart.items
   };
 };
 
