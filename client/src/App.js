@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './OOCSS.css';
 
 import Home from './pages/Home';
+import Navbar from './components/navbar/Navbar'
 import Login from './pages/Login';
 import ProductsIndex from './pages/ProductsIndex';
 import Registration from './pages/Registration';
@@ -12,9 +13,10 @@ import ReviewFormPage from './pages/ReviewFormPage';
 import AccountDashboard from './pages/AccountDashboard';
 import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
+import CartPage from './pages/CartPage';
 import PaymentComplete from './pages/PaymentComplete';
 
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import Cart from './components/cart/Cart';
 
@@ -70,10 +72,8 @@ class App extends React.Component {
                             <Route path="/products/:type" component={ProductsIndex} />
 
                             <Route path="/cart" render={(props) => {
-                                return <Cart authed={this.state.authed} {...props} />
+                                return <CartPage authed={this.state.authed} {...props} />
                             }} />
-                            {/* this route is just for testing
-                            <Route exact path="/payment" component={Payment}  /> */}
                             <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />
                             
                             <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>

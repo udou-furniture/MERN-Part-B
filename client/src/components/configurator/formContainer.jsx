@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from './slider';
-
+import '../../pages/ProductView.css';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
@@ -19,12 +19,13 @@ function mapStateToProps(state) {
 class FormContainer extends React.Component {
   priceCalculator = () => {
     //this calculates the price based on the sliders and dispatches it to store.
-    const price =
+    var price =
       this.props.width * this.props.depth * this.props.height * 1000;
+      price = price.toFixed(2)
 
-    this.props.dispatch({ type: 'CALCULATE PRICE', newPrice: price.toFixed() });
+      this.props.dispatch({ type: 'CALCULATE_PRICE', newPrice: price });
 
-    return price.toFixed();
+    return price;
   };
 
   displayNumber = num => {
@@ -41,14 +42,12 @@ class FormContainer extends React.Component {
     //   // this should send the info from the form to the post orders end point.
     e.preventDefault(); // i think this prevents page refresh.
     const newOrder = {
-      configuration: {
         height: this.props.height,
         width: this.props.width,
         depth: this.props.depth,
         colour: this.props.colour,
         price: this.props.price,
         furnitureType: 'custom'
-      }
     };
     // this.props.dispatch({
     //   type: 'UPDATE_TYPE',
@@ -70,8 +69,20 @@ class FormContainer extends React.Component {
   render() {
     return (
       <form className="slider-form" onSubmit={this.handleSubmit}>
-        <div className="slider-inputs" className="form-block">
+        <div className="price-block">
+          <div className="price-display">
+            <h1>${this.priceCalculator()}</h1>
+            <button className="save-later-button">
+            Save for later
+            </button>
+          </div>
+        </div>
+        <div className="slider-block">
           <label>
+            <div className="slider-label">
+                <h4>Height</h4>
+                <p>{this.props.height * 120} cm</p>
+            </div>
             <Slider
               type="range"
               // min={this.props.min}
@@ -88,12 +99,12 @@ class FormContainer extends React.Component {
                 });
               }}
             />
-            <div className="slider-label">
-              <h3>Height</h3>
-              <p>{this.displayNumber(this.props.height)} cm</p>
-            </div>
           </label>
           <label>
+            <div className="slider-label">
+              <h4>Depth</h4>
+              <p>{this.props.depth * 40} cm</p>
+            </div>
             <Slider
               type="range"
               min={0.3}
@@ -107,12 +118,12 @@ class FormContainer extends React.Component {
                 });
               }}
             />
-            <div className="slider-label">
-              <h3>Depth</h3>
-              <p>{this.displayNumber(this.props.depth)} cm</p>
-            </div>
           </label>
           <label>
+           <div className="slider-label">
+              <h4>Width</h4>
+              <p>{this.props.width * 120} cm</p>
+            </div>
             <Slider
               type="range"
               min={0.5}
@@ -126,60 +137,53 @@ class FormContainer extends React.Component {
                 });
               }}
             />
-            <div className="slider-label">
-              <h3>Width</h3>
-              <p>{this.displayNumber(this.props.width)} cm</p>
-            </div>
           </label>
         </div>
+     
         <label>
-          <div className="colour-radio" className="form-block">
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value="Natural"
-                  checked={this.props.colour === 'Natural'}
-                  onChange={this.handleOptionChange}
-                />
-                <h3>Natural</h3>
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value="Black"
-                  checked={this.props.colour === 'Black'}
-                  onChange={this.handleOptionChange}
-                />
-                <h3>Black</h3>
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value="White"
-                  checked={this.props.colour === 'White'}
-                  onChange={this.handleOptionChange}
-                />
-                <h3>White</h3>
-              </label>
-            </div>
-            <h3>Colour</h3>
+          <div className="colour-block">
+            <p>Colour</p>
+            <div className="radio-block">
+              <div className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value="Natural"
+                    checked={this.props.colour === 'Natural'}
+                    onChange={this.handleOptionChange}
+                  />
+                  <p>Natural</p>
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value="Black"
+                    checked={this.props.colour === 'Black'}
+                    onChange={this.handleOptionChange}
+                  />
+                  <p>Black</p>
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input
+                    type="radio"
+                    value="White"
+                    checked={this.props.colour === 'White'}
+                    onChange={this.handleOptionChange}
+                  />
+                  <p>White</p>
+                </label>
+              </div>
+            </div>  
           </div>
         </label>
         <label>
-          <div className="form-block">
-            <div className="price-block">
-              <div className="price-display">${this.priceCalculator()}</div>
-              <h3>Price</h3>
-              <button onClick={this.handleSubmit} type="submit">
-                Add To Cart 2
-              </button>
-            </div>
-          </div>
+          <button className="add-to-cart-button" onClick={this.handleSubmit} type="submit">
+            Add To Cart
+          </button>
         </label>
       </form>
     );

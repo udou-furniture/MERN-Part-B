@@ -5,6 +5,8 @@ import SavedTableRow from './SavedTableRow'
 
 import { getLocalStorageToken } from "../../utils/localStorage";
 
+import './Dashboard.css';
+
 class SavedDesigns extends React.Component {
     state = {
         savedDesigns: []
@@ -32,19 +34,24 @@ class SavedDesigns extends React.Component {
 
     render() {
         return(
-            <>
+            <div className="saved-designs center-element">
                 <h1>My Saved Designs</h1>
-                <table>
+                <table className="grid">
                     <thead>
                         <tr>
                             <th>Item Details</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {/* <td>Example</td>
+                        <td>Example</td>
+                        <td>Example</td>
+                        <td>Example</td>
+                        <td>Example</td> */}
                     { this.mapTableData() }
                     </tbody>
                 </table>
-            </>
+            </div>
         )
     }
 }
