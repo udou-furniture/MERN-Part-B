@@ -9,6 +9,7 @@ class Home extends React.Component {
         return (
 			<>
 				<Dropdown />
+                <h1>Customer Reviews</h1>
                 <CardIndex />
                 <ProductCardsIndex />
 			</>	
