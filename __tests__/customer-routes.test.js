@@ -1,9 +1,11 @@
 const app = require('../app'); // Link to your server file
 const request = require('supertest');
 const mongoose = require('mongoose');
-require('dotenv').config();
+require('dotenv').config({path: '../.env'});
+const expect = require("assert")
 
-beforeAll(() => {
+before(() => {
+  console.log(process.env.TEST_DB_URL)
   const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true };
   mongoose.connect(process.env.TEST_DB_URL, dbConfig, err => {
     if (err) {
@@ -12,7 +14,7 @@ beforeAll(() => {
   });
 });
 
-afterAll(() => {
+after(() => {
   mongoose.disconnect();
 });
 
@@ -32,7 +34,7 @@ const login = async () => {
 };
 
 describe('Test customer-routes', () => {
-  test('attempts register with already existing test email', async done => {
+  it('attempts register with already existing test email', async done => {
     const res = await request(app)
       .post('/api/customer/register')
       .send({
@@ -40,8 +42,7 @@ describe('Test customer-routes', () => {
         password: 'password'
       });
 
-    expect(res.status).toBe(500);
-    // console.log(res.text); // this returns the access token when it is not a 500, if its a new email.
+    expect.deepEqual(res.status, 500);
     done();
   });
 
