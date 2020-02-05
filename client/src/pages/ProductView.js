@@ -26,7 +26,7 @@ class ProductView extends React.Component {
     render() {
         return (
             <div className="product-page-wrapper">
-                <Configurator />
+                <Configurator authed={this.props.authed}/>
             </div>
         );
     };

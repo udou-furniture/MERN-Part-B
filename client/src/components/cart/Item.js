@@ -3,6 +3,18 @@ import axios from 'axios'
 import { connect } from "react-redux";
 
 import {getLocalStorageToken} from '../../utils/localStorage'
+import OrderSummaryCard from '../orderSummary/OrderSummaryCard'
+
+function mapStateToProps(state) {
+    return {
+      items: state.cart.items,
+      height: state.configurator.height,
+      width: state.configurator.width,
+      depth: state.configurator.depth,
+      colour: state.configurator.colour,
+      price: state.configurator.price
+    };
+}
 
 class Item extends React.Component {
     handleRemoveCartClick = () => {
@@ -22,16 +34,15 @@ class Item extends React.Component {
             // console.log(this.props.configuration.configuration)
             const token = getLocalStorageToken()
             await axios.post('http://localhost:5000/api/orders/new-saved-order', {
-				height: this.props.configuration.configuration.height, 
-				width: this.props.configuration.configuration.width, 
-				depth: this.props.configuration.configuration.depth, 
-				colour: this.props.configuration.configuration.colour,
-				price: this.props.configuration.configuration.price, 
-				furnitureType: this.props.configuration.configuration.furnitureType
+				height: this.props.configuration.height, 
+				width: this.props.configuration.width, 
+				depth: this.props.configuration.depth, 
+				colour: this.props.configuration.colour,
+				price: this.props.configuration.price, 
+				furnitureType: this.props.configuration.furnitureType
 			}, {
                 headers: {Authorisation: `Bearer ${token}`}
             })
-            // console.log("saved")
         }
         catch (err) {
             console.log(err.message)
@@ -39,11 +50,22 @@ class Item extends React.Component {
     };
 
     render() {
-        const { type, name } = this.props;
+        const { type, name  } = this.props;
+        const {height, width, depth, price, colour} = this.props.configuration
+        console.log(this.props)
         return (
             <div>
                 <h4>{type}</h4>
                 <p>{name}</p>
+                {/* <OrderSummaryIndex /> */}
+                <OrderSummaryCard
+                    // key={id}
+                    height={height}
+                    width={width}
+                    depth={depth}
+                    price={price}
+                    colour={colour}
+                />
                 <button onClick={this.handleRemoveCartClick}>Remove from Cart</button>
                 <button onClick={this.checkAuthedForSaveDesign}>Save For Later</button>
             </div>
@@ -57,4 +79,4 @@ const mapDispatchToProps = dispatch => {
 	}
 };
 
-export default connect(null, mapDispatchToProps)(Item);
+export default connect(mapStateToProps, mapDispatchToProps)(Item);

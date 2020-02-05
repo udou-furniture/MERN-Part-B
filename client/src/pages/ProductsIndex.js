@@ -5,7 +5,6 @@ import './ProductsIndex.css';
 import greenDrawers from '../assets/green-drawers.jpg';
 import productsList from '../productsList';
 
-
 function mapStateToProps(state) {
     return {
         height: state.configurator.height,

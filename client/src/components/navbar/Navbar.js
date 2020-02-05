@@ -4,14 +4,8 @@ import CartIcon from '../cart/CartIcon';
 import LoungeRoom from '../../assets/lounge-room.jpg';
 import './Navbar.css';
 import { CSSTransition } from "react-transition-group";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 
 class Navbar extends React.Component {
-
-
-
 	logout = () => {
 		localStorage.removeItem('authorisation')
 		this.props.isUserLoggedIn()
@@ -27,7 +21,6 @@ class Navbar extends React.Component {
 					<div className="links">
 							<Link className="display" onClick={() => linkOn ? null : this.props.toggleDropdown()}>
 								Shelves
-								{/* <FontAwesomeIcon color="white" size="1x" className="angle-down rotate" icon={faAngleDown}/> */}
 							</Link>
 
 						{this.props.authed ? 
@@ -40,7 +33,6 @@ class Navbar extends React.Component {
 							<Link to="/login">Login</Link>
 						</>	
 						}
-						<Link to="/account"><FontAwesomeIcon color="white" size="1x" icon={faHeart}/></Link>
 						<CartIcon authed={this.props.authed} history={this.props.history}/>
 					</div>
 				</div>	
