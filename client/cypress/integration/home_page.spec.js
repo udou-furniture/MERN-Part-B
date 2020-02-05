@@ -19,6 +19,9 @@ describe('Given I am a vistor to the UDOU website', () => {
     cy.get('.list-item').contains('Sideboards')
     cy.get('.list-item').contains('Bookshelves').click()
 
+    // remove this line below once drop down is fixed
+    cy.contains('Shelves').click()
+
     cy.location('pathname').should('equal', '/products/bookshelf')
 
     cy.get('.product-card-img-container').find('img')
