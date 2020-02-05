@@ -25,7 +25,6 @@ class Cart extends React.Component {
     }
 
     handleCheckoutClick = () => {
-        console.log(this.props)
         if(!this.props.authed) {
             this.props.history.push('/login')
         } else {
