@@ -44,31 +44,31 @@ describe('Given I have added an item to my cart', () => {
   
 })
 
-describe('Given I have an item in my cart and I am logged in',() => {
-  beforeEach(() => {
-    cy.visit('/login')
-    cy.get('[name=email]').type('melissa@gmail.com')
-    cy.get('[name=password]').type('aaaaaaaa')
-    cy.contains('button', 'Submit').click()
+// describe('Given I have an item in my cart and I am logged in',() => {
+//   beforeEach(() => {
+//     cy.visit('/login')
+//     cy.get('[name=email]').type('melissa@gmail.com')
+//     cy.get('[name=password]').type('aaaaaaaa')
+//     cy.contains('button', 'Submit').click()
 
-    cy.contains('Shelves').click()
+//     cy.contains('Shelves').click()
 
-    cy.get('.list-item').contains('Bookshelves').click()
+//     cy.get('.list-item').contains('Bookshelves').click()
 
-    // remove this line below once drop down is fixed
-    cy.contains('Shelves').click()
+//     // remove this line below once drop down is fixed
+//     cy.contains('Shelves').click()
 
-    cy.contains('Customise').click()
+//     cy.contains('Customise').click()
 
-    cy.contains('button', 'Add To Cart').click()
-  })
+//     cy.contains('button', 'Add To Cart').click()
+//   })
 
-  it('when I know I want to purchase this item, then I want to be able to go through to the checkout', () => {
-    cy.get('.shopping-cart').click()
+//   it.only('when I know I want to purchase this item, then I want to be able to go through to the checkout', () => {
+//     cy.get('.shopping-cart').click()
 
-    cy.contains('button', 'Proceed to Checkout').click()
+//     cy.contains('button', 'Proceed to Checkout').click()
 
-    cy.location('pathname').should('equal', '/checkout')
-  })
-})
+//     cy.location('pathname').should('equal', '/checkout')
+//   })
+// })
 

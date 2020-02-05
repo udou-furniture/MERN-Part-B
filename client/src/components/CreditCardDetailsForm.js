@@ -40,18 +40,18 @@ class CreditCardDetailsForm extends React.Component {
                      <div className="fields" >
                         <label className="name">
                             <h3>Full Name</h3>
-                            <input type="text" placeholder="This is a fake form"></input>
+                            <input name='fullName' type="text" placeholder="This is a fake form"></input>
                         </label>
                         <label className="card-numbers">
                             <h3>Card Number</h3>
-                                <input className="card-number" type="number" placeholder="1234" maxLength={4} min={0}></input>
-                                <input className="card-number" type="number" placeholder="1234" maxLength={4}></input>
-                                <input className="card-number" type="number" placeholder="1234" maxLength={4}></input>
-                                <input className="card-number" type="number" placeholder="1234" maxLength={4}></input>
+                                <input name='cardNumber1' className="card-number" type="number" placeholder="1234" maxLength={4} min={0}></input>
+                                <input name='cardNumber2' className="card-number" type="number" placeholder="1234" maxLength={4}></input>
+                                <input name='cardNumber3' className="card-number" type="number" placeholder="1234" maxLength={4}></input>
+                                <input name='cardNumber4' className="card-number" type="number" placeholder="1234" maxLength={4}></input>
                         </label>
                         <label className="expiry">
                             <h3>Expiry Date</h3>
-                            <select default={'01'}>
+                            <select name='expiryMonth' default={'01'}>
                                 <option value="01">January</option>
                                 <option value="02">February</option>
                                 <option value="03">March</option>
@@ -66,6 +66,7 @@ class CreditCardDetailsForm extends React.Component {
                                 <option value="12">December</option>
                             </select>
                             <input
+                                name='expiryYear'
                                 type="number"
                                 default={'2020'}
                                 max={'2050'}
@@ -74,7 +75,7 @@ class CreditCardDetailsForm extends React.Component {
                         </label>
                         <label className="cvc">
                             <h3>CVC</h3>
-                            <input type="number" placeholder="123"></input>
+                            <input name='cvc' type="number" placeholder="123"></input>
                         </label>
                     </div>
                     <Link to={'/payment-complete'}>
