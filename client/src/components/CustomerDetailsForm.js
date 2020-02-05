@@ -96,7 +96,10 @@ class CustomerDetailsForm extends React.Component {
                                     validate={[required, postcodeValidation, number]}
                                 />
                             </div>
-                            {/* <button className="checkout-button" type="submit" label='submit'>Submit</button> */}
+                            {/* <div> */}
+
+                            <button className="checkout-button" type="submit" label='submit'>Submit</button>
+                            {/* </div> */}
                         </div>
                     </form>
                 </div>
