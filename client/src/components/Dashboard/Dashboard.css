@@ -1,11 +1,49 @@
+#account-dashboard {
+	background: var(--hero-gradient);
+	padding: 60px;
+}
+
+/* .dashboard-header h2 {
+	font-family: 'Source Sans Pro';
+	margin-bottom: 64px;
+} */
+
+.dashboard-grid {
+	display: grid;
+	grid-template-columns: 480px 480px;
+  grid-row: auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+	max-width: 1060px;
+	margin: 0 auto;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* PREVIOUSLY PURCHASED */
+
+.purchased-header {
+	max-width: 1060px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	margin-top: 96px;
+}
+
+.purchased-header h4 {
+	color: var(--text-grey-700);
+	font-weight: bold;
+	margin-bottom: 32px;
+}
 
 .purchased-card {
-	grid-column: span 4;
+	width: 100%;
 	display: flex;
-	border-radius: 8px;
 	padding: 24px;
-	box-shadow: var(--shadow-2xl);
-	width: 80%;
+	margin-bottom: 18px;
+	border-left: 1px solid var(--bg-grey-300);
+	border-radius: 8px;
+	box-shadow: var(--shadow-med);
 }
 
 .purchased-card-info {
@@ -17,7 +55,7 @@
 	width: 84px;
 	border-radius: 50%;
 	background: var(--powerpoint-indigo);
-	box-shadow: var(--shadow-2xl);
+	box-shadow: var(--shadow-lg);
 	margin-left: 0;
 	margin-right: 24px;
 }
@@ -43,10 +81,53 @@
 	background: var(--powerpoint-indigo);
 	padding: 8px 12px;
 	cursor: pointer;
+	box-shadow: var(--shadow-lg);
 }
 
-.button-hero:hover {
+.button-purchased:hover {
 	color: #fff;
-	border: solid 2px #fff;
 }
 
+.edit-icon {
+	margin-right: 6px;
+}
+
+
+/* SAVED DESIGNS */
+.saved-designs-header {
+	max-width: 1060px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 32px;
+	width: 100%;
+}
+
+
+.saved-designs-header h4 {
+	grid-column: span 2;
+	color: var(--text-grey-700);
+	font-weight: bold;
+	margin-bottom: 32px;
+}
+
+.button-remove-saved {
+	align-self: center;
+	border-radius: 4px;
+	margin-left: 24px;
+	color: var(--text-grey-700);
+	background: var(--powerpoint-indigo);
+	padding: 8px 12px;
+	cursor: pointer;
+	width: 143.5px;
+	text-align: left;
+	box-shadow: var(--shadow-lg);
+}
+
+.button-remove-saved:hover {
+	color: #fff;
+}
+
+.trash-icon {
+	margin-right: 6px;
+}

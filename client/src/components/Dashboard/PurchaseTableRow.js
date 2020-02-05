@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 import FurnitureIcon from '../../assets/furniture-icon.png';
+import { faEdit} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 class PurchaseTableRow extends React.Component {
@@ -20,7 +22,7 @@ class PurchaseTableRow extends React.Component {
                         <p>${this.props.order.configuration.price} AUD</p>
                     </div>
                 </div>
-                <Link to={`/leave-review/${this.props.order._id}`} className="button-purchased">Leave a review</Link>
+                <Link to={`/leave-review/${this.props.order._id}`} className="button-purchased"><FontAwesomeIcon className="edit-icon" color="#4a5568" size="sm" icon={faEdit} />Leave a review</Link>
                 {/* <p>
                     {this.props.order.review}
                 </p> */}

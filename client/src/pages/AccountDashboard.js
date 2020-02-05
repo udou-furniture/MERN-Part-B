@@ -6,9 +6,9 @@ import SavedDesigns from '../components/Dashboard/SavedDesigns'
 class AccountDashboard extends React.Component {
     render() {
         return(
-            <div>
-                <div>
-                    <h3>Account Dashboard</h3>
+            <div id="account-dashboard">
+                <div className="center-element dashboard-header">
+                    {/* <h2>Your Account</h2> */}
                 </div>
                 <PurchaseHistory />
                 <SavedDesigns />

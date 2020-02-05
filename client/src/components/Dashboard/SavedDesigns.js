@@ -34,9 +34,9 @@ class SavedDesigns extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="saved-designs-header">
                 <h4>My Saved Designs</h4>
-                <div>
+                <div class="dashboard-grid">
                     { this.mapTableData() }
                 </div>
             </div>
