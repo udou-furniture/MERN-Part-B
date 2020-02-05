@@ -45,15 +45,7 @@ describe('given that I am logged in,', () => {
   })
 
   it('when I am visiting the website and can see the navbar, then I can log out', () => {
-    cy.get('.nav-wrapper').contains('Log out').click()
+    cy.get('.site-nav').contains('Log out').click()
     cy.location('pathname').should('equal', '/')
   })
 })
-
-// it('fails to access protected resource', () => {
-//   cy.visit('/account')
-//   cy.location('pathname').should('equal', '/')
-//   // .its('status')
-//   // .should('equal', 403)
-// })
-
