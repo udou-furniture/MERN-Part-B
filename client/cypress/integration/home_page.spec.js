@@ -14,7 +14,7 @@ describe('Given I am a vistor to the UDOU website', () => {
   })
   it('When I am on the home page, then I want to be able to see the different types of furniture products they make and see what they look like.', () => {
     cy.contains('Shelves').click()
-
+    // here
     cy.get('.list-item').contains('Wall Units')
     cy.get('.list-item').contains('Sideboards')
     cy.get('.list-item').contains('Bookshelves').click()

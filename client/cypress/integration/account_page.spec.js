@@ -13,7 +13,7 @@ describe('Given I am logged in with my account details,', () => {
     cy.location('pathname').should('equal', '/account')
   })
 })
-
+// here
 describe('Given I have purchased furniture on this website previously', () => {
   beforeEach(() => {
     cy.visit('/login')

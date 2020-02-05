@@ -11,7 +11,7 @@ describe('Given that I am not logged in and visiting the login page,', () => {
     cy.contains('button', 'Submit').should('be.enabled').click()
 
     cy.location('pathname').should('equal', '/')
-
+    // here
     cy.contains('Log out')
     .then(()=> {
       const userToken = window.localStorage.getItem('authorisation')

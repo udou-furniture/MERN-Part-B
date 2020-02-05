@@ -9,7 +9,7 @@ describe('Given I have never signed up to this website before', () => {
     cy.contains('button', 'Create Account').should('be.enabled').click()
 
     cy.location('pathname').should('equal', '/')
-
+    // hi
     // TODO
     // this is stubbing the response
     // cy.server();
