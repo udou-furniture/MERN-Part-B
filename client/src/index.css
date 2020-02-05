@@ -44,7 +44,7 @@
 
 /* DEFAULT PLACEHOLDER TEXT COLOUR */
 ::placeholder {
-	color: var(--placeholder-text);
+	color: var(--text-grey-500);
 }
 
 /* RESET */
