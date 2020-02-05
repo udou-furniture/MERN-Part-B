@@ -22,23 +22,31 @@ class SavedTableRow extends React.Component {
     render() {
         console.log(this.props.order)
         return (
-            <tr>
-                <td>
-                    {this.props.order.configuration.height}
-                </td>
-                <td>
-                    {this.props.order.configuration.width}
-                </td>
-                <td>
-                    {this.props.order.configuration.depth}
-                </td>
-                <td>
-                    {this.props.order.configuration.colour}
-                </td>
-                <td>
-                    <button type='button' onClick={this.handleRemoveDesign}>Remove from Saved Design</button>
-                </td>
-            </tr>
+            <div>
+                <div>Dimensions: {this.props.order.configuration.height * 120 }{' '} x {this.props.order.configuration.depth* 40}{' '} x {this.props.order.configuration.width * 120}</div>
+                <div>Colour: {this.props.order.configuration.colour}</div>
+                <div>Price: {this.props.order.configuration.price}</div>
+                <button type='button' onClick={this.handleRemoveDesign}>Remove from Saved Design</button>
+            </div> 
+
+
+            // <tr>
+            //     <td>
+            //         {this.props.order.configuration.height}
+            //     </td>
+            //     <td>
+            //         {this.props.order.configuration.width}
+            //     </td>
+            //     <td>
+            //         {this.props.order.configuration.depth}
+            //     </td>
+            //     <td>
+            //         {this.props.order.configuration.colour}
+            //     </td>
+            //     <td>
+            //         <button type='button' onClick={this.handleRemoveDesign}>Remove from Saved Design</button>
+            //     </td>
+            // </tr>
         );
       }
 }

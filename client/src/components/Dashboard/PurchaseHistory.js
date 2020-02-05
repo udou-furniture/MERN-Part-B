@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
+
 import PurchaseTableRow from './PurchaseTableRow'
 
 import {getLocalStorageToken} from '../../utils/localStorage'
@@ -30,18 +31,11 @@ class PurchaseHistory extends React.Component {
 
     render() {
         return(
-            <div className="previously-purchased center-element">
-                <h1>Previously Purchased</h1>
-                <table className="grid">
-                    <thead>
-                        <tr>
-                            <th>Item Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div>
+                <h4>Previously Purchased</h4>
+                <div className="grid">
                     { this.mapTableData() }
-                    </tbody>
-                </table>
+                </div>
             </div>
         )
     }

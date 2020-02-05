@@ -1,34 +1,20 @@
-.account-dashboard h1 {
-	grid-column: 1/9;
-	background: lightcyan;
+
+.purchased-card {
+	grid-column: span 2;
+	display: flex;
 }
 
-.saved-designs {
-	background: lightskyblue;
+.purchased-card-info {
+	text-align: left;
 }
 
-.saved-designs h1 {
-	max-width: 1060px;
-	margin: 0 auto;
-	width: 100%;
-	background: lightgreen;
+.dimensions
+
+.purchased-card-info h2 {
+	font-size: 18px;
 }
 
-.saved-designs table {
-	grid-row: 2;
-	background: yellow;
+.purchased-card-info p {
+	font-family: var(--bodytext-font);
 }
 
-
-.previously-purchased {
-	background: lightskyblue;
-}
-
-.previously-purchased h1 {
-	background: lightgreen;
-}
-
-.previously-purchased table {
-	grid-row: 2;
-	background: yellow;
-}
