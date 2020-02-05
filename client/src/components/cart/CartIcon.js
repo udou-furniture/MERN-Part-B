@@ -1,44 +1,40 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import Cart from './Cart';
-import './Cart.css';
-
-import icon from "./CartIcon.svg"
-
 import Modal from 'react-modal';
 import SlidingPane from 'react-sliding-pane';
-import 'react-sliding-pane/dist/react-sliding-pane.css';
 
+import { connect } from "react-redux";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Cart from './Cart';
 
+import './Cart.css';
+import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 class CartIcon extends React.Component {
 	constructor(props) {
-    super(props);
-    this.state = {
-        isPaneOpen: false,
-        isPaneOpenLeft: false
-    };
-  }
+        super(props);
+        this.state = {
+            isPaneOpen: false,
+            isPaneOpenLeft: false
+        };
+    }
 
-  componentDidMount() {
-      Modal.setAppElement(this.el);
-  }
+    componentDidMount() {
+        Modal.setAppElement(this.el);
+    }
 
 
-  renderItemsCounter() {
-    if (this.props.number < 1) {
-      return null;
-    } else 
-      return (
-      <>
-        {this.props.number}
-      </>
-    )
-  }
+    renderItemsCounter() {
+        if (this.props.number < 1) {
+            return null;
+        } else 
+            return (
+            <>
+                {this.props.number}
+            </>
+        )
+    }
 
     render() {
         return (

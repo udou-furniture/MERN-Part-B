@@ -27,7 +27,6 @@ const configuratorReducer = (
       newState = { ...state, example: action.newExample };
       break;
     case 'SET_DEFAULTS':
-      // console.log('default', action.exampleConfig)
       // newState = Object.assign({}. state, {height: action.newHeight,
       //   width: action.newWidth,
       //   depth: action.newDepth,
@@ -40,13 +39,11 @@ const configuratorReducer = (
         depth: action.exampleConfig.newDepth,
         colour: action.exampleConfig.newColour
       };
-      // console.log('newHeight', newState);
       break;
 
     default:
       newState = { ...state };
   }
-  // console.log(newState)
   return newState;
 };
 

@@ -23,7 +23,6 @@ class Registration extends React.Component {
 			this.props.isUserLoggedIn()
 			this.props.history.push('/')
 		} catch (err) {
-            console.log(err.message)
             this.setState({error: true})
 		}
 	}

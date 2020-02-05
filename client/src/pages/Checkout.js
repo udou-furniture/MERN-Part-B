@@ -22,7 +22,6 @@ class Checkout extends React.Component {
             }, {
                 headers: {Authorisation: `Bearer ${token}`}
             })
-            console.log('here')
             this.props.history.push('/payment')
         } catch (err) {
             console.log(err)

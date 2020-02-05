@@ -1,11 +1,13 @@
 import React from 'react';
 import Slider from './slider';
-import '../../pages/ProductView.css';
-import {withRouter} from 'react-router-dom'
-import { connect } from 'react-redux';
 import axios from 'axios'
 
+import {withRouter} from 'react-router-dom'
+import { connect } from 'react-redux';
 import {getLocalStorageToken} from '../../utils/localStorage'
+
+import '../../pages/ProductView.css';
+
 
 function mapStateToProps(state) {
     return {

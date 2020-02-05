@@ -17,7 +17,6 @@ class SavedDesigns extends React.Component {
         axios.get("http://localhost:5000/api/orders/my-saved-orders", { headers: {
             Authorisation: `Bearer ${token}`}})
         .then(response => {
-            // console.log(response.data)
             this.setState({savedDesigns: response.data})
         })
         .catch(err => {
@@ -26,7 +25,6 @@ class SavedDesigns extends React.Component {
     }
 
     mapTableData() {
-        // console.log(this.state.savedDesigns)
         return this.state.savedDesigns.map(function(object, i){
            return <SavedTableRow order={object} key={i} />
         })

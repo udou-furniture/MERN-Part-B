@@ -1,9 +1,6 @@
 import React from 'react';
-import Dropdown from '../components/dropdown/Dropdown'
 import Configurator from '../components/configurator/Configurator'
 import { connect } from 'react-redux';
-import productsList from  '../productsList';
-import CardSection from '../components/payments/cardSection'
 
 
 const mapStateToProps = (state) => {
@@ -19,10 +16,6 @@ const mapStateToProps = (state) => {
 };
 
 class ProductView extends React.Component {
-  componentDidMount = () => {
-    
-  }
-  
     render() {
         return (
             <div className="product-page-wrapper">
@@ -31,8 +24,5 @@ class ProductView extends React.Component {
         );
     };
 }
-
-
-
 
 export default connect(mapStateToProps)(ProductView);

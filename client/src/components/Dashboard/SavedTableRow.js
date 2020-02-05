@@ -6,7 +6,6 @@ import {getLocalStorageToken} from '../../utils/localStorage'
 class SavedTableRow extends React.Component {
     handleRemoveDesign = async () => {
         try {
-            console.log(this.props.order._id)
             const token = getLocalStorageToken()
             await axios.patch('http://localhost:5000/api/orders/remove-saved-order', {
                 orderID: this.props.order._id
@@ -20,7 +19,6 @@ class SavedTableRow extends React.Component {
     }
 
     render() {
-        console.log(this.props.order)
         return (
             <tr>
                 <td>

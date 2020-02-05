@@ -15,8 +15,6 @@ import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
 import PaymentComplete from './pages/PaymentComplete';
 import PrivateRoute from './components/PrivateRoute';
-import CartIcon from './components/cart/CartIcon';
-// import Cart from './components/cart/Cart';
 
 class App extends React.Component {
     state = {

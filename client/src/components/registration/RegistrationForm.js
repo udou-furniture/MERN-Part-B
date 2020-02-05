@@ -25,12 +25,12 @@ class RegistrationForm extends React.Component {
 						<h1>Sign Up</h1>
 						<div className="email">
 							<Field 
-													name="email" 
-													type="email"
-													component={renderTextField} 
-													label="Email"
-													validate={[required, email]}
-													placeholder="Email"
+								name="email" 
+								type="email"
+								component={renderTextField} 
+								label="Email"
+								validate={[required, email]}
+								placeholder="Email"
 							/>
 						</div>
 						<div>{this.props.errorMessage && <span>email already exists</span>}</div>
@@ -50,7 +50,6 @@ class RegistrationForm extends React.Component {
 						</div>
 					</form>
 					<div className="registration-form-img">
-					{/* <img src={placeHolder}></img> */}
 					</div>
 					<div className="already-account">
 						Already have an account? <a>Log in</a>

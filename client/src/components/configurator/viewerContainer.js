@@ -1,9 +1,8 @@
 import React from 'react';
-import Slider from './slider';
-
-import Viewer from './viewer';
 
 import { connect } from 'react-redux';
+
+import Viewer from './viewer';
 
 function mapStateToProps(state) {
     return {
