@@ -77,7 +77,7 @@ router.post('/new-saved-order', verifyToken, (req, res) => {
         configuration: { height, width, depth, colour, price, furnitureType }
     })
     .then(newOrder => {
-        console.log(newOrder)
+        
       res.json(newOrder);
     })
     .catch(err => res.json(err));
