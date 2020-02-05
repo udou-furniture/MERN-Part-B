@@ -1,3 +1,9 @@
+.sliding-pane {
+	z-index: 999;
+	background: lightcoral;
+}
+
+
 .shopping-cart {
 	cursor: pointer;
 }
