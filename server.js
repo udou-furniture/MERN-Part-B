@@ -1,12 +1,5 @@
-const express = require('express')
+const app = require('./app')
 const mongoose = require('mongoose')
-const cors = require('cors')
-const path = require("path")
-require('dotenv').config()
-
-const app = express()
-
-app.use(express.json())
 
 mongoose.set('useFindAndModify', false);
 
@@ -14,8 +7,6 @@ mongoose.set('useFindAndModify', false);
 const PORT = process.env.PORT || 5000
 
 const dbConfig = {useNewUrlParser: true, useUnifiedTopology: true}
-
-app.use(express.static(path.join(__dirname, "client", "build")))
 
 mongoose.connect(process.env.DB_URL, dbConfig, (err) => {
     if(err) {
@@ -25,15 +16,4 @@ mongoose.connect(process.env.DB_URL, dbConfig, (err) => {
     }
 })
 
-app.use(cors({}))
-
-app.use(require('./routes/index'))
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
-
-// Listening Port
-
-
-module.exports = app
+app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))
