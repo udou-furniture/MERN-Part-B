@@ -14,17 +14,34 @@ import AccountDashboard from './pages/AccountDashboard';
 import Checkout from './pages/Checkout';
 import Payment from './pages/Payment';
 import PaymentComplete from './pages/PaymentComplete';
-
-// import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
-import Cart from './components/cart/Cart';
 import CartIcon from './components/cart/CartIcon';
+// import Cart from './components/cart/Cart';
 
 class App extends React.Component {
     state = {
         authed: false,
-        loading: true
+        loading: true,
+        dropdown: false,
+        linkOn: false
     };
+
+ 
+    toggleDropdown = () => {
+        this.setState(prevState => ({
+            dropdown: !prevState.dropdown,
+            linkOn: true
+        }));
+    };
+
+    removeDropdown = () => {
+        if (this.state.dropdown) {
+            this.setState(prevState => ({
+                dropdown: !prevState.dropdown,
+                linkOn: false
+            }));
+        }
+    }
 
     componentDidMount() {
         this.isUserLoggedIn();
@@ -56,8 +73,8 @@ class App extends React.Component {
         } else {
             return (
                 <BrowserRouter>
-                    <div className="App">
-                        <Navbar authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn} />
+                    <div className="App" onClick={this.removeDropdown}>
+                        <Navbar authed={this.state.authed} isUserLoggedIn={this.isUserLoggedIn} dropdown={this.state.dropdown} toggleDropdown={this.toggleDropdown} linkOn={this.state.linkOn} history={this.props.history}/>
                         <Switch>
                             <Route exact path="/" component={Home} />
 
@@ -71,9 +88,9 @@ class App extends React.Component {
                             <Route path="/products/:type/:product_id" component={ProductView} />
                             <Route path="/products/:type" component={ProductsIndex} />
 
-                            <Route path="/cart" render={(props) => {
-                                return <CartIcon authed={this.state.authed} {...props} />
-                            }} />
+                            {/* <Route path="/cart" render={(props) => {
+                                return <CartIcon authed={this.state.authed} history={this.props.history} {...props} />
+                            }} /> */}
                             <Route path="/product_view" component={ProductView} type={"custom"} name={"Shelf"} />
                             
                             <PrivateRoute exact path="/leave-review/:orderID" component={ReviewFormPage} authed={this.state.authed}/>

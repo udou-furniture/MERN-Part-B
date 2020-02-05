@@ -13,15 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Navbar extends React.Component {
 
-	state = {
-    showList: false,
-  };
 
-  handleClick = () => {
-    this.setState(prevState => ({
-      showList: !prevState.showList
-    }));
-  };
 
 	logout = () => {
 		localStorage.removeItem('authorisation')
@@ -29,13 +21,14 @@ class Navbar extends React.Component {
 	}
 
 	render() {
+		const { linkOn } = this.props
 		return (
 			<nav className="site-nav">
 				<div className="nav-content-grid">
 					<h1 id="logo"><Link to="/">UDOU</Link></h1>
 					<span className="line"></span>
 					<div className="links">
-							<Link className="display" onClick={this.handleClick}>Shelves</Link>
+							<Link className="display" onClick={() => linkOn ? null : this.props.toggleDropdown()}>Shelves</Link>
 							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
 						{this.props.authed ? 
 						<>
@@ -48,12 +41,12 @@ class Navbar extends React.Component {
 						</>	
 						}
 						<Link to="/account"><FontAwesomeIcon color="white" size="1x" icon={faHeart}/></Link>
-						<CartIcon />
+						<CartIcon authed={this.props.authed} history={this.props.history}/>
 					</div>
 				</div>	
 				<div className="container">
 					<CSSTransition
-						in={this.state.showList}
+						in={this.props.dropdown}
 						timeout={400}
 						classNames="list-transition"
 						unmountOnExit

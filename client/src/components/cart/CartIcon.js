@@ -33,10 +33,11 @@ class CartIcon extends React.Component {
     if (this.props.number < 1) {
       return null;
     } else 
-    return (
-      <>{
-        this.props.number}
-      </>)
+      return (
+      <>
+        {this.props.number}
+      </>
+    )
   }
 
     render() {
@@ -48,7 +49,7 @@ class CartIcon extends React.Component {
               {this.renderItemsCounter()}
             </span>
             <SlidingPane
-              className='some-custom-class'
+              className="some-class"
               overlayClassName='some-custom-overlay-class'
               isOpen={ this.state.isPaneOpen }
               title='Your Cart'
@@ -58,7 +59,7 @@ class CartIcon extends React.Component {
                   // triggered on "<" on left top click or on outside click
                   this.setState({ isPaneOpen: false });
               } }>
-              <Cart history={this.props.history} authed={this.props.authed}/>
+              <Cart authed={this.props.authed} history={this.props.history}/>
             </SlidingPane >
           </div>
         );
@@ -71,6 +72,6 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(CartIcon)
+export default (connect(mapStateToProps)(CartIcon))
 
 
