@@ -1,3 +1,17 @@
+.sliding-pane {
+	z-index: 999;
+	background: lightcoral;
+}
+
+
+.shopping-cart {
+	cursor: pointer;
+}
+
+.items-counter {
+	color: #fff;
+	font-family: var(--bodytext-font);
+}
 
 
 /* .number-of-items {

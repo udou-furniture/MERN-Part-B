@@ -1,6 +1,7 @@
 
 .product-page-wrapper {
   height: 90vh;
+  background-color: var(--bg-grey-200);
 }
 
 .product-page-grid {
@@ -15,8 +16,11 @@
 
 .viewer-container {
   grid-column: 1/6;
-  background-color: black;
+  background: #fff;
   padding: 5px;
+  box-shadow: var(--shadow-2xl);
+  border: solid 1px var(--bg-grey-200);
+
 }
 
 .slider-form {
