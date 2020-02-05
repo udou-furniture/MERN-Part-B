@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CartIcon from '../cart/CartIcon';
 import HeartIcon from '../../assets/heart-icon.png';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LoungeRoom from '../../assets/lounge-room.jpg';
 import './Navbar.css';
 import { CSSTransition } from "react-transition-group";

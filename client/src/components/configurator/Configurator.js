@@ -49,7 +49,7 @@ class Configurator extends React.Component {
         return (
             <div className="product-page-grid">
                 <ViewerContainer />
-                <FormContainer />
+                <FormContainer authed={this.props.authed}/>
             </div>
         )
     };

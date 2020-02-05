@@ -29,7 +29,7 @@ class ProductView extends React.Component {
                 <h4>{this.props.colour} {this.props.type}</h4>
                 <p>{this.props.name}</p>
                 {/* <Dropdown /> */}
-                <Configurator />
+                <Configurator authed={this.props.authed}/>
             </div>
         );
     };

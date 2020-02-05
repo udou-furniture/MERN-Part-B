@@ -85,7 +85,10 @@ class App extends React.Component {
                                 return <Login isUserLoggedIn={this.isUserLoggedIn} {...props} />
                             }} />
                             {/* Order of the below two routes is important. Don't change without reason */}
-                            <Route path="/products/:type/:product_id" component={ProductView} />
+                            <Route path="/products/:type/:product_id" render={(props) => {
+                                return <ProductView isUserLoggedIn={this.isUserLoggedIn} authed={this.state.authed} {...props} />
+                            }} />
+                            {/* <Route path="/products/:type/:product_id" component={ProductView} authed={this.state.authed}/> */}
                             <Route path="/products/:type" component={ProductsIndex} />
 
                             {/* <Route path="/cart" render={(props) => {
