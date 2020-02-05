@@ -4,7 +4,6 @@ import { connect} from 'react-redux';
 import './ProductsIndex.css';
 import greenDrawers from '../assets/green-drawers.jpg';
 import productsList from '../productsList';
-// import TuneIcon from '@material-ui/icons/Tune';
 
 function mapStateToProps(state) {
     return {
@@ -76,7 +75,6 @@ class ProductsIndex extends React.Component {
 					</div>
           <div className="product-card-content">
             <Link to={product.type + '/' + product.id} className="customise-button">
-                {/* <TuneIcon fontSize="small" /> */}
               Customise
             </Link>
           </div>

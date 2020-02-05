@@ -119,3 +119,17 @@
 	color: var(--bg-grey-lighter);
 	width: 100%;
 }
+
+.order-summary {
+	grid-column: 6/9;
+	font-family: var(--bodytext-font);
+	border-radius: 4px;
+	padding-top: 24px;
+	padding-left: 32px;
+	padding-right: 32px;
+	padding-bottom: 32px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	background-color: #fff;
+	box-shadow: var(--alt-shadow-med);
+}

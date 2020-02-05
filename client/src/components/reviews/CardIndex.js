@@ -53,7 +53,7 @@ class CardIndex extends React.Component {
         return (
           <div id="reviews">
             <h1>Customer reviews</h1>
-            <div className="grid">
+            <div className="review-card-grid">
               {this.createArray(this.props.reviews).map(reviewCard => {
                 return reviewCard;
               })}

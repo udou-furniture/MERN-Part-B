@@ -1,10 +1,10 @@
-
-
 #product-index {
 	display: grid;
 	grid-template-columns: 1fr repeat(12, minmax(auto, 70px)) 1fr;
 	grid-gap: 20px;
 	padding: 60px 0;
+	background: var(--hero-gradient);
+	
 }
 
 .product-index-grid {
@@ -40,10 +40,7 @@
 }
 
 .product-card-content {
-		padding: 40px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	
 }
 
 .customise-button {

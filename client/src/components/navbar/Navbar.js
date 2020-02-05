@@ -19,8 +19,10 @@ class Navbar extends React.Component {
 					<h1 id="logo"><Link to="/">UDOU</Link></h1>
 					<span className="line"></span>
 					<div className="links">
-							<Link className="display" onClick={() => linkOn ? null : this.props.toggleDropdown()}>Shelves</Link>
-							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
+							<Link className="display" onClick={() => linkOn ? null : this.props.toggleDropdown()}>
+								Shelves
+							</Link>
+
 						{this.props.authed ? 
 						<>
 							<Link to="/" onClick={() => this.logout()}>Log out</Link>

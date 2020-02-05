@@ -26,9 +26,6 @@ class ProductView extends React.Component {
     render() {
         return (
             <div className="product-page-wrapper">
-                <h4>{this.props.colour} {this.props.type}</h4>
-                <p>{this.props.name}</p>
-                {/* <Dropdown /> */}
                 <Configurator authed={this.props.authed}/>
             </div>
         );
