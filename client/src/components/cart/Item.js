@@ -54,7 +54,7 @@ class Item extends React.Component {
         const {height, width, depth, price, colour} = this.props.configuration
         console.log(this.props)
         return (
-            <div>
+            <div class="cart-item">
                 <h4>{type}</h4>
                 <p>{name}</p>
                 {/* <OrderSummaryIndex /> */}
