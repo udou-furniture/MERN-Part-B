@@ -11,7 +11,7 @@ describe('Given I have an item in my cart', () => {
 
     // remove this line below once drop down is fixed
     // cy.contains('Shelves').click()
-
+    // hi
     cy.contains('Customise').click()
 
     cy.contains('button', 'Add To Cart').click()

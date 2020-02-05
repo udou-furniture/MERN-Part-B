@@ -16,7 +16,7 @@ describe('Given I know which type of furniture I would like to purchase, ', () =
     cy.contains('Customise').click()
 
     var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set
-
+    // here
     let input = cy.get('.height-sliding-block')
       .find('input[type=range]').as('range').then(input => {
         nativeInputValueSetter.call(input[0], '0.5') 

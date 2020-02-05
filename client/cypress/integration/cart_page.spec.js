@@ -27,7 +27,7 @@ describe('Given I have added an item to my cart', () => {
 
   it('when I no longer want an item, then I should be able to remove it from my cart', () => {
     cy.get('.shopping-cart').click()
-
+    // here
     cy.get('.cart-item')
     cy.contains('button', 'Remove from Cart').click()
 
