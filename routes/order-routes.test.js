@@ -1,8 +1,21 @@
-const app = require('./index'); // Link to your server file
-const supertest = require('supertest');
+const app = require('../app'); 
+const request = require('supertest');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-const orderRoutes = require('./order-routes.js');
-const request = supertest(orderRoutes);
+beforeAll(() => {
+  const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true };
+  mongoose.connect(process.env.TEST_DB_URL, dbConfig, err => {
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+
+afterAll(() => {
+  mongoose.disconnect();
+});
+
 
 const login = async () => {
   // this is a normal funcion to get the login token. 
@@ -17,7 +30,7 @@ const login = async () => {
 
 describe('test the order-routes', () => {
   test('Gets the reviews', async done => {
-    const res = await request.get('/reviews');
+    const res = await request.get('api/orders/reviews');
 
     expect(res.status).toBe(200);
     expect(res.body.length > 1 ).toBe(true);
