@@ -40,9 +40,7 @@ class LoginForm extends React.Component {
 					
 					<button type="submit" disabled={pristine || submitting}>Submit</button>
 				</form>
-				<div className="login-img">
-					{/* <img src={placeHolder}></img> */}
-				</div>
+				<div className="login-img"></div>
 			</div>	
 		);
 	}

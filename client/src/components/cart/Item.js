@@ -31,7 +31,6 @@ class Item extends React.Component {
 
     handleSaveDesignClick = async () => {
         try {
-            // console.log(this.props.configuration.configuration)
             const token = getLocalStorageToken()
             await axios.post('http://localhost:5000/api/orders/new-saved-order', {
 				height: this.props.configuration.height, 
@@ -52,7 +51,7 @@ class Item extends React.Component {
     render() {
         const { type, name  } = this.props;
         const {height, width, depth, price, colour} = this.props.configuration
-        console.log(this.props)
+        
         return (
             <div class="cart-item">
                 <h4>{type}</h4>

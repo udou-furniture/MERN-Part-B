@@ -23,7 +23,6 @@ class CardIndex extends React.Component {
             const allReviews = response.data
 
             let nonEmptyReviews = allReviews.filter(order => order.review.length > 0)
-            console.log(nonEmptyReviews)
             
             const fiveReviews = nonEmptyReviews.slice(0, 5)
 

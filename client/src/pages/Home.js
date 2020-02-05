@@ -1,7 +1,5 @@
 import React from 'react';
-import Dropdown from '../components/dropdown/Dropdown'
-import Review from '../components/reviews/ReviewCard'
-import  {reviewTest} from '../test-db';
+
 import CardIndex from '../components/reviews/CardIndex';
 import Hero from '../components/hero/Hero';
 import About from '../components/about/About';

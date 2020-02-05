@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import { connect } from 'react-redux';
 
@@ -17,14 +16,10 @@ function mapStateToProps(state) {
 }
 
 class OrderSummaryIndex extends React.Component {
-
-
   createArray = allItems => {
-    console.log(this.props.items)
     if (this.props.items.length > 0)
     {
     return allItems.map(i => {
-      console.log(i)
       return (
         <OrderSummaryCard
           key={i.id}
@@ -38,10 +33,6 @@ class OrderSummaryIndex extends React.Component {
         />
       );
     });
-  }
-  else 
-  {
-    return "Cart is Empty"
   }
   };
 

@@ -7,7 +7,6 @@ import Item from "./Item";
 
 class Cart extends React.Component {
     renderItems() {
-        console.log(this.props.items)
         if (this.props.items.length > 0) {
             return this.props.items.map(item => 
                 <Item authed={this.props.authed} {...item} history={this.props.history}/> )
