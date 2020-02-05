@@ -49,12 +49,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@cypress/code-coverage": "^1.11.0",
-    "@cypress/instrument-cra": "^1.0.0",
-    "babel-plugin-istanbul": "^6.0.0",
-    "cypress": "^3.8.3",
-    "istanbul-lib-coverage": "^3.0.0",
-    "nyc": "^15.0.0"
-  }
+  "devDependencies": {}
 }

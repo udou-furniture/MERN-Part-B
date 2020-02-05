@@ -64,7 +64,7 @@ class ProductsIndex extends React.Component {
 					<img src={greenDrawers}></img>
 				</div>
                 <div className="product-card-content">
-                    <Link to={product.type + '/' + product.id} className="customise-button">Customise</Link>
+                    <Link to={product.type + '/' + product.id} onClick={e => this.handleClick(product.id, e)} className="customise-button">Customise</Link>
                 </div>
 			</div>
         ));
