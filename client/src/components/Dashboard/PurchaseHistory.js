@@ -30,9 +30,9 @@ class PurchaseHistory extends React.Component {
 
     render() {
         return(
-            <>
+            <div className="previously-purchased center-element">
                 <h1>Previously Purchased</h1>
-                <table>
+                <table className="grid">
                     <thead>
                         <tr>
                             <th>Item Details</th>
@@ -42,7 +42,7 @@ class PurchaseHistory extends React.Component {
                     { this.mapTableData() }
                     </tbody>
                 </table>
-            </>
+            </div>
         )
     }
 }
