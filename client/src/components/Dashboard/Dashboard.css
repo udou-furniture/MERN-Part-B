@@ -1,14 +1,26 @@
 
 .purchased-card {
-	grid-column: span 2;
+	grid-column: span 4;
 	display: flex;
+	border-radius: 8px;
+	padding: 24px;
+	box-shadow: var(--shadow-2xl);
+	width: 80%;
 }
 
 .purchased-card-info {
 	text-align: left;
 }
 
-.dimensions
+.furniture-icon {
+	height: 84px;
+	width: 84px;
+	border-radius: 50%;
+	background: var(--powerpoint-indigo);
+	box-shadow: var(--shadow-2xl);
+	margin-left: 0;
+	margin-right: 24px;
+}
 
 .purchased-card-info h2 {
 	font-size: 18px;
@@ -16,5 +28,25 @@
 
 .purchased-card-info p {
 	font-family: var(--bodytext-font);
+	color: var(--text-grey-800);
+}
+
+.purchased-card-price p {
+	color: var(--powerpoint-purple);
+}
+
+.button-purchased {
+	align-self: center;
+	border-radius: 4px;
+	margin-left: 24px;
+	color: var(--text-grey-700);
+	background: var(--powerpoint-indigo);
+	padding: 8px 12px;
+	cursor: pointer;
+}
+
+.button-hero:hover {
+	color: #fff;
+	border: solid 2px #fff;
 }
 
