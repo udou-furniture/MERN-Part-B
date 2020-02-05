@@ -11,20 +11,16 @@ class ReviewCard extends React.Component {
         <div className="review-card" key={this.props.id}>
             <img className="furniture-icon" src={FurnitureIcon} />
             <div className="review-card-content">
-                <div className="name-date-star">
-                    <div className="reviewer-name">
-                        <p>{this.props.name}</p>
-                    </div>
-                    <div className="reviewer-date">
-                        <p>27/08/2019</p>
-                    </div>
-                    <div className="five-stars">
-                        <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
-                        <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
-                        <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
-                        <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
-                        <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
-                    </div>
+                <div className="name-date">
+                    <p>{this.props.name}</p>
+                    <p>27/08/2019</p>
+                </div>    
+                <div className="five-stars">
+                    <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
+                    <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
+                    <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
+                    <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
+                    <FontAwesomeIcon color="#37b49c" size="xs" icon={faStar}/>
                 </div>
                 <div className="review-text">
                     <p>{this.props.review}</p>

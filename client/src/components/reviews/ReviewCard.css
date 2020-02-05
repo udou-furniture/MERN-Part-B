@@ -1,5 +1,6 @@
 #reviews {
 	/* background: var(--tylko-peach-gradient); */
+	padding: 80px;
 }
 
 .review-card-grid {
@@ -21,7 +22,7 @@
 	margin-bottom: 18px;
 	border-left: 1px solid var(--bg-grey-300);
 	border-radius: 8px;
-	box-shadow: var(--shadow-med);
+	box-shadow: var(--shadow-lg);
 }
 
 .furniture-icon {
@@ -48,12 +49,10 @@
 	color: var(--powerpoint-purple);
 }
 
-.name-date-star {
+.name-date {
 	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	text-align: left;
 }
+
 
 
 
