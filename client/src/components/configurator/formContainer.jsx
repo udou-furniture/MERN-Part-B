@@ -86,7 +86,7 @@ class FormContainer extends React.Component {
           </div>
         </div>
         <div className="slider-block">
-          <label>
+          <label className='height-sliding-block'>
             <div className="slider-label">
                 <h4>Height</h4>
                 <p>{this.props.height * 120} cm</p>
@@ -108,7 +108,7 @@ class FormContainer extends React.Component {
               }}
             />
           </label>
-          <label>
+          <label className='depth-sliding-block'>
             <div className="slider-label">
               <h4>Depth</h4>
               <p>{this.props.depth * 40} cm</p>
@@ -127,7 +127,7 @@ class FormContainer extends React.Component {
               }}
             />
           </label>
-          <label>
+          <label className='width-sliding-block'>
            <div className="slider-label">
               <h4>Width</h4>
               <p>{this.props.width * 120} cm</p>
@@ -153,7 +153,7 @@ class FormContainer extends React.Component {
             <p>Colour</p>
             <div className="radio-block">
               <div className="radio">
-                <label>
+                <label className='natural-radio'>
                   <input
                     type="radio"
                     value="Natural"
@@ -164,7 +164,7 @@ class FormContainer extends React.Component {
                 </label>
               </div>
               <div className="radio">
-                <label>
+                <label className='black-radio'>
                   <input
                     type="radio"
                     value="Black"
@@ -175,7 +175,7 @@ class FormContainer extends React.Component {
                 </label>
               </div>
               <div className="radio">
-                <label>
+                <label className='white-radio'>
                   <input
                     type="radio"
                     value="White"
