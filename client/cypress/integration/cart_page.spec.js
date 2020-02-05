@@ -32,6 +32,7 @@ describe('Given I have added an item to my cart', () => {
     cy.contains('button', 'Remove from Cart').click()
 
     cy.contains('p', 'Cart is empty. Keep shopping!')
+    // comment
   })
 
   it('when I view my cart, then I want to choose to save it for later', () => {
