@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CartIcon from '../cart/CartIcon';
-import HeartIcon from '../../assets/heart-icon.png';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LoungeRoom from '../../assets/lounge-room.jpg';
 import './Navbar.css';
 import { CSSTransition } from "react-transition-group";
-
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -28,8 +25,11 @@ class Navbar extends React.Component {
 					<h1 id="logo"><Link to="/">UDOU</Link></h1>
 					<span className="line"></span>
 					<div className="links">
-							<Link className="display" onClick={() => linkOn ? null : this.props.toggleDropdown()}>Shelves</Link>
-							{/* <span className="dropdown-icon"><ExpandMoreIcon /></span> */}
+							<Link className="display" onClick={() => linkOn ? null : this.props.toggleDropdown()}>
+								Shelves
+								{/* <FontAwesomeIcon color="white" size="1x" className="angle-down rotate" icon={faAngleDown}/> */}
+							</Link>
+
 						{this.props.authed ? 
 						<>
 							<Link to="/" onClick={() => this.logout()}>Log out</Link>

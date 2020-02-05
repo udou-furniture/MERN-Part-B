@@ -25,6 +25,16 @@
 		color: var(--powerpoint-teal);
 	}
 
+	/* .angle-down {
+		margin-left: 4px;
+		position: relative;
+		top: 4px;
+	} */
+
+	/* .angle-down:hover {
+		color: var(--powerpoint-teal);
+	} */
+
 	.nav-content-grid {
 		display: grid;
 		grid-template-columns: repeat(8, 1fr);
