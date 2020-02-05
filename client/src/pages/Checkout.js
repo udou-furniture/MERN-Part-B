@@ -5,10 +5,7 @@ import {getLocalStorageToken} from '../utils/localStorage'
 
 import CustomerDetailsForm from '../components/CustomerDetailsForm'
 
-import OrderSummaryIndex from '../components/orderSummary/OrderSummaryIndex'
-
 import './Checkout.css';
-
 
 class Checkout extends React.Component {
     submit = async (values) => {
@@ -35,11 +32,7 @@ class Checkout extends React.Component {
     render() {
         return(
             <div id="checkout-page">
-                <div className="center-element">
-                    {/* <h4>Customer information</h4> */}
-                </div>
                 <CustomerDetailsForm onSubmit={this.submit}/>
-                <OrderSummaryIndex />
             </div>
         )
     }

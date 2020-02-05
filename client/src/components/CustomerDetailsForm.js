@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form';
 import {required, phoneNumber, postcodeValidation, number} from '../validations'
+import OrderSummaryIndex from '../components/orderSummary/OrderSummaryIndex';
 
 const renderTextField = ({ input, label, type, meta: { touched, error, warning } }) => (
     <>
@@ -102,6 +103,9 @@ class CustomerDetailsForm extends React.Component {
                             {/* </div> */}
                         </div>
                     </form>
+                    <div className="order-summary">
+                        <OrderSummaryIndex /> 
+                    </div> 
                 </div>
         );
     }

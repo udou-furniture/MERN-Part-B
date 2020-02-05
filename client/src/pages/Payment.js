@@ -1,6 +1,5 @@
 import React from 'react';
 
-import OrderSummaryIndex from '../components/orderSummary/OrderSummaryIndex';
 import CreditCardDetailsForm from '../components/CreditCardDetailsForm'
 
 import './Payment.css';
@@ -10,7 +9,6 @@ class Payment extends React.Component {
         return (
             <div id="payment-page">
                 <CreditCardDetailsForm />
-                <OrderSummaryIndex />
             </div>
         )
     } 

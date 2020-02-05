@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getLocalStorageToken } from '../utils/localStorage';
+import OrderSummaryIndex from '../components/orderSummary/OrderSummaryIndex'
 
 class CreditCardDetailsForm extends React.Component {
     mapThroughCart = () => {
@@ -82,6 +83,9 @@ class CreditCardDetailsForm extends React.Component {
                         </button>
                     </Link>  
                 </form>
+                <div className="order-summary">
+                        <OrderSummaryIndex /> 
+                    </div> 
             </div>
         )
     }
