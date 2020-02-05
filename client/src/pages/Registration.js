@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import {setLocalStorageToken} from '../utils/localStorage'
 
-import RegistrationForm from '../components/RegistrationForm'
+import RegistrationForm from '../components/registration/RegistrationForm';
 
 
 class Registration extends React.Component {
@@ -30,10 +30,9 @@ class Registration extends React.Component {
 
 	render(){
 		return (
-		<>
-			<h1>Sign Up</h1>	
+		<div id="registration-page">
 			<RegistrationForm onSubmit={this.submit} errorMessage={this.state.error}/>
-		</>
+		</div>
 	)}
 }
 

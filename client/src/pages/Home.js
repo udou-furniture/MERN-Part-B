@@ -1,16 +1,22 @@
 import React from 'react';
-import Dropdown from '../components/Dropdown'
+import Dropdown from '../components/dropdown/Dropdown'
 import Review from '../components/reviews/ReviewCard'
-import CardIndex from '../components/reviews/CardIndex'
+import  {reviewTest} from '../test-db';
+import CardIndex from '../components/reviews/CardIndex';
+import Hero from '../components/hero/Hero';
+import About from '../components/about/About';
+import Footer from '../components/footer/Footer';
 import ProductCardsIndex from '../components/productCardsIndex/productCardsIndex'
 
 class Home extends React.Component {
     render() {
         return (
 			<>
-				<Dropdown />
+                <Hero />
+                <About />
                 <CardIndex />
                 <ProductCardsIndex />
+                <Footer />
 			</>	
         );
     }
