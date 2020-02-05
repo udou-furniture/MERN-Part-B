@@ -32,3 +32,7 @@
 	grid-row: 2;
 	background: yellow;
 }
+
+tr {
+	grid-column: 2/9;
+}
