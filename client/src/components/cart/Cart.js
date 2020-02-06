@@ -20,7 +20,7 @@ class Cart extends React.Component {
 
     renderCheckoutButton() {
         if(this.props.items.length > 0) {
-            return <Link onClick={this.handleCheckoutClick}><button type='button'>Proceed to Checkout</button></Link>
+            return <Link onClick={this.handleCheckoutClick}><button className="proceed-button" type='button'>Proceed to checkout</button></Link>
         }
     }
 

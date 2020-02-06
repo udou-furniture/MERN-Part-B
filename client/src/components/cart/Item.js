@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios'
 import { connect } from "react-redux";
+import '../orderSummary/OrderSummaryCard.css'
 
 import {getLocalStorageToken} from '../../utils/localStorage'
 import OrderSummaryCard from '../orderSummary/OrderSummaryCard'
@@ -54,7 +55,7 @@ class Item extends React.Component {
         const {height, width, depth, price, colour} = this.props.configuration
         console.log(this.props)
         return (
-            <div>
+            <div className="order-summary-grid">
                 <h4>{type}</h4>
                 <p>{name}</p>
                 {/* <OrderSummaryIndex /> */}

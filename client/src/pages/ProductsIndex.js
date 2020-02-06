@@ -75,7 +75,7 @@ class ProductsIndex extends React.Component {
 						<img src={cabinetBlack}></img>
 					</div>
           <div className="product-card-content">
-            <Link to={product.type + '/' + product.id} className="customise-button"><FontAwesomeIcon className="edit-icon" color="#fff" size="sm" icon={faSlidersH} />
+            <Link to={product.type + '/' + product.id} className="customise-button" onCLick={e => this.handleClick(product.id, e)}><FontAwesomeIcon className="edit-icon" color="#fff" size="sm" icon={faSlidersH} />
               Customise
             </Link>
           </div>

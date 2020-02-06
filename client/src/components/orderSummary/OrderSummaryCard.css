@@ -1,0 +1,52 @@
+.order-summary-grid {
+	display: grid;
+	grid-template-columns: 480px;
+  grid-row: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+	max-width: 1060px;
+	margin: 0 auto;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.order-summary-container h4 {
+	margin-top: 0px;
+}
+
+.summary-card {
+	width: 100%;
+	display: flex;
+	padding: 24px;
+	margin-bottom: 18px;
+	border-left: 1px solid var(--bg-grey-300);
+	border-radius: 8px;
+	box-shadow: var(--shadow-med);
+}
+
+.summary-card-info {
+	text-align: left;
+}
+
+.furniture-icon {
+	height: 84px;
+	width: 84px;
+	border-radius: 50%;
+	background: var(--powerpoint-indigo);
+	box-shadow: var(--shadow-lg);
+	margin-left: 0;
+	margin-right: 24px;
+}
+
+.summary-card-info h2 {
+	font-size: 18px;
+}
+
+.summary-card-info p {
+	font-family: var(--bodytext-font);
+	color: var(--text-grey-800);
+}
+
+.summary-card-price p {
+	color: var(--powerpoint-purple);
+}
